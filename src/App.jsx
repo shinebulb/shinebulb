@@ -16,7 +16,6 @@ function App() {
           <Route path="/settings" element={<Settings />}/>
           <Route path="/about" element={<About />}/>
           <Route path="/support" element={<Support />}/>
-          <Route path="*" element={<p>Page not found!</p>} />
         </Routes>
       </BrowserRouter>
     </>
