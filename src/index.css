@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'Avro';
-    src: local("Arvo-Regular"), url("./fonts/Arvo-Regular.ttf");
+    src: local("Arvo-Regular"), url("./assets/fonts/Arvo-Regular.ttf");
 }
   
 @font-face {
     font-family: 'AvroItalic';
-    src: local("Arvo-Italic"), url("./fonts/Arvo-Italic.ttf");
+    src: local("Arvo-Italic"), url("./assets/fonts/Arvo-Italic.ttf");
 }
   
 .controls button {
