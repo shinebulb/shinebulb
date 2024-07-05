@@ -5,7 +5,7 @@
   
 @font-face {
     font-family: 'AvroItalic';
-    src: url(assets/fonts/Arvo-Italic.ttf);
+    src: local("Arvo-Italic"), url("./fonts/Arvo-Italic.ttf");
 }
   
 .controls button {

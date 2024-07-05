@@ -5,6 +5,7 @@ import Settings from './Settings';
 import About from './About';
 import Support from './Support';
 import "./fonts/Avro-Regular.ttf";
+import "./fonts/Avro-Italic.ttf";
 
 function App() {
   return (
