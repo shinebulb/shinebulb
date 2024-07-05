@@ -4,6 +4,7 @@ import Play from './Play';
 import Settings from './Settings';
 import About from './About';
 import Support from './Support';
+import "./fonts/Avro-Regular.ttf";
 
 function App() {
   return (

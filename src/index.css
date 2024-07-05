@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Avro';
-    src: url(assets/fonts/Arvo-Regular.ttf);
+    src: local("Arvo-Regular"), url("./fonts/Arvo-Regular.ttf");
 }
   
 @font-face {
