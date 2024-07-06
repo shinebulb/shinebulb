@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Alice&family=Podkova:wght@400..800&display=swap');
+
 @font-face {
     font-family: 'Avro';
     src: local("Arvo-Regular"), url("./assets/fonts/Arvo-Regular.ttf");
@@ -9,7 +11,7 @@
 }
   
 .controls button {
-    font-family: Avro;
+    font-family: Avro, "Podkova";
     font-size: 1rem;
     margin: 0.5rem 0.2rem;
     min-width: 30px;
@@ -26,7 +28,7 @@
 }
   
 html, body {
-    font-family: Avro;
+    font-family: Avro, "Podkova";
     height: 100%;
 }
   
@@ -70,20 +72,20 @@ h2 {
 }
 
 .container {
+    font-family: Avro, "Podkova";
     width: 420px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.settingName {
+.container label {
     color: rgb(43, 43, 43);
     font-size: 1.5rem;
     transition: background-color 0.5s ease;
 }
 
-#modeToggle {
-    font-family: Avro;
+.container select {
     font-size: 1.5rem;
     border-radius: 10px;
     padding: 5px 10px;
@@ -94,7 +96,19 @@ h2 {
     cursor: pointer;
 }
 
-#modeToggle:hover {
+.container button {
+    font-family: Avro, "Podkova";
+    font-size: 1.5rem;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: rgb(220, 220, 220);
+    border: rgb(43, 43, 43) 3px solid;
+    color: rgb(43, 43, 43);
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+}
+
+.container button:hover {
     background-color: rgb(205, 205, 205);
 }
 
@@ -169,7 +183,7 @@ a:hover {
     background-color: rgb(23, 23, 23);
 }
   
-.darkMode h2, .darkMode .settingName, .darkMode a, .darkMode .p1, .darkMode .p2, .darkMode .p3 {
+.darkMode h2, .darkMode .container label, .darkMode a, .darkMode .p1, .darkMode .p2, .darkMode .p3 {
     color: rgb(220, 220, 220);
 }
   
@@ -183,12 +197,12 @@ a:hover {
     color: rgb(220, 220, 220);
 }
 
-.darkMode #modeToggle {
+.darkMode .container button {
     background-color: rgb(43, 43, 43);
     border: rgb(220, 220, 220) 3px solid;
     color: rgb(220, 220, 220);
 }
 
-.darkMode #modeToggle:hover {
+.darkMode .container button:hover {
     background-color: rgb(53, 53, 53);
 }

@@ -1,0 +1,35 @@
+[
+    {
+        "headings": ["the lightbulb", "settings", "about"],
+        "links": ["PLAY", "settings", "about", "support us"],
+        "source": "source code",
+        "text": ["sad :(", "happy!"],
+        "controls": ["switch", "reset"],
+        "back": "back",
+        "settings": ["dark mode", "language"],
+        "mode": ["off", "on"],
+        "about": [
+            "shinebulb is a fun little project by nurgali ernist and andrew aldor.",
+            "matthew 5:14-16"
+        ],
+        "contact": "contact us",
+        "unavailable": "this section is currently unavailable!"
+    },
+
+    {
+        "headings": ["лампочка", "настройки", "о нас"],
+        "links": ["ИГРАТЬ", "настройки", "о нас", "поддержать"],
+        "source": "исходный код",
+        "text": ["грустная :(", "счастливая!"],
+        "controls": ["изменить", "очистить"],
+        "back": "назад",
+        "settings": ["тёмная тема", "язык"],
+        "mode": ["выкл.", "вкл."],
+        "about": [
+            "shinebulb — небольшой проект нургали эрниста и андрея альдора.",
+            "матфей 5:14-16"
+        ],
+        "contact": "связаться с нами",
+        "unavailable": "этот раздел сейчас не доступен!"
+    }
+]

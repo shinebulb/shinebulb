@@ -8,7 +8,7 @@ function Support() {
     
     return (
         <>
-            <p className="p3">This section is currently unavailable!</p>
+            <p className="p3">this section is currently unavailable!</p>
             <div style={{height: "1rem"}}/>
             <a href="/home">back</a>
         </>
