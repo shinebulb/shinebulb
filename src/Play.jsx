@@ -8,7 +8,7 @@ function Play() {
 
     useEffect(() => localStorage.getItem("darkMode") == "enabled" ? enableDarkMode() : undefined);
     useEffect(() => setLang(parseInt(localStorage.getItem("langMode")) || 0));
-    useEffect(() => {document.title = textJSON[lang].links[0]});
+    useEffect(() => {document.title = textJSON[lang].links[0].toLowerCase()});
 
     const [count, setCount] = useState(0);
     const [pic, setPic] = useState("off");
