@@ -43,15 +43,19 @@ function Settings() {
         <div className="settings">
             <h2>{text[lang].headings[1]}</h2>
             <div className="container">
-                <label htmlFor="modeToggle" className="settingName">{text[lang].settings[0]}</label>
-                <button id="modeToggle" onClick={modeToggle}>{text[lang].mode[mode]}</button>
+                <label className="settingName">{text[lang].settings[0]}</label>
+                <select onChange={modeToggle}>
+                    <option value="system">{text[lang].mode[0]}</option>
+                    <option value="light">{text[lang].mode[1]}</option>
+                    <option value="dark">{text[lang].mode[2]}</option>
+                </select>
             </div>
             <div style={{height: "3rem"}}/>
             <div className="container">
-                <label htmlFor="language">{text[lang].settings[1]}</label>
-                <select onChange={languageChange} id="language">
-                    <option value="english" selected={languages[lang] == "english"}>english</option>
-                    <option value="русский" selected={languages[lang] == "русский"}>русский</option>
+                <label>{text[lang].settings[1]}</label>
+                <select onChange={languageChange} value={languages[lang]}>
+                    <option value="english">english</option>
+                    <option value="русский">русский</option>
                 </select>
             </div>
             <div style={{height: "5rem"}}/>
