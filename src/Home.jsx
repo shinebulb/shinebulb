@@ -1,9 +1,13 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import enableDarkMode from './enableDarkMode';
+import text from './assets/json/text.json';
 
 function Home() {
 
+    const [lang, setLang] = useState(0);
+
     useEffect(() => localStorage.getItem("darkMode") == "enabled" ? enableDarkMode() : undefined);
+    useEffect(() => setLang(parseInt(localStorage.getItem("langMode")) || 0));
 
     return (
         <>
@@ -13,12 +17,12 @@ function Home() {
                 <p className="p2">lb</p>
             </div>
             <div className="links">
-                <a href="/play">PLAY</a>
-                <a href="/settings">settings</a>
-                <a href="/about">about</a>
-                <a href="/support">support us</a>
+                <a href="/play">{text[lang].links[0]}</a>
+                <a href="/settings">{text[lang].links[1]}</a>
+                <a href="/about">{text[lang].links[2]}</a>
+                <a href="/support">{text[lang].links[3]}</a>
             </div>
-            <a href="https://github.com/nurgalinchik/shinebulb" target="_blank" id="source">source code</a>
+            <a href="https://github.com/nurgalinchik/shinebulb" target="_blank" id="source">{text[lang].source}</a>
         </>
     )
 }
