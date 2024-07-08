@@ -14,9 +14,7 @@ function Home() {
     return (
         <>
             <div className="header">
-                <p className="p2">shineb</p>
-                <img src="img/logo2.png"/>
-                <p className="p2">lb</p>
+                <p className="p2">shineb</p><img src="img/logo2.png"/><p className="p2">lb</p>
             </div>
             <div className="links">
                 <a href="/play">{text[lang].links[0]}</a>
