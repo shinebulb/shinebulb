@@ -8,6 +8,7 @@ function Play() {
     const [theme, setTheme] = useState(0);
 
     useEffect(() => themes[theme]());
+    useEffect(() => setCount(parseInt(localStorage.getItem("countDisplay")) + 1 || 0), []);
     useEffect(() => setLang(parseInt(localStorage.getItem("langMode")) || 0));
     useEffect(() => setTheme(parseInt(localStorage.getItem("theme")) || 0));
     useEffect(() => {document.title = textJSON[lang].links[0].toLowerCase()});
@@ -36,8 +37,6 @@ function Play() {
             bulb.current.classList.remove("on");
         }
     }
-
-    useEffect(() => setCount(parseInt(localStorage.getItem("countDisplay")) + 1 || 0), []);
 
     return (
         <div className="play">
