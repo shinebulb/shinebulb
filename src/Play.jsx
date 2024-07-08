@@ -17,6 +17,7 @@ function Play() {
     const [pic, setPic] = useState("off");
     const [text, setText] = useState(0);
     const bulb = useRef(null);
+    const modal = useRef(null);
 
     function pictureChange() {
         setCount(c => c + 1);
@@ -28,14 +29,13 @@ function Play() {
     }
 
     function resetCount() {
-        if (confirm(textJSON[lang].confirm)) {
-            setCount(0);
-            setPic("off");
-            setText(0);
-            new Audio("audio/off.mp3").play();
-            localStorage.removeItem("countDisplay");
-            bulb.current.classList.remove("on");
-        }
+        modal.current.close()
+        setCount(0);
+        setPic("off");
+        setText(0);
+        new Audio("audio/off.mp3").play();
+        localStorage.removeItem("countDisplay");
+        bulb.current.classList.remove("on");
     }
 
     return (
@@ -45,8 +45,13 @@ function Play() {
             <img ref={bulb} src={`img/${pic}.svg`} alt="the lightbulb" />
             <div className="controls">
                 <button onClick={pictureChange}>{textJSON[lang].controls[0]}</button>
-                <button onClick={resetCount}>{textJSON[lang].controls[1]}</button>
+                <button onClick={() => modal.current.showModal()}>{textJSON[lang].controls[1]}</button>
             </div>
+            <dialog ref={modal}>
+                <p>{textJSON[lang].confirm[0]}</p>
+                <button onClick={resetCount}>{textJSON[lang].confirm[1]}</button>
+                <button onClick={() => modal.current.close()}>{textJSON[lang].confirm[2]}</button>
+            </dialog>
             <h2 id="counter">{count}</h2>
             <a href="/home">{textJSON[lang].back}</a>
         </div>

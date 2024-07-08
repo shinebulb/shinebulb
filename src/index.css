@@ -85,17 +85,6 @@ h2 {
     cursor: pointer;
 }
 
-.container button {
-    font-family: Avro, "Roboto Slab";
-    font-size: 1.5rem;
-    border-radius: 10px;
-    padding: 5px 10px;
-    border: rgb(43, 43, 43) 3px solid;
-    color: rgb(43, 43, 43);
-    transition: background-color 0.5s ease;
-    cursor: pointer;
-}
-
 .header {
     display: inline-flex;
 }
@@ -142,6 +131,28 @@ a:hover {
     font-size: 1.5rem;
 }
 
+dialog {
+    width: 420px;
+    border-radius: 15px;
+    padding: 1.2rem;
+}
+
+dialog p {
+    font-size: 1.5rem;
+    margin: 10px 6px 20px;
+}
+
+dialog button {
+    font-family: Avro, "Roboto Slab";
+    font-size: 1.4rem;
+    width: 6rem;
+    margin: 10px 6px;
+    border-radius: 12px;
+    padding: 3px 0;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+}
+
 #source {
     position: absolute;
     bottom: 0;
@@ -158,6 +169,22 @@ a:hover {
     .p1, a, h2 {
         font-size: 1.35rem;
     }
+    dialog {
+        width: 280px;
+        border-radius: 15px;
+        padding: 1rem;
+    }
+    dialog p {
+        font-size: 1.35rem;
+        margin: 8px 4px 16px;
+    }
+    dialog button {
+        font-size: 1.3rem;
+        width: 5rem;
+        margin: 8px 6px;
+        border-radius: 10px;
+        padding: 2px 0;
+    }
 }
 
 /* DARK MODESSS */
@@ -165,12 +192,25 @@ a:hover {
 .dark {
     background-color: rgb(23, 23, 23);
 }
+
+.dark dialog {
+    background-color: rgb(39, 39, 39);
+}
+
+.dark dialog button {
+    background-color: rgb(54, 54, 54);
+}
+
+.dark dialog button:hover {
+    background-color: rgb(69, 69, 69);
+}
   
 .dark h2, .dark .container label,
 .dark a, .dark .p1, .dark .p2,
 .dark .p3, .dark .controls button,
-.dark .container select,
-.dark .container button {
+.dark .container select, .dark dialog,
+.dark .container button,
+.dark dialog button {
     color: rgb(220, 220, 220);
 }
   
@@ -178,7 +218,6 @@ a:hover {
     color: rgb(200, 200, 200);
 }
   
-.dark .container button,
 .dark .container select,
 .dark .controls button {
     background-color: rgb(43, 43, 43);
@@ -186,7 +225,7 @@ a:hover {
 }
 
 .dark .container select,
-.dark .container button {
+.dark dialog button {
     border: rgb(220, 220, 220) 3px solid;
 }
 
@@ -194,7 +233,6 @@ a:hover {
     border: rgb(220, 220, 220) 1px solid;
 }
 
-.dark .container button:hover,
 .dark .container select:hover {
     background-color: rgb(53, 53, 53);
 }
@@ -208,21 +246,34 @@ a:hover {
     background-color: rgb(244, 240, 232);
 }
 
+.light dialog {
+    background-color: rgb(249, 249, 249);
+}
+
+.light dialog button {
+    background-color: rgb(234, 234, 234);
+}
+
+.light dialog button:hover {
+    background-color: rgb(219, 219, 219);
+}
+
+
 .light, .light .controls button,
 .light .container label,
 .light .container select,
-.light .container button {
+.light dialog button,
+.light dialog {
     color: rgb(43, 43, 43);
 }
 
 .light .controls button,
-.light .container select,
-.light .container button {
+.light .container select {
     background-color: rgb(220, 220, 220);
 }
 
 .light .container select,
-.light .container button {
+.light dialog button {
     border: rgb(43, 43, 43) 3px solid;
 }
 
@@ -230,7 +281,6 @@ a:hover {
     border: rgb(43, 43, 43) 1px solid;
 }
 
-.light .container button:hover,
 .light .container select:hover {
     background-color: rgb(205, 205, 205);
 }
