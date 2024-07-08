@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import enableDarkMode from './enableDarkMode';
+import darkTheme from './darkTheme';
 import themes from './assets/json/themes.json';
 import languages from './assets/json/languages.json';
 import text from './assets/json/text.json';
@@ -7,7 +7,7 @@ import text from './assets/json/text.json';
 function Settings() {
 
     useEffect(() => {document.title = text[lang].links[1]});
-    useEffect(() => darkMode == "enabled" ? enableDarkMode() : undefined);
+    useEffect(() => darkMode == "enabled" ? darkTheme() : undefined);
     useEffect(() => setLang(parseInt(localStorage.getItem("langMode")) || 0));
     useEffect(() => setTheme(parseInt(localStorage.getItem("theme")) || 0));
 
@@ -15,14 +15,14 @@ function Settings() {
     const [theme, setTheme] = useState(0);
     let darkMode = localStorage.getItem("darkMode");
 
-    function disableDarkMode() {
+    function lightTheme() {
         document.body.classList.remove("darkMode");
         localStorage.setItem("darkMode", null);
     }
 
     function themeChange(event) {
         const mode = themes.indexOf(event.target.value);
-        mode ? enableDarkMode() : disableDarkMode();
+        mode ? darkTheme() : lightTheme();
         setTheme(mode);
         localStorage.setItem("theme", mode);
     }

@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import enableDarkMode from './enableDarkMode';
+import darkTheme from './darkTheme';
 import text from './assets/json/text.json';
 
 function About() {
 
     const [lang, setLang] = useState(0);
 
-    useEffect(() => localStorage.getItem("darkMode") == "enabled" ? enableDarkMode() : undefined);
+    useEffect(() => localStorage.getItem("darkMode") == "enabled" ? darkTheme() : undefined);
     useEffect(() => setLang(parseInt(localStorage.getItem("langMode")) || 0));
     useEffect(() => {document.title = text[lang].links[2]});
 

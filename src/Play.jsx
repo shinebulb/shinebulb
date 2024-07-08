@@ -1,12 +1,12 @@
 import React, {useState, useEffect, useRef} from 'react';
-import enableDarkMode from './enableDarkMode';
+import darkTheme from './darkTheme';
 import textJSON from './assets/json/text.json';
 
 function Play() {
 
     const [lang, setLang] = useState(0);
 
-    useEffect(() => localStorage.getItem("darkMode") == "enabled" ? enableDarkMode() : undefined);
+    useEffect(() => localStorage.getItem("darkMode") == "enabled" ? darkTheme() : undefined);
     useEffect(() => setLang(parseInt(localStorage.getItem("langMode")) || 0));
     useEffect(() => {document.title = textJSON[lang].links[0].toLowerCase()});
 
