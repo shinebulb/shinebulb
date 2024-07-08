@@ -156,6 +156,9 @@ a:hover {
     .container {
         width: 80vw;
     }
+    .p1, a, h2 {
+        font-size: 1.35rem;
+    }
 }
 
 /* DARK MODESSS */

@@ -16,7 +16,14 @@ function About() {
         <>
             <h2>{text[lang].headings[2]}</h2>
             <p className="p1">{text[lang].about[0]}</p>
+            <div style={{height: "1rem"}} />
             <p className="p1">{text[lang].about[1]}</p>
+            <p className="p1">{text[lang].about[2]}</p>
+            <p className="p1">{text[lang].about[3]}</p>
+            <p className="p1">{text[lang].about[4]}</p>
+            <p className="p1">{text[lang].about[5]}</p>
+            <p className="p1">{text[lang].about[6]}</p>
+            <div style={{height: "1rem"}} />
             <div className="links">
                 <a href = "mailto:shinebulby@gmail.com?subject=contact">{text[lang].contact}</a>
                 <a href="/home">{text[lang].back}</a>
