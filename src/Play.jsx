@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
-import themes from './themes';
+import themes from './assets/themes';
 import textJSON from './assets/json/text.json';
 
 function Play() {

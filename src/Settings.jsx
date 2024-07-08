@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import themes from './themes';
+import themes from './assets/themes';
 import modes from './assets/json/modes.json';
 import languages from './assets/json/languages.json';
 import text from './assets/json/text.json';
@@ -32,8 +32,9 @@ function Settings() {
             <div className="container">
                 <label className="settingName">{text[lang].settings[0]}</label>
                 <select onChange={themeChange} value={modes[theme]}>
-                    <option value="light">{text[lang].mode[0]}</option>
-                    <option value="dark">{text[lang].mode[1]}</option>
+                    <option value="system">{text[lang].mode[0]}</option>
+                    <option value="light">{text[lang].mode[1]}</option>
+                    <option value="dark">{text[lang].mode[2]}</option>
                 </select>
             </div>
             <div style={{height: "3rem"}}/>

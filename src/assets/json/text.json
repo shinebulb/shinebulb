@@ -8,7 +8,7 @@
         "controls": ["switch", "reset"],
         "back": "back",
         "settings": ["theme", "language"],
-        "mode": ["light", "dark"],
+        "mode": ["system", "light", "dark"],
         "about": [
             "shinebulb is a fun little project by nurgali ernist and andrew aldor.",
             "matthew 5:14-16"
@@ -26,7 +26,7 @@
         "controls": ["изменить", "очистить"],
         "back": "назад",
         "settings": ["тема", "язык"],
-        "mode": ["светлая", "тёмная"],
+        "mode": ["система", "светлая", "тёмная"],
         "about": [
             "shinebulb — небольшой проект нургали эрниста и андрея альдора.",
             "матфей 5:14-16"
