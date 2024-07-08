@@ -16,7 +16,6 @@ html, body {
 }
   
 body {
-    overflow: hidden;
     display: flex;
     text-align: center;
     justify-content: center;
