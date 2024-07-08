@@ -1,14 +1,16 @@
 import React, {useState, useEffect} from 'react';
-import darkTheme from './darkTheme';
+import themes from './themes';
 import text from './assets/json/text.json';
 
 function Support() {
 
     const [lang, setLang] = useState(0);
+    const [theme, setTheme] = useState(0);
 
-    useEffect(() => {document.title = text[lang].links[3]});
-    useEffect(() => localStorage.getItem("darkMode") == "enabled" ? darkTheme() : undefined);
+    useEffect(() => themes[theme]());
     useEffect(() => setLang(parseInt(localStorage.getItem("langMode")) || 0));
+    useEffect(() => setTheme(parseInt(localStorage.getItem("theme")) || 0));
+    useEffect(() => {document.title = text[lang].links[3]});
 
     return (
         <>

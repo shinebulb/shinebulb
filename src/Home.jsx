@@ -1,13 +1,15 @@
 import React, {useState, useEffect} from 'react';
-import darkTheme from './darkTheme';
+import themes from './themes';
 import text from './assets/json/text.json';
 
 function Home() {
 
     const [lang, setLang] = useState(0);
+    const [theme, setTheme] = useState(0);
 
-    useEffect(() => localStorage.getItem("darkMode") == "enabled" ? darkTheme() : undefined);
+    useEffect(() => themes[theme]());
     useEffect(() => setLang(parseInt(localStorage.getItem("langMode")) || 0));
+    useEffect(() => setTheme(parseInt(localStorage.getItem("theme")) || 0));
 
     return (
         <>

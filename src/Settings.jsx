@@ -1,28 +1,22 @@
 import React, {useState, useEffect} from 'react';
-import darkTheme from './darkTheme';
-import themes from './assets/json/themes.json';
+import themes from './themes';
+import modes from './assets/json/modes.json';
 import languages from './assets/json/languages.json';
 import text from './assets/json/text.json';
 
 function Settings() {
 
     useEffect(() => {document.title = text[lang].links[1]});
-    useEffect(() => darkMode == "enabled" ? darkTheme() : undefined);
+    useEffect(() => themes[theme]());
     useEffect(() => setLang(parseInt(localStorage.getItem("langMode")) || 0));
     useEffect(() => setTheme(parseInt(localStorage.getItem("theme")) || 0));
 
     const [lang, setLang] = useState(0);
     const [theme, setTheme] = useState(0);
-    let darkMode = localStorage.getItem("darkMode");
-
-    function lightTheme() {
-        document.body.classList.remove("darkMode");
-        localStorage.setItem("darkMode", null);
-    }
 
     function themeChange(event) {
-        const mode = themes.indexOf(event.target.value);
-        mode ? darkTheme() : lightTheme();
+        const mode = modes.indexOf(event.target.value);
+        themes[mode]();
         setTheme(mode);
         localStorage.setItem("theme", mode);
     }
@@ -37,7 +31,7 @@ function Settings() {
             <h2>{text[lang].headings[1]}</h2>
             <div className="container">
                 <label className="settingName">{text[lang].settings[0]}</label>
-                <select onChange={themeChange} value={themes[theme]}>
+                <select onChange={themeChange} value={modes[theme]}>
                     <option value="light">{text[lang].mode[0]}</option>
                     <option value="dark">{text[lang].mode[1]}</option>
                 </select>

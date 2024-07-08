@@ -21,8 +21,6 @@ body {
     text-align: center;
     justify-content: center;
     align-items: center;
-    background-color: #f4f0e8;
-    color: rgb(43, 43, 43);
     transition: background-color 0.5s ease;
 }
 
@@ -33,9 +31,6 @@ body {
     min-width: 30px;
     border-radius: 3px;
     padding: 3px 5px;
-    border: rgb(43, 43, 43) 1px solid;
-    background-color: rgb(220, 220, 220);
-    color: rgb(43, 43, 43);
 }
 
 .play {
@@ -60,7 +55,6 @@ body {
   
 h2 {
     font-size: 1.5rem;
-    color: rgb(35, 35, 35);
     margin: 1rem;
     font-weight: bold;
     transition: background-color 0.5s ease;
@@ -80,7 +74,6 @@ h2 {
 }
 
 .container label {
-    color: rgb(43, 43, 43);
     font-size: 1.5rem;
     transition: background-color 0.5s ease;
 }
@@ -89,9 +82,6 @@ h2 {
     font-size: 1.5rem;
     border-radius: 10px;
     padding: 5px 10px;
-    background-color: rgb(220, 220, 220);
-    border: rgb(43, 43, 43) 3px solid;
-    color: rgb(43, 43, 43);
     transition: background-color 0.5s ease;
     cursor: pointer;
 }
@@ -101,15 +91,10 @@ h2 {
     font-size: 1.5rem;
     border-radius: 10px;
     padding: 5px 10px;
-    background-color: rgb(220, 220, 220);
     border: rgb(43, 43, 43) 3px solid;
     color: rgb(43, 43, 43);
     transition: background-color 0.5s ease;
     cursor: pointer;
-}
-
-.container button:hover {
-    background-color: rgb(205, 205, 205);
 }
 
 .header {
@@ -133,17 +118,14 @@ a {
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: bold;
-    color: rgb(35, 35, 35);
     transition: background-color 0.5s ease;
 }
   
 a:hover {
     text-decoration: underline;
-    color: rgb(70, 70, 70);
 }
   
 .p1, .p2 {
-    color: rgb(35, 35, 35);
     font-weight: bold;
     text-align: center;
 }
@@ -167,7 +149,6 @@ a:hover {
     left: 0;
     right: 0;
     font-size: 1rem;
-    color: hsl(0, 0%, 40%);
     margin: 1.4rem auto;
 }
 
@@ -179,30 +160,84 @@ a:hover {
 
 /* DARK MODESSS */
   
-.darkMode {
+.dark {
     background-color: rgb(23, 23, 23);
 }
   
-.darkMode h2, .darkMode .container label,
-.darkMode a, .darkMode .p1, .darkMode .p2,
-.darkMode .p3, .darkMode .controls button,
-.darkMode .container select,
-.darkMode .container button {
+.dark h2, .dark .container label,
+.dark a, .dark .p1, .dark .p2,
+.dark .p3, .dark .controls button,
+.dark .container select,
+.dark .container button {
     color: rgb(220, 220, 220);
 }
   
-.darkMode a:hover {
+.dark a:hover {
     color: rgb(200, 200, 200);
 }
   
-.darkMode .controls button,
-.darkMode .container button,
-.darkMode .container select {
-    border: rgb(220, 220, 220) 3px solid;
+.dark .container button,
+.dark .container select,
+.dark .controls button {
     background-color: rgb(43, 43, 43);
+    color: rgb(220, 220, 220);
 }
 
-.darkMode .container button:hover,
-.darkMode .container select:hover {
+.dark .container select,
+.dark .container button {
+    border: rgb(220, 220, 220) 3px solid;
+}
+
+.dark .controls button {
+    border: rgb(220, 220, 220) 1px solid;
+}
+
+.dark .container button:hover,
+.dark .container select:hover {
     background-color: rgb(53, 53, 53);
+}
+
+
+.light {
+    background-color: rgb(244, 240, 232);
+}
+
+.light, .light .controls button,
+.light .container label,
+.light .container select,
+.light .container button {
+    color: rgb(43, 43, 43);
+}
+
+.light .controls button,
+.light .container select,
+.light .container button {
+    background-color: rgb(220, 220, 220);
+}
+
+.light .container select,
+.light .container button {
+    border: rgb(43, 43, 43) 3px solid;
+}
+
+.light .controls button {
+    border: rgb(43, 43, 43) 1px solid;
+}
+
+.light .container button:hover,
+.light .container select:hover {
+    background-color: rgb(205, 205, 205);
+}
+
+.light a, .light .p1,
+.light .p2, .light h2 {
+    color: rgb(35, 35, 35);
+}
+    
+.light a:hover {
+    color: rgb(70, 70, 70);
+}
+
+.light #source {
+    color: rgb(102, 102, 102);
 }
