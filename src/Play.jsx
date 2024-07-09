@@ -7,11 +7,16 @@ function Play() {
     const [lang, setLang] = useState(0);
     const [theme, setTheme] = useState(0);
 
-    useEffect(() => themes[theme]());
-    useEffect(() => setCount(parseInt(localStorage.getItem("countDisplay")) + 1 || 0), []);
-    useEffect(() => setLang(parseInt(localStorage.getItem("langMode")) || 0));
-    useEffect(() => setTheme(parseInt(localStorage.getItem("theme")) || 0));
-    useEffect(() => {document.title = textJSON[lang].links[0].toLowerCase()});
+    useEffect(() => {
+        themes[theme]();
+        setLang(parseInt(localStorage.getItem("langMode")) || 0);
+        setTheme(parseInt(localStorage.getItem("theme")) || 0);
+        setText(parseInt(localStorage.getItem("classOn")) || 0);
+        setPic((parseInt(localStorage.getItem("classOn")) || 0) ? "on" : "off");
+        (parseInt(localStorage.getItem("classOn")) || 0) ? bulb.current.classList.add("on") : undefined;
+        document.title = textJSON[lang].links[0].toLowerCase();
+    });
+    useEffect(() => setCount(parseInt(localStorage.getItem("countDisplay")) || 0), []);
 
     const [count, setCount] = useState(0);
     const [pic, setPic] = useState("off");
@@ -20,12 +25,13 @@ function Play() {
     const modal = useRef(null);
 
     function pictureChange() {
-        setCount(c => c + 1);
-        setPic(pic == "off" ? "on" : "off");
-        setText(text === 0 ? 1 : 0);
-        new Audio(pic == "off" ? "audio/on.mp3" : "audio/off.mp3").play();
-        localStorage.setItem("countDisplay", count);
+        setText(!text ? 1 : 0);
+        setCount(!text ? c => c + 1 : count);
+        setPic(!text ? "on" : "off");
+        new Audio(!text ? "audio/on.mp3" : "audio/off.mp3").play();
         bulb.current.classList.toggle("on");
+        localStorage.setItem("countDisplay", !text ? count + 1 : count);
+        localStorage.setItem("classOn", Number(bulb.current.classList.contains("on")));
     }
 
     function resetCount() {
@@ -35,6 +41,7 @@ function Play() {
         setText(0);
         new Audio("audio/off.mp3").play();
         localStorage.removeItem("countDisplay");
+        localStorage.removeItem("classOn");
         bulb.current.classList.remove("on");
     }
 
