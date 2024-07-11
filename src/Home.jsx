@@ -4,12 +4,14 @@ import text from './assets/json/text.json';
 
 function Home() {
 
+    useEffect(() => {
+        themes[theme]();
+        setLang(parseInt(localStorage.getItem("langMode")) || 0);
+        setTheme(parseInt(localStorage.getItem("theme")) || 0);
+    });
+
     const [lang, setLang] = useState(0);
     const [theme, setTheme] = useState(0);
-
-    useEffect(() => themes[theme]());
-    useEffect(() => setLang(parseInt(localStorage.getItem("langMode")) || 0));
-    useEffect(() => setTheme(parseInt(localStorage.getItem("theme")) || 0));
 
     return (
         <>

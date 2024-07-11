@@ -9,22 +9,57 @@
     font-family: 'AvroItalic';
     src: local("Arvo-Italic"), url("./assets/fonts/Arvo-Italic.ttf");
 }
-  
+
+.light {
+    --bg: rgb(244, 240, 232);
+    --button-font: rgb(43, 43, 43);
+    --modal-bg: rgb(249, 249, 249);
+    --modal-button-bg: rgb(234, 234, 234);
+    --modal-button-bg-hover: rgb(219, 219, 219);
+    --button-bg: rgb(220, 220, 220);
+    --border-thick: rgb(43, 43, 43) 3px solid;
+    --border-thin: rgb(43, 43, 43) 1px solid;
+    --select-hover: rgb(205, 205, 205);
+    --font: rgb(35, 35, 35);
+    --font-hover: rgb(70, 70, 70);
+    --source-code: rgb(90, 90, 90);
+}
+
+.dark {
+    --bg: rgb(23, 23, 23);
+    --button-font: rgb(220, 220, 220);
+    --modal-bg: rgb(39, 39, 39);
+    --modal-button-bg: rgb(54, 54, 54);
+    --modal-button-bg-hover: rgb(69, 69, 69);
+    --button-bg: rgb(43, 43, 43);
+    --border-thick: rgb(220, 220, 220) 3px solid;
+    --border-thin: rgb(220, 220, 220) 1px solid;
+    --select-hover: rgb(53, 53, 53);
+    --font: rgb(220, 220, 220);
+    --font-hover: rgb(200, 200, 200);
+    --source-code: rgb(160, 160, 160);
+}
+
 html, body {
     font-family: Avro, "Roboto Slab";
     height: 100%;
 }
   
 body {
+    overflow: hidden;
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
+    background-color: var(--bg);
     transition: background-color 0.5s ease;
 }
 
 .controls button {
     font-family: Avro, "Roboto Slab";
+    background-color: var(--button-bg);
+    color: var(--button-font);
+    border: var(--border-thin);
     font-size: 1rem;
     margin: 0.5rem 0.2rem;
     min-width: 30px;
@@ -54,8 +89,9 @@ body {
   
 h2 {
     font-size: 1.5rem;
-    margin: 1rem;
+    color: var(--font);
     font-weight: bold;
+    margin: 1rem;
     transition: background-color 0.5s ease;
 }
 
@@ -74,15 +110,23 @@ h2 {
 
 .container label {
     font-size: 1.5rem;
+    color: var(--button-font);
     transition: background-color 0.5s ease;
 }
 
 .container select {
+    background-color: var(--button-bg);
     font-size: 1.5rem;
+    color: var(--button-font);
+    border: var(--border-thick);
     border-radius: 10px;
     padding: 5px 10px;
     transition: background-color 0.5s ease;
     cursor: pointer;
+}
+
+.container select:hover {
+    background-color: var(--select-hover);
 }
 
 .header {
@@ -105,15 +149,18 @@ a {
     margin: 0.5rem;
     text-decoration: none;
     font-size: 1.5rem;
+    color: var(--font);
     font-weight: bold;
     transition: background-color 0.5s ease;
 }
   
 a:hover {
+    color: var(--font-hover);
     text-decoration: underline;
 }
   
 .p1, .p2 {
+    color: var(--font);
     font-weight: bold;
     text-align: center;
 }
@@ -128,29 +175,107 @@ a:hover {
 }
 
 .p3 {
+    color: var(--font);
     font-size: 1.5rem;
 }
 
-dialog {
+.confirm {
     width: 420px;
+    background-color: var(--modal-bg);
+    border: var(--border-thick);
+    color: var(--button-font);
     border-radius: 15px;
     padding: 1.2rem;
 }
 
-dialog p {
+.confirm p {
     font-size: 1.5rem;
     margin: 10px 6px 20px;
 }
 
-dialog button {
+.confirm button {
     font-family: Avro, "Roboto Slab";
+    background-color: var(--button-bg);
+    color: var(--button-font);
     font-size: 1.4rem;
     width: 6rem;
     margin: 10px 6px;
+    border: var(--border-thick);
     border-radius: 12px;
     padding: 3px 0;
     transition: background-color 0.5s ease;
     cursor: pointer;
+}
+
+.confirm button:hover {
+    background-color: var(--modal-button-bg-hover);
+}
+
+.theme {
+    width: 420px;
+    padding: 0;
+    background-color: var(--modal-bg);
+    border: var(--border-thick);
+    border-radius: 15px;
+}
+
+.theme::backdrop {
+    background-color: var(--bg);
+}
+
+.theme input {
+    width: 10rem;
+    height: 4rem;
+}
+
+.themeHeader div {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    align-items: center;
+    margin: 14px;
+}
+
+.themeHeader label {
+    font-size: 1.4rem;
+    color: var(--button-font);
+}
+
+.themeHeader span {
+    font-size: 1.1rem;
+}
+
+.sample {
+    padding: 24px 0 0;
+}
+
+.sample p {
+    font-size: 1.8rem;
+    margin: 0 20px 24px;
+}
+
+.sample button {
+    font-family: Avro, "Roboto Slab";
+    font-size: 1.6rem;
+    color: var(--button-font);
+    background-color: var(--modal-button-bg);
+    padding: 6px 16px;
+    margin: 0px 8px 22px;
+    border: var(--border-thick);
+    border-radius: 12px;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+}
+
+.sample button:hover {
+    background-color: var(--modal-button-bg-hover);
+}
+
+hr {
+    height: 2px;
+    margin: 0;
+    border: none;
+    background-color: var(--button-font);
 }
 
 #source {
@@ -159,6 +284,7 @@ dialog button {
     left: 0;
     right: 0;
     font-size: 1rem;
+    color: var(--source-code);
     margin: 1.4rem auto;
 }
 
@@ -169,131 +295,48 @@ dialog button {
     .p1, a, h2 {
         font-size: 1.35rem;
     }
-    dialog {
+    .confirm {
         width: 280px;
-        border-radius: 15px;
         padding: 1rem;
     }
-    dialog p {
+    .confirm p {
         font-size: 1.35rem;
         margin: 8px 4px 16px;
     }
-    dialog button {
+    .confirm button {
         font-size: 1.3rem;
         width: 5rem;
         margin: 8px 6px;
         border-radius: 10px;
         padding: 2px 0;
     }
-}
-
-/* DARK MODESSS */
-  
-.dark {
-    background-color: rgb(23, 23, 23);
-}
-
-.dark dialog {
-    background-color: rgb(39, 39, 39);
-}
-
-.dark dialog button {
-    background-color: rgb(54, 54, 54);
-}
-
-.dark dialog button:hover {
-    background-color: rgb(69, 69, 69);
-}
-  
-.dark h2, .dark .container label,
-.dark a, .dark .p1, .dark .p2,
-.dark .p3, .dark .controls button,
-.dark .container select, .dark dialog,
-.dark .container button,
-.dark dialog button {
-    color: rgb(220, 220, 220);
-}
-  
-.dark a:hover {
-    color: rgb(200, 200, 200);
-}
-  
-.dark .container select,
-.dark .controls button {
-    background-color: rgb(43, 43, 43);
-    color: rgb(220, 220, 220);
-}
-
-.dark .container select,
-.dark dialog button {
-    border: rgb(220, 220, 220) 3px solid;
-}
-
-.dark .controls button {
-    border: rgb(220, 220, 220) 1px solid;
-}
-
-.dark .container select:hover {
-    background-color: rgb(53, 53, 53);
-}
-
-.dark #source {
-    color: rgb(160, 160, 160);
-}
-
-
-.light {
-    background-color: rgb(244, 240, 232);
-}
-
-.light dialog {
-    background-color: rgb(249, 249, 249);
-}
-
-.light dialog button {
-    background-color: rgb(234, 234, 234);
-}
-
-.light dialog button:hover {
-    background-color: rgb(219, 219, 219);
-}
-
-
-.light, .light .controls button,
-.light .container label,
-.light .container select,
-.light dialog button,
-.light dialog {
-    color: rgb(43, 43, 43);
-}
-
-.light .controls button,
-.light .container select {
-    background-color: rgb(220, 220, 220);
-}
-
-.light .container select,
-.light dialog button {
-    border: rgb(43, 43, 43) 3px solid;
-}
-
-.light .controls button {
-    border: rgb(43, 43, 43) 1px solid;
-}
-
-.light .container select:hover {
-    background-color: rgb(205, 205, 205);
-}
-
-.light a, .light .p1,
-.light .p2, .light h2 {
-    color: rgb(35, 35, 35);
-}
-    
-.light a:hover {
-    color: rgb(70, 70, 70);
-}
-
-.light #source {
-    color: rgb(90, 90, 90);
+    .theme {
+        width: 300px;
+    }
+    .theme input {
+        width: 6rem;
+        height: 2.5rem;
+    }
+    .themeHeader div {
+        margin: 12px;
+    }
+    .themeHeader label {
+        font-size: 1.15rem;
+    }
+    .themeHeader span {
+        font-size: 0.95rem;
+    }
+    .sample {
+        padding: 20px 0 0;
+    }
+    .sample p {
+        font-size: 1.45rem;
+        margin: 0 16px 20px;
+    }
+    .sample button {
+        font-size: 1.3rem;
+        border-radius: 10px;
+        padding: 6px 8px;
+        margin: 0px 6px 20px;
+    }
 }

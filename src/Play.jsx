@@ -54,7 +54,7 @@ function Play() {
                 <button onClick={pictureChange}>{textJSON[lang].controls[0]}</button>
                 <button onClick={() => modal.current.showModal()}>{textJSON[lang].controls[1]}</button>
             </div>
-            <dialog ref={modal}>
+            <dialog ref={modal} className="confirm">
                 <p>{textJSON[lang].confirm[0]}</p>
                 <button onClick={resetCount}>{textJSON[lang].confirm[1]}</button>
                 <button onClick={() => modal.current.close()}>{textJSON[lang].confirm[2]}</button>
