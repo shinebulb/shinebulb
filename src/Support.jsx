@@ -11,7 +11,7 @@ function Support() {
         themes[theme]();
         setLang(parseInt(localStorage.getItem("langMode")) || 0);
         setTheme(parseInt(localStorage.getItem("theme")) || 0);
-        {document.title = text[lang].links[3]};
+        document.title = text[lang].links[3];
     });
 
     return (

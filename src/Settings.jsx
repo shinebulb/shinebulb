@@ -41,11 +41,6 @@ function Settings() {
         themes[theme]();
     }
 
-    function cancelCustom() {
-        setTheme(0);
-        modal.current.close();
-    }
-
     return (
         <div className="settings">
             <h2>{text[lang].headings[1]}</h2>
@@ -85,7 +80,7 @@ function Settings() {
                     <button onClick={customTheme} style={{backgroundColor: localBg, color: localFont, border: `${localFont} 3px solid`}}>
                         {text[lang].themeControls[0]}
                     </button>
-                    <button onClick={cancelCustom} style={{backgroundColor: localBg, color: localFont, border: `${localFont} 3px solid`}}>
+                    <button onClick={() => modal.current.close()} style={{backgroundColor: localBg, color: localFont, border: `${localFont} 3px solid`}}>
                         {text[lang].themeControls[1]}
                     </button>
                 </div>

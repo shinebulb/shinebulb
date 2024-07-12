@@ -295,6 +295,9 @@ hr {
     .p1, a, h2 {
         font-size: 1.35rem;
     }
+    .about .p1 {
+        font-size: 1rem;
+    }
     .confirm {
         width: 280px;
         padding: 1rem;
