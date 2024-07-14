@@ -1,18 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import themes from './assets/themes';
 import text from './assets/json/text.json';
 
 function About() {
 
-    const [lang, setLang] = useState(0);
-    const [theme, setTheme] = useState(0);
-
     useEffect(() => {
         themes[theme]();
-        setLang(parseInt(localStorage.getItem("langMode")) || 0);
-        setTheme(parseInt(localStorage.getItem("theme")) || 0);
         document.title = text[lang].links[2];
     });
+
+    const lang = parseInt(localStorage.getItem("langMode")) || 0;
+    const theme = parseInt(localStorage.getItem("theme")) || 0;
 
     return (
         <>
@@ -30,7 +28,7 @@ function About() {
             <div style={{height: "1rem"}} />
             <div className="links">
                 <a href = "mailto:shinebulby@gmail.com?subject=contact">{text[lang].contact}</a>
-                <a href="/home">{text[lang].back}</a>
+                <a href="/">{text[lang].back}</a>
             </div>
         </>
     )

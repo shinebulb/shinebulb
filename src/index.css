@@ -256,19 +256,73 @@ a:hover {
 
 .sample button {
     font-family: Avro, "Roboto Slab";
-    font-size: 1.6rem;
+    width: 4rem;
+    height: 3rem;
     color: var(--button-font);
     background-color: var(--modal-button-bg);
     padding: 6px 16px;
     margin: 0px 8px 22px;
     border: var(--border-thick);
     border-radius: 12px;
-    transition: background-color 0.5s ease;
     cursor: pointer;
 }
 
 .sample button:hover {
     background-color: var(--modal-button-bg-hover);
+}
+
+.sample svg {
+    width: 1.8rem;
+}
+
+.saved {
+    width: 300px;
+    border: var(--border-thick);
+    border-radius: 15px;
+    background-color: var(--modal-bg);
+    color: var(--button-font);
+    padding: 0;
+}
+
+.saved h3 {
+    font-size: 1.6rem;
+    margin: 1.2rem;
+}
+
+.saved button {
+    font-family: Avro, "Roboto Slab";
+    color: var(--button-font);
+    background-color: var(--modal-button-bg);
+    border: var(--border-thick);
+    padding: 6px 16px;
+    font-size: 1.3rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.line p {
+    margin: 0;
+    width: calc(100% - 8rem);
+    text-align: center;
+}
+
+.line button {
+    padding: 0;
+    margin: 8px 8px 8px 0;
+    background-color: transparent;
+    width: 3.5rem;
+    height: 2.5rem;
+}
+
+.line svg {
+    width: 1.5rem;
 }
 
 hr {

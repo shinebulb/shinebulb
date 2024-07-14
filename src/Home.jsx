@@ -1,17 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import themes from './assets/themes';
 import text from './assets/json/text.json';
 
 function Home() {
 
-    useEffect(() => {
-        themes[theme]();
-        setLang(parseInt(localStorage.getItem("langMode")) || 0);
-        setTheme(parseInt(localStorage.getItem("theme")) || 0);
-    });
+    useEffect(() => themes[theme]());
 
-    const [lang, setLang] = useState(0);
-    const [theme, setTheme] = useState(0);
+    const lang = parseInt(localStorage.getItem("langMode")) || 0;
+    const theme = parseInt(localStorage.getItem("theme")) || 0;
 
     return (
         <>

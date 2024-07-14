@@ -3,24 +3,22 @@ import themes from './assets/themes';
 import textJSON from './assets/json/text.json';
 
 function Play() {
-
-    const [lang, setLang] = useState(0);
-    const [theme, setTheme] = useState(0);
-
+    
     useEffect(() => {
         themes[theme]();
-        setLang(parseInt(localStorage.getItem("langMode")) || 0);
-        setTheme(parseInt(localStorage.getItem("theme")) || 0);
-        setText(parseInt(localStorage.getItem("classOn")) || 0);
-        setPic((parseInt(localStorage.getItem("classOn")) || 0) ? "on" : "off");
-        (parseInt(localStorage.getItem("classOn")) || 0) ? bulb.current.classList.add("on") : undefined;
         document.title = textJSON[lang].links[0].toLowerCase();
+        if (parseInt(localStorage.getItem("classOn"))) {
+           bulb.current.classList.add("on");
+        }
     });
-    useEffect(() => setCount(parseInt(localStorage.getItem("countDisplay")) || 0), []);
 
-    const [count, setCount] = useState(0);
-    const [pic, setPic] = useState("off");
-    const [text, setText] = useState(0);
+    const lang = parseInt(localStorage.getItem("langMode")) || 0;
+    const theme = parseInt(localStorage.getItem("theme")) || 0;
+
+    const [count, setCount] = useState(parseInt(localStorage.getItem("countDisplay")) || 0);
+    const [pic, setPic] = useState((parseInt(localStorage.getItem("classOn")) || 0) ? "on" : "off");
+    const [text, setText] = useState(parseInt(localStorage.getItem("classOn")) || 0);
+
     const bulb = useRef(null);
     const modal = useRef(null);
 
@@ -60,7 +58,7 @@ function Play() {
                 <button onClick={() => modal.current.close()}>{textJSON[lang].confirm[2]}</button>
             </dialog>
             <h2 id="counter">{count}</h2>
-            <a href="/home">{textJSON[lang].back}</a>
+            <a href="/">{textJSON[lang].back}</a>
         </div>
     )
 }
