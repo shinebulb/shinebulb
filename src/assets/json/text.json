@@ -28,7 +28,8 @@
             "that they may see your good deeds and glorify your Father in heaven."
         ],
         "contact": "contact us",
-        "unavailable": "this section is currently unavailable!"
+        "unavailable": "this section is currently unavailable!",
+        "working": "currently working to address all issues!"
     },
 
     {
@@ -60,6 +61,7 @@
             "и чтобы люди прославляли вашего Небесного Отца."
         ],
         "contact": "связаться с нами",
-        "unavailable": "этот раздел сейчас не доступен!"
+        "unavailable": "этот раздел сейчас не доступен!",
+        "working": "всё ещё работаем над ошибками!"
     }
 ]
