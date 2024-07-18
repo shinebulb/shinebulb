@@ -235,8 +235,7 @@ function Settings() {
             </dialog>
             <dialog className="saved" ref={saved}>
                 <h3>{text[lang].savedThemes[0]}</h3>
-                {/* haven't decided on adding the 10 theme limit yet: */}
-                {/* <h4>{`${JSON.parse(localStorage.getItem("themes")) === null ? 0 : JSON.parse(localStorage.getItem("themes")).length}/10 ${text[lang].savedThemes[1]}`}</h4> */}
+                <h4>{`${JSON.parse(localStorage.getItem("themes")) === null ? 0 : JSON.parse(localStorage.getItem("themes")).length}/10 ${text[lang].savedThemes[1]}`}</h4>
                 <div className="lines">
                     <hr/>{renderSaved()}<hr/>
                 </div>
