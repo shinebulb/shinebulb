@@ -102,7 +102,6 @@ function Settings() {
             setCurrentThemes(currentThemes.filter(element => currentThemes.indexOf(element) != index));
             localStorage.setItem("themes", JSON.stringify(currentThemes.filter(element => currentThemes.indexOf(element) != index)));
             deleteConfirmRefs[index].current.close();
-            clearInterval(intervalId);
         }
 
         function paintTheme(index) {
@@ -224,6 +223,7 @@ function Settings() {
                 <button onClick={customTheme} style={{backgroundColor: localBg, border: `${localFont} 3px solid`}} title={text[lang].themeControls[0]}><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke={localFont} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></button>
                 <button onClick={() => {
                     custom.current.close();
+                    clearInterval(intervalId);
                     saveDialog.current.close();
                 }} style={{backgroundColor: localBg, border: `${localFont} 3px solid`}} title={text[lang].themeControls[1]}><svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" fill={localFont} transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg></button>
                 <button onClick={() => saveTheme([localBg, localFont])} style={{backgroundColor: localBg, border: `${localFont} 3px solid`}} title={text[lang].themeControls[2]}><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.save} stroke={localFont} strokeWidth="2" strokeLinejoin="round"/></svg></button></div>
