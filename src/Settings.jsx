@@ -88,12 +88,7 @@ function Settings() {
             setSaveIndex(1);
         }
 
-        const intervalId = setInterval(() => {
-            saveDialog.current.close();
-        }, 3_000);
-
         saveDialog.current.showModal();
-        clearInterval(intervalId);
     }
 
     function renderSaved() {
@@ -153,17 +148,7 @@ function Settings() {
             }
         }
 
-
-        return (
-            savedThemes.length !== 0 ?
-            savedThemes :
-            <div className="no-themes">
-                <img src={`img/no-saved-themes/${noSaved[Math.floor(Math.random() * noSaved.length)]}.svg`} />
-                <div>
-                    <p>{text[lang].theme[0]}</p>
-                </div>
-            </div>
-        );
+        return (savedThemes.length !== 0 ? savedThemes : <div className="no-themes"><img src={`img/no-saved-themes/${noSaved[Math.floor(Math.random() * noSaved.length)]}.svg`} /><div><p>{text[lang].theme[0]}</p></div></div>);
     }
 
     return (
@@ -192,12 +177,10 @@ function Settings() {
                     saveDialog.current.close();
                 }} style={{backgroundColor: localBg, border: `${localFont} 3px solid`}} title={text[lang].themeControls[1]}><svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" fill={localFont} transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg></button>
                 <button onClick={() => saveTheme([localBg, localFont])} style={{backgroundColor: localBg, border: `${localFont} 3px solid`}} title={text[lang].themeControls[2]}><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.save} stroke={localFont} strokeWidth="2" strokeLinejoin="round"/></svg></button></div>
-            </dialog>
-            <dialog className="saveUpdate" ref={saveDialog}  style={{backgroundColor: saveIndex ? "#b7ffb0" : "#ffb0c5", color: saveIndex ? "#003e0a" : "#4b0134"}}>
-                <p>{text[lang].saved[saveIndex]}</p>
-                <button onClick={() => saveDialog.current.close()}>
-                    <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" fill={saveIndex ? "#003e0a" : "#4b0134"} transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>
-                </button>
+                <dialog className="saveUpdate" ref={saveDialog}  style={{backgroundColor: saveIndex ? "#b7ffb0" : "#ffb0c5", color: saveIndex ? "#003e0a" : "#4b0134"}}>
+                    <p>{text[lang].saved[saveIndex]}</p>
+                    <button onClick={() => saveDialog.current.close()}><svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" fill={saveIndex ? "#003e0a" : "#4b0134"} transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg></button>
+                </dialog>
             </dialog>
             <dialog className="saved" ref={saved}>
                 <h3>{text[lang].savedThemes[0]}</h3>

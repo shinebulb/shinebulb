@@ -235,8 +235,7 @@ a:hover {
     width: 420px;
     border: none;
     border-radius: 14px;
-    margin-top: 76vh;
-    padding: 0;
+    padding: 1rem 0.5rem;
 }
 
 .saveUpdate p {
@@ -524,9 +523,9 @@ hr {
         margin: 0px 6px 20px;
     }
     .saveUpdate {
-        width: 300px;
+        width: 284px;
         border-radius: 10px;
-        margin-top: 71.5vh;
+        padding: 1rem 0.5rem;
     }
     .saveUpdate p {
         font-size: 1.1rem;
