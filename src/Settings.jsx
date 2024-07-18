@@ -70,11 +70,13 @@ function Settings() {
     function saveTheme(colors) {
 
         function includesDeep(array, value) {
-            return array.some((subArray) => {
-                return subArray.every(
-                    (subArrayElem, index) => subArrayElem === value[index]
-                );
-            });
+            if (array !== null) {
+                return array.some((subArray) => {
+                    return subArray.every(
+                        (subArrayElem, index) => subArrayElem === value[index]
+                    );
+                });
+            }
         }
 
         if (includesDeep(currentThemes, colors)) {
