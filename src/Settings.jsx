@@ -100,9 +100,9 @@ function Settings() {
 
         function deleteTheme(index) {
             setCurrentThemes(currentThemes.filter(element => currentThemes.indexOf(element) != index));
-            setThemeNames(themeNames.map(element => themeNames.indexOf(element) != index ? element : defaultNames[i]));
+            setThemeNames(themeNames.map(element => themeNames.indexOf(element) != index ? element : `${text[lang].theme[1]} #${index + 1}`));
             localStorage.setItem("themes", JSON.stringify(currentThemes.filter(element => currentThemes.indexOf(element) != index)));
-            localStorage.setItem("themeNames", JSON.stringify(themeNames.map(element => themeNames.indexOf(element) != index ? element : defaultNames[i])));
+            localStorage.setItem("themeNames", JSON.stringify(themeNames.map(element => themeNames.indexOf(element) != index ? element : `${text[lang].theme[1]} #${index + 1}`)));
             deleteConfirmRefs[index].current.close();
         }
 
@@ -113,6 +113,7 @@ function Settings() {
             localStorage.setItem("bg", currentThemes[index][0]);
             localStorage.setItem("font", currentThemes[index][1]);
             themes[theme]();
+            paintConfirmRefs[index].current.close();
         }
 
         function renameTheme(event, index) {
@@ -141,58 +142,12 @@ function Settings() {
                 savedThemes.push(
                     <div key={i} className="line" style={{backgroundColor: savedTheme[0], color: savedTheme[1]}}>
                         <p>{themeNames === null ? `${text[lang].theme[1]} #${i + 1}` : themeNames[i]}</p>
-                        <button onClick={() => {
-                            renameRefs[i].current.show();
-                            for (let j = 0; j < savedThemes.length; j++) {
-                                paintConfirmRefs[j].current.close();
-                                deleteConfirmRefs[j].current.close();
-                                j !== i ? renameRefs[j].current.close() : undefined;
-                            }
-                        }} style={{border: `${savedTheme[1]} 2px solid`}} title={text[lang].theme[2]}>
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.rename[0]} fill={savedTheme[1]}/><path fillRule="evenodd" clipRule="evenodd" d={paths.rename[1]} fill={savedTheme[1]}/></svg>
-                        </button>
-                        <button onClick={() => {
-                            paintConfirmRefs[i].current.show();
-                            for (let j = 0; j < savedThemes.length; j++) {
-                                deleteConfirmRefs[j].current.close();
-                                renameRefs[j].current.close();
-                                j !== i ? paintConfirmRefs[j].current.close() : undefined;
-                            }
-                        }} style={{border: `${savedTheme[1]} 2px solid`}} title={text[lang].theme[3]}>
-                            <svg version="1.1" id="Uploaded to svgrepo.com" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xmlSpace="preserve"><path className="bentblocks_een" fill={savedTheme[1]} d={paths.paint}/></svg>
-                        </button>
-                        <button onClick={() => {
-                            deleteConfirmRefs[i].current.show();
-                            for (let j = 0; j < savedThemes.length; j++) {
-                                paintConfirmRefs[j].current.close();
-                                renameRefs[j].current.close();
-                                j !== i ? deleteConfirmRefs[j].current.close() : undefined;
-                            }
-                        }} style={{border: `${savedTheme[1]} 2px solid`}} title={text[lang].theme[4]}>
-                            <svg fill={savedTheme[1]} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 482.428 482.429" xmlSpace="preserve"><g><g><path d={paths.delete[0]}/><path d={paths.delete[1]}/><path d={paths.delete[2]}/><path d={paths.delete[3]}/></g></g></svg>
-                        </button>
-                        <dialog ref={deleteConfirmRefs[i]} id="confirmDelete">
-                            <p>{text[lang].savedThemeChange[0]}</p>
-                            <button onClick={() => deleteTheme(i)}>{text[lang].confirm[1]}</button>
-                            <button onClick={() => deleteConfirmRefs[i].current.close()}>{text[lang].confirm[2]}</button>
-                        </dialog>
-                        <dialog ref={paintConfirmRefs[i]} id="confirmPaint">
-                            <p>{text[lang].savedThemeChange[1]}</p>
-                            <button onClick={() => {
-                                paintTheme(i);
-                                paintConfirmRefs[i].current.close();
-                            }}>{text[lang].confirm[1]}</button>
-                            <button onClick={() => paintConfirmRefs[i].current.close()}>{text[lang].confirm[2]}</button>
-                        </dialog>
-                        <dialog ref={renameRefs[i]} id="rename">
-                            <input value={themeNames === null ? "" : themeNames[i]} onChange={event => renameTheme(event, i)}/>
-                            <button onClick={() => checkThemeName(i)} style={{width: "44%", marginTop: "0.6rem"}}>
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                            </button>
-                            <button onClick={() => cancelRename(i)} style={{width: "44%", marginTop: "0.6rem"}}>
-                                <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>
-                            </button>
-                        </dialog>
+                        <button onClick={() => {renameRefs[i].current.show(); for (let j = 0; j < savedThemes.length; j++) { paintConfirmRefs[j].current.close(); deleteConfirmRefs[j].current.close(); j !== i ? renameRefs[j].current.close() : undefine}}} style={{border: `${savedTheme[1]} 2px solid`}} title={text[lang].theme[2]}><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.rename[0]} fill={savedTheme[1]}/><path fillRule="evenodd" clipRule="evenodd" d={paths.rename[1]} fill={savedTheme[1]}/></svg></button>
+                        <button onClick={() => {paintConfirmRefs[i].current.show(); for (let j = 0; j < savedThemes.length; j++) {deleteConfirmRefs[j].current.close(); renameRefs[j].current.close(); j !== i ? paintConfirmRefs[j].current.close() : undefined}}} style={{border: `${savedTheme[1]} 2px solid`}} title={text[lang].theme[3]}><svg version="1.1" id="Uploaded to svgrepo.com" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xmlSpace="preserve"><path className="bentblocks_een" fill={savedTheme[1]} d={paths.paint}/></svg></button>
+                        <button onClick={() => {deleteConfirmRefs[i].current.show(); for (let j = 0; j < savedThemes.length; j++) {paintConfirmRefs[j].current.close(); renameRefs[j].current.close(); j !== i ? deleteConfirmRefs[j].current.close() : undefined}}} style={{border: `${savedTheme[1]} 2px solid`}} title={text[lang].theme[4]}><svg fill={savedTheme[1]} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 482.428 482.429" xmlSpace="preserve"><g><g><path d={paths.delete[0]}/><path d={paths.delete[1]}/><path d={paths.delete[2]}/><path d={paths.delete[3]}/></g></g></svg></button>
+                        <dialog ref={deleteConfirmRefs[i]} id="confirmDelete"><p>{text[lang].savedThemeChange[0]}</p><button onClick={() => deleteTheme(i)}>{text[lang].confirm[1]}</button><button onClick={() => deleteConfirmRefs[i].current.close()}>{text[lang].confirm[2]}</button></dialog>
+                        <dialog ref={paintConfirmRefs[i]} id="confirmPaint"><p>{text[lang].savedThemeChange[1]}</p><button onClick={() => paintTheme(i)}>{text[lang].confirm[1]}</button><button onClick={() => paintConfirmRefs[i].current.close()}>{text[lang].confirm[2]}</button></dialog>
+                        <dialog ref={renameRefs[i]} id="rename"><input value={themeNames === null ? "" : themeNames[i]} onChange={event => renameTheme(event, i)}/><button onClick={() => checkThemeName(i)} style={{width: "44%", marginTop: "0.6rem"}}><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></button><button onClick={() => cancelRename(i)} style={{width: "44%", marginTop: "0.6rem"}}><svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg></button></dialog>
                     </div>
                 );
             }
