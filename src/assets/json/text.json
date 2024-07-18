@@ -16,7 +16,7 @@
         "themeControls": ["apply", "cancel", "save"],
         "savedThemes": ["saved themes", "space used"],
         "theme": ["your themes will be listed here!", "theme", "rename theme", "apply theme", "delete theme"],
-        "savedThemeChange": ["delete theme permanently?", "apply theme to the website?", "enter theme name"],
+        "savedThemeChange": ["delete theme permanently?", "apply theme to the website?"],
         "exit": "exit",
         "about": [
             "shinebulb is a fun little project by nurgali ernist and andrew aldor.",
@@ -49,7 +49,7 @@
         "themeControls": ["применить", "отменить", "сохранить"],
         "savedThemes": ["сохранённые темы", "места занято"],
         "theme": ["ваши темы будут размещены здесь!", "тема", "переименовать тему", "применить тему", "удалить тему"],
-        "savedThemeChange": ["безвозвратно удалить тему?", "применить тему на сайте?", "название темы..."],
+        "savedThemeChange": ["безвозвратно удалить тему?", "применить тему на сайте?"],
         "exit": "закрыть",
         "about": [
             "shinebulb — небольшой проект нургали эрниста и андрея альдора.",

@@ -67,6 +67,10 @@ function Settings() {
         themes[theme]();
     }
 
+    const intervalId = setInterval(() => {
+        saveDialog.current.close();
+    }, 3_000);
+
     function saveTheme(colors) {
 
         function includesDeep(array, value) {
@@ -88,11 +92,8 @@ function Settings() {
             setSaveIndex(1);
         }
 
+        clearInterval(intervalId);
         saveDialog.current.showModal();
-        const intervalId = setInterval(() => {
-            saveDialog.current.close();
-            clearInterval(intervalId);
-        }, 3_000);
     }
 
     function renderSaved() {
@@ -101,6 +102,7 @@ function Settings() {
             setCurrentThemes(currentThemes.filter(element => currentThemes.indexOf(element) != index));
             localStorage.setItem("themes", JSON.stringify(currentThemes.filter(element => currentThemes.indexOf(element) != index)));
             deleteConfirmRefs[index].current.close();
+            clearInterval(intervalId);
         }
 
         function paintTheme(index) {
