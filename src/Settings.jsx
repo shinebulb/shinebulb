@@ -88,20 +88,14 @@ function Settings() {
             setSaveIndex(1);
         }
 
+        saveDialog.current.showModal();
         const intervalId = setInterval(() => {
             saveDialog.current.close();
             clearInterval(intervalId);
         }, 3_000);
-        saveDialog.current.showModal();
     }
 
     function renderSaved() {
-
-        function replaceAt(array, index, value) {
-            const ret = array.slice(0);
-            ret[index] = value;
-            return ret;
-        }
 
         function deleteTheme(index) {
             setCurrentThemes(currentThemes.filter(element => currentThemes.indexOf(element) != index));
@@ -226,7 +220,10 @@ function Settings() {
                 <hr/><div className="sample" style={{backgroundColor: localBg, color: localFont}}>
                 <p>{text[lang].sample}</p>
                 <button onClick={customTheme} style={{backgroundColor: localBg, border: `${localFont} 3px solid`}} title={text[lang].themeControls[0]}><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke={localFont} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></button>
-                <button onClick={() => custom.current.close()} style={{backgroundColor: localBg, border: `${localFont} 3px solid`}} title={text[lang].themeControls[1]}><svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" fill={localFont} transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg></button>
+                <button onClick={() => {
+                    custom.current.close();
+                    saveDialog.current.close();
+                }} style={{backgroundColor: localBg, border: `${localFont} 3px solid`}} title={text[lang].themeControls[1]}><svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" fill={localFont} transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg></button>
                 <button onClick={() => saveTheme([localBg, localFont])} style={{backgroundColor: localBg, border: `${localFont} 3px solid`}} title={text[lang].themeControls[2]}><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.save} stroke={localFont} strokeWidth="2" strokeLinejoin="round"/></svg></button></div>
             </dialog>
             <dialog className="saveUpdate" ref={saveDialog}  style={{backgroundColor: saveIndex ? "#b7ffb0" : "#ffb0c5", color: saveIndex ? "#003e0a" : "#4b0134"}}>
