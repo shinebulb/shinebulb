@@ -100,9 +100,10 @@ function Settings() {
 
         function deleteTheme(index) {
             setCurrentThemes(currentThemes.filter(element => currentThemes.indexOf(element) != index));
+            setThemeNames(themeNames.map(element => themeNames.indexOf(element) != index ? element : defaultNames[i]));
             localStorage.setItem("themes", JSON.stringify(currentThemes.filter(element => currentThemes.indexOf(element) != index)));
+            localStorage.setItem("themeNames", JSON.stringify(themeNames.map(element => themeNames.indexOf(element) != index ? element : defaultNames[i])));
             deleteConfirmRefs[index].current.close();
-            clearInterval(intervalId);
         }
 
         function paintTheme(index) {
@@ -115,10 +116,21 @@ function Settings() {
         }
 
         function renameTheme(event, index) {
-            const left = themeNames.slice(0, index);
-            const right = themeNames.slice(index + 1);
+            const left = themeNames === null ? [] : themeNames.slice(0, index);
+            const right = themeNames === null ? [] : themeNames.slice(index + 1);
             setThemeNames([...left, event.target.value, ...right]);
-            localStorage.setItem("themeNames", JSON.stringify([...left, event.target.value, ...right]));
+        }
+
+        function checkThemeName(index) {
+            if (themeNames[index] != "") {
+                renameRefs[index].current.close();
+                localStorage.setItem("themeNames", JSON.stringify(themeNames));
+            }
+        }
+
+        function cancelRename(index) {
+            setThemeNames(JSON.parse(localStorage.getItem(themeNames)));
+            renameRefs[index].current.close();
         }
 
         const savedThemes = [];
@@ -128,7 +140,7 @@ function Settings() {
                 let savedTheme = currentThemes[i];
                 savedThemes.push(
                     <div key={i} className="line" style={{backgroundColor: savedTheme[0], color: savedTheme[1]}}>
-                        <p>{themeNames[i]}</p>
+                        <p>{themeNames === null ? `${text[lang].theme[1]} #${i + 1}` : themeNames[i]}</p>
                         <button onClick={() => {
                             renameRefs[i].current.show();
                             for (let j = 0; j < savedThemes.length; j++) {
@@ -173,13 +185,11 @@ function Settings() {
                             <button onClick={() => paintConfirmRefs[i].current.close()}>{text[lang].confirm[2]}</button>
                         </dialog>
                         <dialog ref={renameRefs[i]} id="rename">
-                            <input value={themeNames[i]} onChange={event => renameTheme(event, i)}/>
-                            <button onClick={() => {
-                                renameRefs[i].current.close();
-                            }} style={{width: "44%", marginTop: "0.6rem"}}>
+                            <input value={themeNames === null ? "" : themeNames[i]} onChange={event => renameTheme(event, i)}/>
+                            <button onClick={() => checkThemeName(i)} style={{width: "44%", marginTop: "0.6rem"}}>
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                             </button>
-                            <button onClick={() => renameRefs[i].current.close()} style={{width: "44%", marginTop: "0.6rem"}}>
+                            <button onClick={() => cancelRename(i)} style={{width: "44%", marginTop: "0.6rem"}}>
                                 <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>
                             </button>
                         </dialog>
@@ -237,7 +247,6 @@ function Settings() {
             <dialog className="saved" ref={saved}>
                 <h3>{text[lang].savedThemes[0]}</h3>
                 <h4>{`${JSON.parse(localStorage.getItem("themes")) === null ? 0 : JSON.parse(localStorage.getItem("themes")).length}/10 ${text[lang].savedThemes[1]}`}</h4>
-                <h4>{text[lang].working}</h4>
                 <div className="lines">
                     <hr/>{renderSaved()}<hr/>
                 </div>
