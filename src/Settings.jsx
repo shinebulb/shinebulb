@@ -26,7 +26,6 @@ function Settings() {
     
     const custom = useRef(null);
     const saved = useRef(null);
-    const saveDialog = useRef(null);
 
     const deleteConfirmRefs = [];
     const paintConfirmRefs = [];
@@ -87,8 +86,6 @@ function Settings() {
             localStorage.setItem("themes", JSON.stringify([...JSON.parse(localStorage.getItem("themes")), colors]));
             setSaveIndex(1);
         }
-
-        saveDialog.current.showModal();
     }
 
     function renderSaved() {
@@ -142,7 +139,7 @@ function Settings() {
                         <button onClick={() => {deleteConfirmRefs[i].current.show(); for (let j = 0; j < savedThemes.length; j++) {paintConfirmRefs[j].current.close(); renameRefs[j].current.close(); j !== i ? deleteConfirmRefs[j].current.close() : undefined}}} style={{border: `${savedTheme[1]} 2px solid`}} title={text[lang].theme[4]}><svg fill={savedTheme[1]} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 482.428 482.429" xmlSpace="preserve"><g><g><path d={paths.delete[0]}/><path d={paths.delete[1]}/><path d={paths.delete[2]}/><path d={paths.delete[3]}/></g></g></svg></button>
                         <dialog ref={deleteConfirmRefs[i]} id="confirmDelete"><p>{text[lang].savedThemeChange[0]}</p><button onClick={() => deleteTheme(i)}>{text[lang].confirm[1]}</button><button onClick={() => deleteConfirmRefs[i].current.close()}>{text[lang].confirm[2]}</button></dialog>
                         <dialog ref={paintConfirmRefs[i]} id="confirmPaint"><p>{text[lang].savedThemeChange[1]}</p><button onClick={() => paintTheme(i)}>{text[lang].confirm[1]}</button><button onClick={() => paintConfirmRefs[i].current.close()}>{text[lang].confirm[2]}</button></dialog>
-                        <dialog ref={renameRefs[i]} id="rename"><input value={themeNames === null ? "" : themeNames[i]} onChange={event => renameTheme(event, i)}/><button onClick={() => checkThemeName(i)} style={{width: "44%", marginTop: "0.6rem"}}><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></button><button onClick={() => cancelRename(i)} style={{width: "44%", marginTop: "0.6rem"}}><svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg></button></dialog>
+                        <dialog ref={renameRefs[i]} id="rename"><input placeholder={text[lang].theme[5]} value={themeNames === null ? "" : themeNames[i]} onChange={event => renameTheme(event, i)}/><button onClick={() => checkThemeName(i)} style={{width: "44%", marginTop: "0.6rem"}}><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></button><button onClick={() => cancelRename(i)} style={{width: "44%", marginTop: "0.6rem"}}><svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg></button></dialog>
                     </div>
                 );
             }
@@ -169,18 +166,18 @@ function Settings() {
                 <input type="color" value={localBg} onChange={event => {setLocalBg(event.target.value);}}/></div>
                 <div><label>{text[lang].customTheme[1]}<br/><span>{`(${text[lang].current}: ${localFont})`}</span></label>
                 <input type="color" value={localFont} onChange={event => {setLocalFont(event.target.value);}}/></div></div>
-                <hr/><div className="sample" style={{backgroundColor: localBg, color: localFont}}>
+                <hr style={{height: "3px"}}/>
+                <button className="modal-options" style={{boxShadow: "3px 0 0 var(--button-font)"}}>
+                    suggestions
+                </button>
+                <button className="modal-options" style={{boxShadow: "-3px 0 0 var(--button-font)"}}>
+                    saved themes
+                </button>
+                <hr style={{height: "3px"}}/><div className="sample" style={{backgroundColor: localBg, color: localFont}}>
                 <p>{text[lang].sample}</p>
                 <button onClick={customTheme} style={{backgroundColor: localBg, border: `${localFont} 3px solid`}} title={text[lang].themeControls[0]}><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke={localFont} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></button>
-                <button onClick={() => {
-                    custom.current.close();
-                    saveDialog.current.close();
-                }} style={{backgroundColor: localBg, border: `${localFont} 3px solid`}} title={text[lang].themeControls[1]}><svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" fill={localFont} transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg></button>
+                <button onClick={() => custom.current.close()} style={{backgroundColor: localBg, border: `${localFont} 3px solid`}} title={text[lang].themeControls[1]}><svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" fill={localFont} transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg></button>
                 <button onClick={() => saveTheme([localBg, localFont])} style={{backgroundColor: localBg, border: `${localFont} 3px solid`}} title={text[lang].themeControls[2]}><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.save} stroke={localFont} strokeWidth="2" strokeLinejoin="round"/></svg></button></div>
-                <dialog className="saveUpdate" ref={saveDialog}  style={{backgroundColor: saveIndex ? "#b7ffb0" : "#ffb0c5", color: saveIndex ? "#003e0a" : "#4b0134"}}>
-                    <p>{text[lang].saved[saveIndex]}</p>
-                    <button onClick={() => saveDialog.current.close()}><svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" fill={saveIndex ? "#003e0a" : "#4b0134"} transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg></button>
-                </dialog>
             </dialog>
             <dialog className="saved" ref={saved}>
                 <h3>{text[lang].savedThemes[0]}</h3>

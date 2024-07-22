@@ -207,7 +207,8 @@ a:hover {
     cursor: pointer;
 }
 
-.confirm button:hover {
+.confirm button:hover,
+.modal-options:hover {
     background-color: var(--modal-button-bg-hover);
 }
 
@@ -226,6 +227,20 @@ a:hover {
 .theme input {
     width: 10rem;
     height: 4rem;
+}
+
+.modal-options {
+    font-family: Avro, "Roboto Slab";
+    font-size: 1.3rem;
+    font-weight: bold;
+    background-color: var(--modal-button-bg);
+    color: var(--button-font);
+    border-radius: 0;
+    border: none;
+    width: 50%;
+    padding: 0.8rem 0;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
 }
 
 .saveUpdate {
@@ -307,7 +322,7 @@ a:hover {
 
 .saved {
     width: 420px;
-    max-height: 22rem;
+    max-height: 30rem;
     border: var(--border-thick);
     border-radius: 15px;
     background-color: var(--modal-bg);
@@ -488,6 +503,10 @@ hr {
     .theme input {
         width: 6rem;
         height: 2.5rem;
+    }
+    .modal-options {
+        font-size: 1.1rem;
+        padding: 0.6rem 0;
     }
     .themeHeader div {
         margin: 12px;

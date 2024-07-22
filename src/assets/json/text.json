@@ -15,7 +15,7 @@
         "saved": ["this theme is already saved!", "theme saved successfully!"],
         "themeControls": ["apply", "cancel", "save"],
         "savedThemes": ["saved themes", "space used"],
-        "theme": ["your themes will be listed here!", "theme", "rename theme", "apply theme", "delete theme"],
+        "theme": ["your themes will be listed here!", "theme", "rename theme", "apply theme", "delete theme", "enter theme name..."],
         "savedThemeChange": ["delete theme permanently?", "apply theme to the website?"],
         "exit": "exit",
         "about": [
@@ -47,7 +47,7 @@
         "saved": ["эта тема уже сохранена!", "тема успешно сохранена!"],
         "themeControls": ["применить", "отменить", "сохранить"],
         "savedThemes": ["сохранённые темы", "места занято"],
-        "theme": ["ваши темы будут размещены здесь!", "тема", "переименовать тему", "применить тему", "удалить тему"],
+        "theme": ["ваши темы будут размещены здесь!", "тема", "переименовать тему", "применить тему", "удалить тему", "название темы..."],
         "savedThemeChange": ["безвозвратно удалить тему?", "применить тему на сайте?"],
         "exit": "закрыть",
         "about": [
