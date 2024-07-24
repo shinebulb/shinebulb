@@ -295,6 +295,11 @@ hr {
     .p1, a, h2 {
         font-size: 1.35rem;
     }
+    .about-container {
+        width: "90%";
+        text-align: "center";
+        margin: "auto";
+    }
     .about .p1 {
         font-size: 1rem;
     }

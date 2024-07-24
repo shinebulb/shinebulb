@@ -13,7 +13,7 @@ function About() {
     const theme = parseInt(localStorage.getItem("theme")) || 0;
 
     return (
-        <div style={{width: "90%", textAlign: "center", margin: "auto"}}>
+        <div className="about-container">
             <h2>{text[lang].headings[2]}</h2>
             <p className="p1">{text[lang].about[0]}</p>
             <div style={{height: "1rem"}} />
