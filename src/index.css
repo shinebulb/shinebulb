@@ -296,9 +296,9 @@ hr {
         font-size: 1.35rem;
     }
     .about-container {
-        width: "90%";
-        text-align: "center";
-        margin: "auto";
+        width: 90%;
+        text-align: center;
+        margin: auto;
     }
     .about .p1 {
         font-size: 1rem;
