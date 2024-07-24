@@ -23,12 +23,12 @@ function Play() {
     const modal = useRef(null);
 
     function pictureChange() {
-        setText(!text ? 1 : 0);
-        setCount(!text ? c => c + 1 : count);
+        setText(Number(!text));
+        setCount(c => c + !text);
         setPic(!text ? "on" : "off");
         new Audio(!text ? "audio/on.mp3" : "audio/off.mp3").play();
         bulb.current.classList.toggle("on");
-        localStorage.setItem("countDisplay", !text ? count + 1 : count);
+        localStorage.setItem("countDisplay", count + !text);
         localStorage.setItem("classOn", Number(bulb.current.classList.contains("on")));
     }
 
