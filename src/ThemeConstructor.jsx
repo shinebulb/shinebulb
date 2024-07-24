@@ -4,8 +4,9 @@ import themes from './assets/themes';
 
 function ThemeConstructor({reference, themeState}) {
 
-    const lang = localStorage.getItem("langMode") || 0;
+    const lang = parseInt(localStorage.getItem("langMode")) || 0;
     const theme = parseInt(localStorage.getItem("theme")) || 0;
+
     const [localBg, setLocalBg] = useState(localStorage.getItem("bg") || "#2e5a97");
     const [localFont, setLocalFont] = useState(localStorage.getItem("font") || "#f1f1f1");
     
