@@ -1,4 +1,5 @@
-import {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
+import ThemeConstructor from './ThemeConstructor';
 import themes from './assets/themes';
 import modes from './assets/json/modes.json';
 import languages from './assets/json/languages.json';
@@ -13,30 +14,24 @@ function Settings() {
 
     const [lang, setLang] = useState(parseInt(localStorage.getItem("langMode")) || 0);
     const [theme, setTheme] = useState(parseInt(localStorage.getItem("theme")) || 0);
-    const [localBg, setLocalBg] = useState(localStorage.getItem("bg") || "#2e5a97");
-    const [localFont, setLocalFont] = useState(localStorage.getItem("font") || "#f1f1f1");
 
     const modal = useRef(null);
-
+    
     function themeChange(event) {
         const mode = modes.indexOf(event.target.value);
-        mode === 3 ? modal.current.showModal() : themes[mode]();
-        setTheme(mode === 3 ? theme : mode);
-        localStorage.setItem("theme", mode === 3 ? theme : mode);
+        if (mode !== 3) {
+            themes[mode]();
+            setTheme(mode);
+            localStorage.setItem("theme", mode);
+        }
+        else {
+            modal.current.showModal();
+        }
     }
 
     function languageChange(event) {
         setLang(languages.indexOf(event.target.value));
         localStorage.setItem("langMode", languages.indexOf(event.target.value));
-    }
-
-    function customTheme() {
-        setTheme(3);
-        modal.current.close();
-        localStorage.setItem("theme", 3);
-        localStorage.setItem("bg", localBg);
-        localStorage.setItem("font", localFont);
-        themes[theme]();
     }
 
     return (
@@ -51,39 +46,10 @@ function Settings() {
                     <option value="custom">{text[lang].mode[3]}</option>
                 </select>
             </div>
-            <dialog className="theme" ref={modal}>
-                <div className="themeHeader">
-                    <div>
-                        <label>
-                            {text[lang].customTheme[0]}<br/>
-                            <span>{`(${text[lang].current}: ${localBg})`}</span>
-                        </label>
-                        <input type="color" value={localBg} onChange={event => {
-                            setLocalBg(event.target.value);
-                        }}/>
-                    </div>
-                    <div>
-                        <label>
-                            {text[lang].customTheme[1]}<br/>
-                            <span>{`(${text[lang].current}: ${localFont})`}</span>
-                        </label>
-                        <input type="color" value={localFont} onChange={event => {
-                            setLocalFont(event.target.value);
-                        }}/>
-                    </div>
-                </div>
-                <hr />
-                <div className="sample" style={{backgroundColor: localBg, color: localFont}}>
-                    <p>{text[lang].sample}</p>
-                    <button onClick={customTheme} style={{backgroundColor: localBg, color: localFont, border: `${localFont} 3px solid`}}>
-                        {text[lang].themeControls[0]}
-                    </button>
-                    <button onClick={() => modal.current.close()} style={{backgroundColor: localBg, color: localFont, border: `${localFont} 3px solid`}}>
-                        {text[lang].themeControls[1]}
-                    </button>
-                </div>
-            </dialog>
             <div style={{height: "3rem"}}/>
+            <dialog className="theme" ref={modal}>
+                <ThemeConstructor reference={modal} themeState={setTheme}/>
+            </dialog>
             <div className="container">
                 <label>{text[lang].settings[1]}</label>
                 <select onChange={languageChange} value={languages[lang]}>

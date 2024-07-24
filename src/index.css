@@ -258,17 +258,13 @@ a:hover {
     font-family: Avro, "Roboto Slab";
     font-size: 1.6rem;
     color: var(--button-font);
-    background-color: var(--modal-button-bg);
+    background-color: transparent;
     padding: 6px 16px;
     margin: 0px 8px 22px;
     border: var(--border-thick);
     border-radius: 12px;
     transition: background-color 0.5s ease;
     cursor: pointer;
-}
-
-.sample button:hover {
-    background-color: var(--modal-button-bg-hover);
 }
 
 hr {
