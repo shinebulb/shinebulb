@@ -47,9 +47,7 @@ function Settings() {
                 </select>
             </div>
             <div style={{height: "3rem"}}/>
-            <dialog className="theme" ref={modal}>
-                <ThemeConstructor reference={modal} themeState={setTheme}/>
-            </dialog>
+            <ThemeConstructor reference={modal} themeState={setTheme}/>
             <div className="container">
                 <label>{text[lang].settings[1]}</label>
                 <select onChange={languageChange} value={languages[lang]}>

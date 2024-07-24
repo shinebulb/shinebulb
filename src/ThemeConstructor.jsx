@@ -19,7 +19,7 @@ function ThemeConstructor({reference, themeState}) {
     }
 
     return (
-        <>
+        <dialog className="theme" ref={reference}>
             <div className="themeHeader">
                 <div>
                     <label>
@@ -46,7 +46,7 @@ function ThemeConstructor({reference, themeState}) {
                     {text[lang].themeControls[1]}
                 </button>
             </div>
-        </>
+        </dialog>
     )
 }
 
