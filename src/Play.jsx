@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import themes from './assets/themes';
 import textJSON from './assets/json/text.json';
 

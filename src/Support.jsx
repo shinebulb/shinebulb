@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import themes from './assets/themes';
 import text from './assets/json/text.json';
 
