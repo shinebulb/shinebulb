@@ -9,12 +9,10 @@ function Settings() {
     useEffect(() => {
         document.title = text[lang].links[1];
         themes[theme]();
-        setLang(parseInt(localStorage.getItem("langMode")) || 0);
-        setTheme(parseInt(localStorage.getItem("theme")) || 0);
     });
 
-    const [lang, setLang] = useState(0);
-    const [theme, setTheme] = useState(0);
+    const [lang, setLang] = useState(parseInt(localStorage.getItem("langMode")) || 0);
+    const [theme, setTheme] = useState(parseInt(localStorage.getItem("theme")) || 0);
     const [localBg, setLocalBg] = useState(localStorage.getItem("bg") || "#2e5a97");
     const [localFont, setLocalFont] = useState(localStorage.getItem("font") || "#f1f1f1");
 
