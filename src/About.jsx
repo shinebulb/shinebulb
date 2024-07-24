@@ -13,7 +13,7 @@ function About() {
     const theme = parseInt(localStorage.getItem("theme")) || 0;
 
     return (
-        <>
+        <div style={{width: "90%", textAlign: "center", margin: "auto"}}>
             <h2>{text[lang].headings[2]}</h2>
             <p className="p1">{text[lang].about[0]}</p>
             <div style={{height: "1rem"}} />
@@ -30,7 +30,7 @@ function About() {
                 <a href = "mailto:shinebulby@gmail.com?subject=contact">{text[lang].contact}</a>
                 <a href="/">{text[lang].back}</a>
             </div>
-        </>
+        </div>
     )
 }
 
