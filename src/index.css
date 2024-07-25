@@ -42,7 +42,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--bg);
-    transition: background-color 0.5s ease;
+    transition: background-color 0.2s ease;
 }
 
 .controls button {
@@ -82,7 +82,7 @@ h2 {
     color: var(--font);
     font-weight: bold;
     margin: 1rem;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.2s ease;
 }
 
 .settings h2 {
@@ -101,7 +101,7 @@ h2 {
 .container label {
     font-size: 1.5rem;
     color: var(--button-font);
-    transition: background-color 0.5s ease;
+    transition: background-color 0.2s ease;
 }
 
 .container select {
@@ -111,7 +111,7 @@ h2 {
     border: var(--border-thick);
     border-radius: 10px;
     padding: 5px 10px;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.2s ease;
     cursor: pointer;
 }
 
@@ -141,7 +141,7 @@ a {
     font-size: 1.5rem;
     color: var(--font);
     font-weight: bold;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.2s ease;
 }
   
 a:hover {
@@ -193,7 +193,7 @@ a:hover {
     border: var(--border-thick);
     border-radius: 12px;
     padding: 3px 0;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.2s ease;
     cursor: pointer;
 }
 
@@ -253,7 +253,7 @@ a:hover {
     margin: 0px 8px 22px;
     border: var(--border-thick);
     border-radius: 12px;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.2s ease;
     cursor: pointer;
 }
 
