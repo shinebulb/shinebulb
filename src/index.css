@@ -1,15 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap');
 
-@font-face {
-    font-family: 'Avro';
-    src: local("Arvo-Regular"), url("./assets/fonts/Arvo-Regular.ttf");
-}
-  
-@font-face {
-    font-family: 'AvroItalic';
-    src: local("Arvo-Italic"), url("./assets/fonts/Arvo-Italic.ttf");
-}
-
 .light {
     --bg: rgb(244, 240, 232);
     --button-font: rgb(43, 43, 43);
@@ -41,7 +31,7 @@
 }
 
 html, body {
-    font-family: Avro, "Roboto Slab";
+    font-family: "Roboto Slab";
     height: 100%;
 }
   
@@ -56,7 +46,7 @@ body {
 }
 
 .controls button {
-    font-family: Avro, "Roboto Slab";
+    font-family: "Roboto Slab";
     background-color: var(--button-bg);
     color: var(--button-font);
     border: var(--border-thin);
@@ -101,7 +91,7 @@ h2 {
 }
 
 .container {
-    font-family: Avro, "Roboto Slab";
+    font-family: "Roboto Slab";
     width: 420px;
     display: flex;
     align-items: center;
@@ -194,7 +184,7 @@ a:hover {
 }
 
 .confirm button {
-    font-family: Avro, "Roboto Slab";
+    font-family: "Roboto Slab";
     background-color: var(--button-bg);
     color: var(--button-font);
     font-size: 1.4rem;
@@ -255,7 +245,7 @@ a:hover {
 }
 
 .sample button {
-    font-family: Avro, "Roboto Slab";
+    font-family: "Roboto Slab";
     font-size: 1.6rem;
     color: var(--button-font);
     background-color: transparent;
@@ -272,6 +262,33 @@ hr {
     margin: 0;
     border: none;
     background-color: var(--button-font);
+}
+
+.donate-button {
+    display: flex;
+    background-color: var(--button-bg);
+    font-size: 1.6rem;
+    width: 400px;
+    height: 220px;
+    text-align: center;
+    align-items: center;
+    border: var(--border-thick);
+    border-radius: 20px;
+    padding: 15px 30px;
+}
+
+.donate-button:hover {
+    background-color: var(--select-hover);
+    color: var(--font);
+    text-decoration: none;
+}
+
+.donate-button img {
+    height: 100%;
+}
+
+.donate-button span {
+    margin: 0;
 }
 
 #source {
@@ -342,5 +359,12 @@ hr {
         border-radius: 10px;
         padding: 6px 8px;
         margin: 0px 6px 20px;
+    }
+    .donate-button {
+        width: 330px;
+        height: 180px;
+        font-size: 1.35rem;
+        border-radius: 15px;
+        padding: 10px 20px;
     }
 }

@@ -14,7 +14,10 @@ function Support() {
 
     return (
         <>
-            <p className="p3">{text[lang].unavailable}</p>
+            <a className="donate-button" href="https://nowpayments.io/donation?api_key=YT62CT1-1NG4AQ3-HARDAGH-5VMQT4A" target="_blank" rel="noreferrer noopener">
+                <span>{text[lang].donate}</span>
+                <img src="img/donate.svg"/>
+            </a>
             <div style={{height: "1rem"}}/>
             <a href="/">{text[lang].back}</a>
         </>
