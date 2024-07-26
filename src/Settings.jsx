@@ -24,10 +24,6 @@ function Settings() {
             setTheme(mode);
             localStorage.setItem("theme", mode);
         } else {
-            document.body.classList.add('theme-transition');
-            setTimeout(() => {
-                document.body.classList.remove('theme-transition');
-            }, 100);
             modal.current.showModal();
         }
     }
