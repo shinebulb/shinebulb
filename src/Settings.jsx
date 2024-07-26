@@ -23,7 +23,8 @@ function Settings() {
             themes[mode]();
             setTheme(mode);
             localStorage.setItem("theme", mode);
-        } else {
+        }
+        else {
             modal.current.showModal();
         }
     }
