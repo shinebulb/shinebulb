@@ -4,6 +4,7 @@ import themes from './assets/themes';
 import modes from './assets/json/modes.json';
 import languages from './assets/json/languages.json';
 import text from './assets/json/text.json';
+import { motion } from 'framer-motion'
 
 function Settings() {
     const [lang, setLang] = useState(parseInt(localStorage.getItem("langMode")) || 0);
@@ -21,12 +22,11 @@ function Settings() {
             document.body.classList.add('theme-transition');
             setTimeout(() => {
                 document.body.classList.remove('theme-transition');
-            }, 100);
+            }, 500);
             themes[mode]();
             setTheme(mode);
             localStorage.setItem("theme", mode);
-        }
-        else {
+        } else {
             modal.current.showModal();
         }
     }
@@ -38,7 +38,13 @@ function Settings() {
     }
 
     return (
-        <div className="settings">
+        <motion.div
+            className='settings'
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
+            transition={{duration: 0.5}}
+        >
             <h2>{text[lang].headings[1]}</h2>
             <div className="container">
                 <label className="settingName">{text[lang].settings[0]}</label>
@@ -60,7 +66,7 @@ function Settings() {
             </div>
             <div style={{ height: "5rem" }} />
             <a href="/">{text[lang].back}</a>
-        </div>
+        </motion.div>
     );
 }
 

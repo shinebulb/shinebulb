@@ -3,7 +3,6 @@ import text from './assets/json/text.json';
 import themes from './assets/themes';
 
 function ThemeConstructor({ reference, themeState }) {
-    
     const lang = parseInt(localStorage.getItem("langMode")) || 0;
 
     const [localBg, setLocalBg] = useState(localStorage.getItem("bg") || "#2e5a97");
@@ -13,7 +12,7 @@ function ThemeConstructor({ reference, themeState }) {
         document.body.classList.add('theme-transition');
             setTimeout(() => {
                 document.body.classList.remove('theme-transition');
-            }, 100);
+            }, 500);
         themeState(3);
         reference.current.close();
         localStorage.setItem("theme", 3);

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import themes from './assets/themes';
 import text from './assets/json/text.json';
-
+import { motion } from 'framer-motion'
 function Home() {
 
     useEffect(() => themes[theme]());
@@ -10,7 +10,13 @@ function Home() {
     const theme = parseInt(localStorage.getItem("theme")) || 0;
 
     return (
-        <>
+        <motion.div
+            className='home'
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
+            transition={{duration: 0.5}}
+        >
             <div className="header">
                 <p className="p2">shineb</p><img src="img/logo2.png"/><p className="p2">lb</p>
             </div>
@@ -21,7 +27,7 @@ function Home() {
                 <a href="/support">{text[lang].links[3]}</a>
             </div>
             <a href="https://github.com/nurgalinchik/shinebulb" target="_blank" id="source">{text[lang].source}</a>
-        </>
+        </motion.div>
     )
 }
 

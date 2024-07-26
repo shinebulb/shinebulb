@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import themes from './assets/themes';
 import text from './assets/json/text.json';
+import { motion } from 'framer-motion'
 
 function About() {
 
@@ -13,11 +14,17 @@ function About() {
     const theme = parseInt(localStorage.getItem("theme")) || 0;
 
     return (
-        <div className="about-container">
+        <motion.div
+            className='about'
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
+            transition={{duration: 0.5}}
+        >
             <h2>{text[lang].headings[2]}</h2>
             <p className="p1">{text[lang].about[0]}</p>
             <div style={{height: "1rem"}} />
-            <div className="about">
+            <div className="about-content">
                 <p className="p1">{text[lang].about[1]}</p>
                 <p className="p1">{text[lang].about[2]}</p>
                 <p className="p1">{text[lang].about[3]}</p>
@@ -30,7 +37,7 @@ function About() {
                 <a href = "mailto:shinebulby@gmail.com?subject=contact">{text[lang].contact}</a>
                 <a href="/">{text[lang].back}</a>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

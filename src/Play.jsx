@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
 import themes from './assets/themes';
 import textJSON from './assets/json/text.json';
+import { motion } from 'framer-motion'
 
 function Play() {
     
@@ -44,7 +45,13 @@ function Play() {
     }
 
     return (
-        <div className="play">
+        <motion.div 
+            className="play"
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
+            transition={{duration: 0.5}}
+        >
             <h2>{textJSON[lang].headings[0]}</h2>
             <p className="p1" id="text">{textJSON[lang].text[text]}</p>
             <img ref={bulb} src={`img/${pic}.svg`} alt="the lightbulb" />
@@ -59,7 +66,7 @@ function Play() {
             </dialog>
             <h2 id="counter">{count}</h2>
             <a href="/">{textJSON[lang].back}</a>
-        </div>
+        </motion.div>
     )
 }
 
