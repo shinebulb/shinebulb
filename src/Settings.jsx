@@ -18,6 +18,10 @@ function Settings() {
     function themeChange(event) {
         const mode = modes.indexOf(event.target.value);
         if (mode !== 3) {
+            document.body.classList.add('theme-transition');
+            setTimeout(() => {
+                document.body.classList.remove('theme-transition');
+            }, 100);
             themes[mode]();
             setTheme(mode);
             localStorage.setItem("theme", mode);
