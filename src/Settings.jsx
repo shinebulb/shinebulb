@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ThemeConstructor from './ThemeConstructor';
 import themes from './assets/themes';
 import modes from './assets/json/modes.json';
@@ -6,17 +6,15 @@ import languages from './assets/json/languages.json';
 import text from './assets/json/text.json';
 
 function Settings() {
+    const [lang, setLang] = useState(parseInt(localStorage.getItem("langMode")) || 0);
+    const [theme, setTheme] = useState(parseInt(localStorage.getItem("theme")) || 0);
+    const modal = useRef(null);
 
     useEffect(() => {
         document.title = text[lang].links[1];
         themes[theme]();
-    });
+    }, [lang, theme]);
 
-    const [lang, setLang] = useState(parseInt(localStorage.getItem("langMode")) || 0);
-    const [theme, setTheme] = useState(parseInt(localStorage.getItem("theme")) || 0);
-
-    const modal = useRef(null);
-    
     function themeChange(event) {
         const mode = modes.indexOf(event.target.value);
         if (mode !== 3) {
@@ -30,8 +28,9 @@ function Settings() {
     }
 
     function languageChange(event) {
-        setLang(languages.indexOf(event.target.value));
-        localStorage.setItem("langMode", languages.indexOf(event.target.value));
+        const newLang = languages.indexOf(event.target.value);
+        setLang(newLang);
+        localStorage.setItem("langMode", newLang);
     }
 
     return (
@@ -46,8 +45,8 @@ function Settings() {
                     <option value="custom">{text[lang].mode[3]}</option>
                 </select>
             </div>
-            <div style={{height: "3rem"}}/>
-            <ThemeConstructor reference={modal} themeState={setTheme}/>
+            <div style={{ height: "3rem" }} />
+            <ThemeConstructor reference={modal} themeState={setTheme} />
             <div className="container">
                 <label>{text[lang].settings[1]}</label>
                 <select onChange={languageChange} value={languages[lang]}>
@@ -55,10 +54,10 @@ function Settings() {
                     <option value="русский">русский</option>
                 </select>
             </div>
-            <div style={{height: "5rem"}}/>
+            <div style={{ height: "5rem" }} />
             <a href="/">{text[lang].back}</a>
         </div>
-    )
+    );
 }
 
-export default Settings
+export default Settings;
