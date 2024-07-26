@@ -3,6 +3,7 @@ import text from './assets/json/text.json';
 import themes from './assets/themes';
 
 function ThemeConstructor({ reference, themeState }) {
+    
     const lang = parseInt(localStorage.getItem("langMode")) || 0;
 
     const [localBg, setLocalBg] = useState(localStorage.getItem("bg") || "#2e5a97");
