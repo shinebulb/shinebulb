@@ -11,6 +11,10 @@ function ThemeConstructor({reference, themeState}) {
     const [localFont, setLocalFont] = useState(localStorage.getItem("font") || "#f1f1f1");
     
     function customTheme() {
+        document.body.classList.add('theme-transition');
+        setTimeout(() => {
+            document.body.classList.remove('theme-transition');
+        }, 100);
         themeState(3);
         reference.current.close();
         localStorage.setItem("theme", 3);
