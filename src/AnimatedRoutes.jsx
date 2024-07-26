@@ -9,6 +9,8 @@ import Play from './Play';
 import Settings from './Settings';
 import About from './About';   
 import Support from './Support';
+import Explore from './Explore';
+import SavedThemes from './SavedThemes';
 
 import { AnimatePresence } from 'framer-motion'
 
@@ -22,6 +24,8 @@ function AnimatedRoutes() {
                 <Route path="/settings" element={<Settings />}/>
                 <Route path="/about" element={<About />}/>
                 <Route path="/support" element={<Support />}/>
+                <Route path="/explore" element={<Explore />}/>
+                <Route path="/saved" element={<SavedThemes />}/>
             </Routes>
         </AnimatePresence>
     )

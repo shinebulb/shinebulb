@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import text from './assets/json/text.json';
+import paths from './assets/json/svg-paths.json';
+import includesDeep from './assets/includesDeep';
 import themes from './assets/themes';
 
-function ThemeConstructor({ reference, themeState }) {
+function ThemeConstructor({ constructor, alert, themeState }) {
     
     const lang = parseInt(localStorage.getItem("langMode")) || 0;
 
     const [localBg, setLocalBg] = useState(localStorage.getItem("bg") || "#2e5a97");
     const [localFont, setLocalFont] = useState(localStorage.getItem("font") || "#f1f1f1");
+
+    const [saveIndex, setSaveIndex] = useState(parseInt(localStorage.getItem("saveIndex")) || -1);
+    const [currentThemes, setCurrentThemes] = useState(JSON.parse(localStorage.getItem("themes")) || []);
 
     function customTheme() {
         document.body.classList.add('theme-transition');
@@ -15,15 +20,35 @@ function ThemeConstructor({ reference, themeState }) {
                 document.body.classList.remove('theme-transition');
             }, 500);
         themeState(3);
-        reference.current.close();
+        constructor.current.close();
         localStorage.setItem("theme", 3);
         localStorage.setItem("bg", localBg);
         localStorage.setItem("font", localFont);
         themes[3]();
     }
 
+    function saveTheme(colors) {
+        if (includesDeep(currentThemes, colors)) {
+            setSaveIndex(0);
+            localStorage.setItem("saveIndex", 0);
+        }
+        else {
+            if (JSON.parse(localStorage.getItem("themes")) !== null) {
+                setCurrentThemes([...JSON.parse(localStorage.getItem("themes")), colors]);
+                localStorage.setItem("themes", JSON.stringify([...JSON.parse(localStorage.getItem("themes")), colors]));
+            }
+            else {
+                setCurrentThemes([colors]);
+                localStorage.setItem("themes", JSON.stringify([colors]));
+            }
+            setSaveIndex(1);
+            localStorage.setItem("saveIndex", 1);
+        }
+        alert.current.show();
+    }
+
     return (
-        <dialog className="theme" ref={reference}>
+        <dialog className="theme" ref={constructor}>
             <div className="themeHeader">
                 <div>
                     <label>
@@ -40,16 +65,50 @@ function ThemeConstructor({ reference, themeState }) {
                     <input type="color" value={localFont} onChange={event => setLocalFont(event.target.value)} />
                 </div>
             </div>
-            <hr />
+            <hr/>
+            <a href="/explore" style={{margin: "0"}}>
+                <button className="modal-options" style={{boxShadow: "3px 0 0 var(--button-font)"}}>
+                    {text[lang].themeOptions[0]}
+                </button>
+            </a>
+            <a href="/saved" style={{margin: "0"}}>
+                <button className="modal-options" style={{boxShadow: "-3px 0 0 var(--button-font)"}}>
+                    {text[lang].themeOptions[1]}
+                </button>
+            </a>
+            <hr/>
             <div className="sample" style={{ backgroundColor: localBg, color: localFont }}>
                 <p>{text[lang].sample}</p>
-                <button onClick={customTheme} style={{ color: localFont, border: `${localFont} 3px solid` }}>
-                    {text[lang].themeControls[0]}
+                <button
+                    onClick={customTheme}
+                    style={{backgroundColor: "transparent", border: `${localFont} 3px solid`}}
+                    title={text[lang].themeControls[0]}
+                >
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke={localFont} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </button>
-                <button onClick={() => reference.current.close()} style={{ color: localFont, border: `${localFont} 3px solid` }}>
-                    {text[lang].themeControls[1]}
+                <button
+                    onClick={() => constructor.current.close()}
+                    style={{backgroundColor: "transparent", border: `${localFont} 3px solid`}}
+                    title={text[lang].themeControls[1]}
+                >
+                    <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" fill={localFont} transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>
+                </button>
+                <button
+                    onClick={() => saveTheme([localBg, localFont])}
+                    style={{backgroundColor: "transparent", border: `${localFont} 3px solid`}}
+                    title={text[lang].themeControls[2]}
+                >
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.save} stroke={localFont} strokeWidth="2" strokeLinejoin="round"/></svg>
                 </button>
             </div>
+            <dialog className="alert" ref={alert}  style={{backgroundColor: saveIndex ? "#b7ffb0" : "#ffb0c5", color: saveIndex ? "#003e0a" : "#4b0134"}}>
+                <div>
+                    <p>{text[lang].savedStatus[saveIndex]}</p>
+                    <button onClick={() => alert.current.close()}>
+                        <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" fill={saveIndex ? "#003e0a" : "#4b0134"} transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>
+                    </button>
+                </div>
+            </dialog>
         </dialog>
     );
 }

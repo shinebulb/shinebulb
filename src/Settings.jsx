@@ -7,9 +7,12 @@ import text from './assets/json/text.json';
 import { motion } from 'framer-motion'
 
 function Settings() {
+
     const [lang, setLang] = useState(parseInt(localStorage.getItem("langMode")) || 0);
     const [theme, setTheme] = useState(parseInt(localStorage.getItem("theme")) || 0);
+    
     const modal = useRef(null);
+    const saveUpdate = useRef(null);
 
     useEffect(() => {
         document.title = text[lang].links[1];
@@ -56,7 +59,7 @@ function Settings() {
                 </select>
             </div>
             <div style={{ height: "3rem" }} />
-            <ThemeConstructor reference={modal} themeState={setTheme} />
+            <ThemeConstructor constructor={modal} alert={saveUpdate} themeState={setTheme} />
             <div className="container">
                 <label>{text[lang].settings[1]}</label>
                 <select onChange={languageChange} value={languages[lang]}>

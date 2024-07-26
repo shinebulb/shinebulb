@@ -201,7 +201,8 @@ a:hover {
     cursor: pointer;
 }
 
-.confirm button:hover {
+.confirm button:hover,
+.modal-options:hover {
     background-color: var(--modal-button-bg-hover);
 }
 
@@ -249,16 +250,64 @@ a:hover {
 }
 
 .sample button {
-    font-family: "Roboto Slab";
-    font-size: 1.6rem;
+    font-family: Avro, "Roboto Slab";
+    width: 4rem;
+    height: 3rem;
     color: var(--button-font);
-    background-color: transparent;
+    background-color: var(--modal-button-bg);
     padding: 6px 16px;
     margin: 0px 8px 22px;
     border: var(--border-thick);
     border-radius: 12px;
-    transition: background-color 0.1s ease;
     cursor: pointer;
+}
+
+.sample svg {
+    width: 1.8rem;
+}
+
+.modal-options {
+    font-family: Avro, "Roboto Slab";
+    font-size: 1.3rem;
+    font-weight: bold;
+    background-color: var(--modal-button-bg);
+    color: var(--button-font);
+    border-radius: 0;
+    border: none;
+    width: 50%;
+    padding: 0.8rem 0;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+}
+
+.alert {
+    width: 200px;
+    border: none;
+    border-radius: 10px;
+    margin: -5rem 2.8rem;
+    padding: 0.2rem 0;
+}
+
+.alert div {
+    display: flex;
+    align-items: center;
+}
+
+.alert p {
+    font-size: 1.2rem;
+    margin: 0.3rem 0.8rem;
+}
+
+.alert button {
+    background-color: transparent;
+    border: none;
+    margin: 0.2rem 0.6rem 0.2rem 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.alert svg {
+    width: 2.2rem;
 }
 
 hr {
@@ -359,6 +408,26 @@ hr {
         border-radius: 10px;
         padding: 6px 8px;
         margin: 0px 6px 20px;
+    }
+    .alert {
+        width: 170px;
+        border-radius: 8px;
+        margin: -4.3rem 0.8rem;
+        padding: 0.1rem 0;
+    }
+    .alert p {
+        font-size: 1rem;
+        margin: 0.2rem 0.6rem;
+    }
+    .alert button {
+        margin: 0.2rem 0.6rem 0.2rem 0;
+    }
+    .alert svg {
+        width: 1.8rem;
+    }
+    .modal-options {
+        font-size: 1.1rem;
+        padding: 0.6rem 0;
     }
     .donate-button {
         width: 290px;
