@@ -23,8 +23,11 @@ function Settings() {
             themes[mode]();
             setTheme(mode);
             localStorage.setItem("theme", mode);
-        }
-        else {
+        } else {
+            document.body.classList.add('theme-transition');
+            setTimeout(() => {
+                document.body.classList.remove('theme-transition');
+            }, 100);
             modal.current.showModal();
         }
     }
