@@ -1,7 +1,7 @@
 [
     {
         "headings": ["the lightbulb", "settings", "about"],
-        "links": ["PLAY", "settings", "about", "support us", "explore", "saved"],
+        "links": ["PLAY", "settings", "about", "support us", "suggestions", "saved"],
         "source": "source code",
         "confirm": ["are you sure you want to reset the counter?", "yes", "no"],
         "text": ["sad :(", "happy!"],
@@ -30,7 +30,7 @@
 
     {
         "headings": ["лампочка", "настройки", "о нас"],
-        "links": ["ИГРАТЬ", "настройки", "о нас", "поддержать", "исследовать", "сохранённые"],
+        "links": ["ИГРАТЬ", "настройки", "о нас", "поддержать", "предложения", "сохранённые"],
         "source": "исходный код",
         "confirm": ["вы уверены, что хотите очистить счётчик?", "да", "нет"],
         "text": ["грустная :(", "счастливая!"],
