@@ -340,6 +340,11 @@ hr {
     height: 100%;
 }
 
+h3 {
+    color: var(--font);
+    font-style: italic;
+}
+
 #source {
     position: absolute;
     bottom: 0;

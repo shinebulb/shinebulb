@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
+import ThemeCard from './ThemeCard';
 import themes from './assets/themes';
 import text from './assets/json/text.json';
-import { motion } from 'framer-motion';
+import {motion} from 'framer-motion';
 
 function SavedThemes() {
 
@@ -21,7 +22,10 @@ function SavedThemes() {
             exit={{opacity: 0}}
             transition={{duration: 0.5}}
         >
-            <h2>{lang ? "в разработке!" : "in progress!"}</h2>
+            <h2>saved themes</h2>
+            <h3>0/10 space used</h3>
+            <ThemeCard/>
+            <div style={{height: "3rem"}}/>
             <a href="/settings">{text[lang].back}</a>
         </motion.div>
     )
