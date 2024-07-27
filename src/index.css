@@ -361,15 +361,16 @@ hr {
 
 .no-themes {
     display: flex;
-    width: 80vw;
+    width: 440px;
     background-color: var(--button-bg);
     border: var(--border-thick);
     border-radius: 15px;
     padding: 1rem;
+    margin: 2rem auto;
 }
 
 .no-themes img {
-    width: 28vw;
+    width: 170px;
     border: var(--border-thick);
     border-radius: 50%;
 }
@@ -377,7 +378,7 @@ hr {
 .no-themes p {
     color: var(--button-font);
     font-style: italic;
-    font-size: 1.2rem;
+    font-size: 1.4em;
     margin: auto 0.5rem;
 }
 

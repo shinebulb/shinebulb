@@ -45,9 +45,11 @@ function SavedThemes() {
                 {`${currentThemes.length} ${text[lang].savedThemes[1]}`}
             </h3>
             <div style={{height: "0.1rem"}}/>
-            <div className="saved-display">
-                {currentThemes.length > 0 ? renderCards() : <NoThemes/>}
-            </div>
+            {
+                currentThemes.length > 0 ?
+                <div className="saved-display">{renderCards()}</div>
+                : <NoThemes/>
+            }
             <div style={{height: "1rem"}}/>
             <a href="/settings">{text[lang].back}</a>
         </motion.div>
