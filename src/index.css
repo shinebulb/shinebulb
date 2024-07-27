@@ -428,8 +428,12 @@ hr {
     background-color: var(--modal-button-bg-hover);
 }
 
-#delete-ref {
+#delete-ref-0 {
     margin: 3.2rem calc(50vw + 0.5rem) 0 auto;
+}
+
+#delete-ref-1 {
+    margin: 3.2rem calc(15vw - 0.5rem) 0 auto;
 }
 
 #source {
@@ -562,7 +566,7 @@ hr {
     .saved-controls svg {
         height: 2rem;
     }
-    #delete-ref {
+    #delete-ref-0, #delete-ref-1 {
         margin: 3.2rem calc(7vw + 2.5%) 0 auto;
     }
 }
