@@ -54,9 +54,11 @@ function Play() {
         >
             <h2>{textJSON[lang].headings[0]}</h2>
             <p className="p1" id="text">{textJSON[lang].text[text]}</p>
-            <img ref={bulb} src={`img/${pic}.svg`} alt="the lightbulb" />
+            <label htmlFor="switch">
+                <img ref={bulb} src={`img/${pic}.svg`} alt="the lightbulb" />
+            </label>
             <div className="controls">
-                <button onClick={pictureChange}>{textJSON[lang].controls[0]}</button>
+                <button onClick={pictureChange} id="switch">{textJSON[lang].controls[0]}</button>
                 <button onClick={() => modal.current.showModal()}>{textJSON[lang].controls[1]}</button>
             </div>
             <dialog ref={modal} className="confirm">
