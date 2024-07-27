@@ -33,6 +33,7 @@
 
 html, body {
     font-family: "Roboto Slab";
+    min-height: 100%;
 }
   
 body {
@@ -41,7 +42,6 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--bg);
-    margin: auto;
 }
 
 .theme-transition {
