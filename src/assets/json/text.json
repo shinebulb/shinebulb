@@ -15,6 +15,10 @@
         "sample": "this is a sample of your theme",
         "themeControls": ["apply", "cancel", "save"],
         "savedStatus": ["this theme is already saved!", "theme saved successfully!"],
+        "savedThemes": ["saved themes", "in the collection"],
+        "themeCard": ["theme", "rename theme", "apply theme", "delete theme"],
+        "savedDialogs": ["enter theme name...", "delete theme permanently?"],
+        "noThemes": "your themes will be listed here!",
         "about": [
             "shinebulb is a fun little project by nurgali ernist and andrew aldor.",
             "matthew 5:14-16",
@@ -44,6 +48,10 @@
         "sample": "так будет выглядеть ваша тема",
         "themeControls": ["применить", "отменить", "сохранить"],
         "savedStatus": ["эта тема уже сохранена!", "тема успешно сохранена!"],
+        "savedThemes": ["сохранённые темы", "в коллекции"],
+        "themeCard": ["тема", "переименовать тему", "применить тему", "удалить тему"],
+        "savedDialogs": ["название темы...", "безвозвратно удалить тему?"],
+        "noThemes": "ваши темы будут размещены здесь!",
         "about": [
             "shinebulb — небольшой проект нургали эрниста и андрея альдора.",
             "от матфея 5:14-16",
