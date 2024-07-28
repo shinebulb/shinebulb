@@ -181,11 +181,12 @@ a:hover {
     padding: 1.2rem;
 }
 
+.confirm::backdrop {
+    background-color: hsl(0, 0%, 0%, 0.25);
+}
+
 .saved-controls .confirm {
     width: 380px;
-    background-color: var(--modal-bg);
-    border: var(--border-thick);
-    color: var(--button-font);
     border-radius: 15px;
     padding: 1rem;
 }
@@ -210,26 +211,18 @@ a:hover {
     border: var(--border-thick);
     border-radius: 12px;
     padding: 3px 0;
-    transition: background-color 0.1s ease;
+    transition: background-color 0.5s ease;
     cursor: pointer;
 }
 
 .saved-controls .confirm button {
-    font-family: "Roboto Slab";
-    background-color: var(--button-bg);
-    color: var(--button-font);
     font-size: 1.4rem;
     width: 45%;
     margin: 6px;
-    border: var(--border-thick);
-    border-radius: 12px;
-    padding: 3px 0;
-    transition: background-color 0.1s ease;
-    cursor: pointer;
 }
 
 .confirm button:hover,
-.saved-controls .confirm button:hover,
+.confirm button:hover,
 .modal-options:hover {
     background-color: var(--modal-button-bg-hover);
 }
@@ -429,9 +422,6 @@ hr {
 }
 
 .saved-controls dialog {
-    background-color: var(--modal-bg);
-    color: var(--button-font);
-    border: var(--border-thick);
     border-radius: 12px;
     padding: 0.2rem;
 }
@@ -444,17 +434,7 @@ hr {
 .saved-controls dialog button {
     width: calc(50% - 1rem);
     font-size: 1rem;
-    font-family: "Roboto Slab";
-    background-color: var(--modal-button-bg);
-    color: var(--button-font);
-    border: var(--border-thick);
-    border-radius: 10px;
     margin: 0.2rem 0.2rem 0.6rem;
-    transition: all 0.5s ease;
-}
-
-.saved-controls dialog button:hover {
-    background-color: var(--modal-button-bg-hover);
 }
 
 #source {
@@ -487,7 +467,7 @@ hr {
         padding: 1rem;
     }
     .saved-controls .confirm {
-        width: 280px;
+        width: 290px;
         padding: 0.5rem;
     }
     .confirm p {
