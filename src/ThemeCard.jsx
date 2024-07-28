@@ -1,4 +1,3 @@
-import React, {useRef} from 'react';
 import themes from './assets/themes';
 import paths from './assets/json/svg-paths.json';
 import text from './assets/json/text.json';
