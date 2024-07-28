@@ -7,6 +7,7 @@ function ThemeCard({savedState, savedUpdate, themeIndex}) {
 
     const lang = parseInt(localStorage.getItem("langMode")) || 0;
     const deleteRef = useRef(null);
+    const renameRef = useRef(null);
 
     function deleteTheme() {
         savedUpdate(savedState.filter(element => savedState.indexOf(element) != themeIndex));
@@ -35,6 +36,7 @@ function ThemeCard({savedState, savedUpdate, themeIndex}) {
                         backgroundColor: savedState[themeIndex][0],
                         border: `${savedState[themeIndex][1]} 3px solid`
                     }}
+                    onClick={() => renameRef.current.showModal()}
                 >
                     <svg fill={savedState[themeIndex][1]} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d={paths.rename[0]}/><path fillRule="evenodd" clipRule="evenodd" d={paths.rename[1]}/></svg>
                 </button>
@@ -59,6 +61,13 @@ function ThemeCard({savedState, savedUpdate, themeIndex}) {
                     <svg fill={savedState[themeIndex][1]} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 482.428 482.429" xmlSpace="preserve"><g><g><path d={paths.delete[0]}/><path d={paths.delete[1]}/><path d={paths.delete[2]}/><path d={paths.delete[3]}/></g></g></svg>
                 </button>
                 
+                <dialog ref={renameRef} className="confirm">
+                    <form>
+                        <input type="text" placeholder={text[lang].savedDialogs[0]}/>
+                        <button type="submit">{text[lang].themeControls[0]}</button>
+                        <button type="reset" onClick={() => renameRef.current.close()}>{text[lang].themeControls[1]}</button>
+                    </form>
+                </dialog>
                 <dialog ref={deleteRef} className="confirm">
                     <p>{text[lang].savedDialogs[1]}</p>
                     <button onClick={deleteTheme}>{text[lang].confirm[1]}</button>
