@@ -52,6 +52,7 @@ function SavedThemes() {
             }
             <div style={{height: "1rem"}}/>
             <a href="/settings">{text[lang].back}</a>
+            <div style={{height: "2rem"}}/>
         </motion.div>
     )
 }
