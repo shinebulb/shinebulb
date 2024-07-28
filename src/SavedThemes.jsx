@@ -40,6 +40,7 @@ function SavedThemes() {
             exit={{opacity: 0}}
             transition={{duration: 0.5}}
         >
+            <div style={{height: "2rem"}}/>
             <h2 style={{fontSize: "1.7rem"}}>{text[lang].savedThemes[0]}</h2>
             <h3 style={{color: "var(--font)", fontStyle: "italic"}}>
                 {`${currentThemes.length} ${text[lang].savedThemes[1]}`}
