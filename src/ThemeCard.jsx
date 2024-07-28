@@ -54,12 +54,12 @@ function ThemeCard({savedState, savedUpdate, themeIndex}) {
                         backgroundColor: savedState[themeIndex][0],
                         border: `${savedState[themeIndex][1]} 3px solid`
                     }}
-                    onClick={() => deleteRef.current.show()}
+                    onClick={() => deleteRef.current.showModal()}
                 >
                     <svg fill={savedState[themeIndex][1]} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 482.428 482.429" xmlSpace="preserve"><g><g><path d={paths.delete[0]}/><path d={paths.delete[1]}/><path d={paths.delete[2]}/><path d={paths.delete[3]}/></g></g></svg>
                 </button>
                 
-                <dialog ref={deleteRef} id={`delete-ref-${(themeIndex + 2) % 2}`}>
+                <dialog ref={deleteRef} className="confirm">
                     <p>{text[lang].savedDialogs[1]}</p>
                     <button onClick={deleteTheme}>{text[lang].confirm[1]}</button>
                     <button onClick={() => deleteRef.current.close()}>{text[lang].confirm[2]}</button>
