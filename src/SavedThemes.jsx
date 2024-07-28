@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import ThemeCard from './ThemeCard';
 import NoThemes from './NoThemes';
 import themes from './assets/themes';
@@ -17,12 +17,6 @@ function SavedThemes() {
 
     const [currentThemes, setCurrentThemes] = useState(JSON.parse(localStorage.getItem("themes")) || []);
 
-    const deleteRefList = [];
-
-    for (let i = 0; i < currentThemes.length; i++) {
-        deleteRefList.push(useRef(null));
-    }
-
     function renderCards() {
         const themeDisplay = [];
         for (let i = 0; i < currentThemes.length; i++) {
@@ -32,7 +26,6 @@ function SavedThemes() {
                     savedState={currentThemes}
                     savedUpdate={setCurrentThemes}
                     themeIndex={i}
-                    deleteRefs={deleteRefList}
                 />
             );
         }

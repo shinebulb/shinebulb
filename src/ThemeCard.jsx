@@ -1,21 +1,17 @@
+import React, {useRef} from 'react';
 import themes from './assets/themes';
 import paths from './assets/json/svg-paths.json';
 import text from './assets/json/text.json';
 
-function ThemeCard({savedState, savedUpdate, themeIndex, deleteRefs}) {
+function ThemeCard({savedState, savedUpdate, themeIndex}) {
 
     const lang = parseInt(localStorage.getItem("langMode")) || 0;
-
-    function openDelete() {
-        for (let i = 0; i < deleteRefs.length; i++) {
-            i === themeIndex ? deleteRefs[i].current.show() : deleteRefs[i].current.close();
-        }
-    }
+    const deleteRef = useRef(null);
 
     function deleteTheme() {
         savedUpdate(savedState.filter(element => savedState.indexOf(element) != themeIndex));
         localStorage.setItem("themes", JSON.stringify(savedState.filter(element => savedState.indexOf(element) != themeIndex)));
-        deleteRefs[themeIndex].current.close();
+        deleteRef.current.close();
     }
 
     function paintTheme() {
@@ -58,15 +54,15 @@ function ThemeCard({savedState, savedUpdate, themeIndex, deleteRefs}) {
                         backgroundColor: savedState[themeIndex][0],
                         border: `${savedState[themeIndex][1]} 3px solid`
                     }}
-                    onClick={openDelete}
+                    onClick={() => deleteRef.current.show()}
                 >
                     <svg fill={savedState[themeIndex][1]} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 482.428 482.429" xmlSpace="preserve"><g><g><path d={paths.delete[0]}/><path d={paths.delete[1]}/><path d={paths.delete[2]}/><path d={paths.delete[3]}/></g></g></svg>
                 </button>
                 
-                <dialog ref={deleteRefs[themeIndex]} id={`delete-ref-${(themeIndex + 2) % 2}`}>
+                <dialog ref={deleteRef} id={`delete-ref-${(themeIndex + 2) % 2}`}>
                     <p>{text[lang].savedDialogs[1]}</p>
                     <button onClick={deleteTheme}>{text[lang].confirm[1]}</button>
-                    <button onClick={() => deleteRefs[themeIndex].current.close()}>{text[lang].confirm[2]}</button>
+                    <button onClick={() => deleteRef.current.close()}>{text[lang].confirm[2]}</button>
                 </dialog>
             </div>
         </div>
