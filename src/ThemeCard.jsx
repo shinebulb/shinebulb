@@ -36,6 +36,8 @@ function ThemeCard({savedState, savedUpdate, themeIndex}) {
     function deleteTheme() {
         savedUpdate(savedState.filter(element => savedState.indexOf(element) != themeIndex));
         localStorage.setItem("themes", JSON.stringify(savedState.filter(element => savedState.indexOf(element) != themeIndex)));
+        setThemeName(`${text[lang].themeCard[0]} #${themeIndex + 1}`);
+        localStorage.removeItem(`themeName #${themeIndex + 1}`);
         deleteRef.current.close();
     }
 
