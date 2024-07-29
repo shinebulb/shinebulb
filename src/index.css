@@ -204,7 +204,7 @@ a:hover {
 .confirm input {
     font-family: "Roboto Slab";
     background-color: var(--modal-button-bg);
-    color: var(--button-font);
+    color: var(--font);
     width: 90%;
     font-size: 1.4rem;
     margin: 10px auto;
