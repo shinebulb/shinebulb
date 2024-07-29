@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useState, useRef} from 'react';
 import themes from './assets/themes';
 import paths from './assets/json/svg-paths.json';
 import text from './assets/json/text.json';
@@ -6,15 +6,22 @@ import text from './assets/json/text.json';
 function ThemeCard({savedState, savedUpdate, themeIndex}) {
 
     const lang = parseInt(localStorage.getItem("langMode")) || 0;
-    const deleteRef = useRef(null);
+
+    const [themeName, setThemeName] = useState(
+        localStorage.getItem(`themeName #${themeIndex + 1}`)
+        || `${text[lang].themeCard[0]} #${themeIndex + 1}`
+    );
+
     const renameRef = useRef(null);
+    const inputRef = useRef(null);
+    const deleteRef = useRef(null);
 
-    function deleteTheme() {
-        savedUpdate(savedState.filter(element => savedState.indexOf(element) != themeIndex));
-        localStorage.setItem("themes", JSON.stringify(savedState.filter(element => savedState.indexOf(element) != themeIndex)));
-        deleteRef.current.close();
+    function renameTheme() {
+        setThemeName(inputRef.current.value);
+        localStorage.setItem(`themeName #${themeIndex + 1}`, inputRef.current.value);
+        renameRef.current.close();
     }
-
+    
     function paintTheme() {
         localStorage.setItem("theme", 3);
         localStorage.setItem("bg", savedState[themeIndex][0]);
@@ -26,9 +33,15 @@ function ThemeCard({savedState, savedUpdate, themeIndex}) {
         themes[3]();
     }
 
+    function deleteTheme() {
+        savedUpdate(savedState.filter(element => savedState.indexOf(element) != themeIndex));
+        localStorage.setItem("themes", JSON.stringify(savedState.filter(element => savedState.indexOf(element) != themeIndex)));
+        deleteRef.current.close();
+    }
+
     return (
         <div className="theme-card" style={{backgroundColor: savedState[themeIndex][0]}}>
-            <p style={{color: savedState[themeIndex][1]}}>{`${text[lang].themeCard[0]} #${themeIndex + 1}`}</p>
+            <p style={{color: savedState[themeIndex][1]}}>{themeName}</p>
             <div className="saved-controls">
                 <button
                     title={text[lang].themeCard[1]}
@@ -62,11 +75,9 @@ function ThemeCard({savedState, savedUpdate, themeIndex}) {
                 </button>
                 
                 <dialog ref={renameRef} className="confirm">
-                    <form>
-                        <input type="text" placeholder={text[lang].savedDialogs[0]}/>
-                        <button type="submit">{text[lang].themeControls[0]}</button>
-                        <button type="reset" onClick={() => renameRef.current.close()}>{text[lang].themeControls[1]}</button>
-                    </form>
+                        <input type="text" ref={inputRef} placeholder={text[lang].savedDialogs[0]}/>
+                        <button onClick={renameTheme}>{text[lang].themeControls[0]}</button>
+                        <button onClick={() => renameRef.current.close()}>{text[lang].themeControls[1]}</button>
                 </dialog>
                 <dialog ref={deleteRef} className="confirm">
                     <p>{text[lang].savedDialogs[1]}</p>

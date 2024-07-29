@@ -213,6 +213,15 @@ a:hover {
     padding: 0.4rem;
 }
 
+::placeholder {
+    color: var(--font-hover);
+    opacity: 1; /* Firefox */
+}
+
+::-ms-input-placeholder {
+    color: var(--font-hover); /* Edge 12 -18 */
+}
+
 .confirm button {
     font-family: "Roboto Slab";
     background-color: var(--button-bg);
