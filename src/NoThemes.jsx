@@ -7,7 +7,11 @@ function NoThemes() {
 
     return (
         <div className="no-themes">
-            <img src={`img/no themes/${images[Math.floor(Math.random() * images.length)]}.svg`} />
+            <img src={
+                Math.floor(Math.random() * 100) === 52
+                ? "img/no themes/waltuh.png"
+                : `img/no themes/${images[Math.floor(Math.random() * images.length)]}.svg`
+            }/>
             <p>{text[lang].noThemes}</p>
         </div>
     )
