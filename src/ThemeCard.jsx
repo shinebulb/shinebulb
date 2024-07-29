@@ -16,6 +16,14 @@ function ThemeCard({savedState, savedUpdate, themeIndex}) {
     const inputRef = useRef(null);
     const deleteRef = useRef(null);
 
+    function clearNames() {
+        for (let key of Object.keys(localStorage)) {
+            if (key.startsWith("themeName #")) {
+                localStorage.removeItem(key);
+            }
+        }
+    }
+
     function renameTheme() {
         setThemeName(inputRef.current.value);
         localStorage.setItem(`themeName #${themeIndex + 1}`, inputRef.current.value);
@@ -36,8 +44,13 @@ function ThemeCard({savedState, savedUpdate, themeIndex}) {
     function deleteTheme() {
         savedUpdate(savedState.filter(element => savedState.indexOf(element) != themeIndex));
         localStorage.setItem("themes", JSON.stringify(savedState.filter(element => savedState.indexOf(element) != themeIndex)));
-        setThemeName(`${text[lang].themeCard[0]} #${themeIndex + 1}`);
-        localStorage.removeItem(`themeName #${themeIndex + 1}`);
+        setThemeName(localStorage.getItem(`themeName #${themeIndex + 2}`) || `${text[lang].themeCard[0]} #${themeIndex + 1}`);
+        themeIndex !== 0
+        ? localStorage.setItem(
+            `themeName #${themeIndex + 1}`,
+            localStorage.getItem(`themeName #${themeIndex + 2}`)
+            || `${text[lang].themeCard[0]} #${themeIndex + 1}`
+        ) : clearNames();
         deleteRef.current.close();
     }
 
