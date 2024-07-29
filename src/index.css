@@ -33,10 +33,11 @@
 
 html, body {
     font-family: "Roboto Slab";
-    min-height: 100vh;
+    height: 100%;
 }
   
 body {
+    overflow: hidden;
     display: flex;
     text-align: center;
     justify-content: center;
@@ -159,7 +160,6 @@ a:hover {
 }
 
 .p1 {
-    margin: 0.5rem;
     font-size: 1.5rem;
 }
 
@@ -181,45 +181,9 @@ a:hover {
     padding: 1.2rem;
 }
 
-.confirm::backdrop {
-    background-color: hsl(0, 0%, 0%, 0.25);
-}
-
-.saved-controls .confirm {
-    width: 380px;
-    border-radius: 15px;
-    padding: 1rem;
-}
-
 .confirm p {
     font-size: 1.5rem;
     margin: 10px 6px 20px;
-}
-
-.saved-controls .confirm p {
-    font-size: 1.5rem;
-    margin: 8px auto 10px;
-}
-
-.confirm input {
-    font-family: "Roboto Slab";
-    background-color: var(--modal-button-bg);
-    color: var(--font);
-    width: 90%;
-    font-size: 1.4rem;
-    margin: 10px auto;
-    border: var(--border-thick);
-    border-radius: 12px;
-    padding: 0.4rem;
-}
-
-::placeholder {
-    color: var(--font-hover);
-    opacity: 1; /* Firefox */
-}
-
-::-ms-input-placeholder {
-    color: var(--font-hover); /* Edge 12 -18 */
 }
 
 .confirm button {
@@ -232,19 +196,11 @@ a:hover {
     border: var(--border-thick);
     border-radius: 12px;
     padding: 3px 0;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.1s ease;
     cursor: pointer;
 }
 
-.saved-controls .confirm button {
-    font-size: 1.4rem;
-    width: 45%;
-    margin: 6px;
-}
-
-.confirm button:hover,
-.confirm button:hover,
-.modal-options:hover {
+.confirm button:hover {
     background-color: var(--modal-button-bg-hover);
 }
 
@@ -292,64 +248,16 @@ a:hover {
 }
 
 .sample button {
-    font-family: Avro, "Roboto Slab";
-    width: 4rem;
-    height: 3rem;
+    font-family: "Roboto Slab";
+    font-size: 1.6rem;
     color: var(--button-font);
-    background-color: var(--modal-button-bg);
+    background-color: transparent;
     padding: 6px 16px;
     margin: 0px 8px 22px;
     border: var(--border-thick);
     border-radius: 12px;
+    transition: background-color 0.1s ease;
     cursor: pointer;
-}
-
-.sample svg {
-    width: 1.8rem;
-}
-
-.modal-options {
-    font-family: Avro, "Roboto Slab";
-    font-size: 1.3rem;
-    font-weight: bold;
-    background-color: var(--modal-button-bg);
-    color: var(--button-font);
-    border-radius: 0;
-    border: none;
-    width: 50%;
-    padding: 0.8rem 0;
-    transition: background-color 0.5s ease;
-    cursor: pointer;
-}
-
-.alert {
-    width: 200px;
-    border: none;
-    border-radius: 10px;
-    margin: -5rem 2.8rem;
-    padding: 0.2rem 0;
-}
-
-.alert div {
-    display: flex;
-    align-items: center;
-}
-
-.alert p {
-    font-size: 1.2rem;
-    margin: 0.3rem 0.8rem;
-}
-
-.alert button {
-    background-color: transparent;
-    border: none;
-    margin: 0.2rem 0.6rem 0.2rem 0;
-    padding: 0;
-    cursor: pointer;
-}
-
-.alert svg {
-    width: 2.2rem;
 }
 
 hr {
@@ -382,82 +290,6 @@ hr {
     height: 100%;
 }
 
-.saved-display {
-    width: 70vw;
-    display: grid;
-    gap: 1.2rem;
-    grid-template-columns: 50% 50%;
-    margin: 1rem auto;
-}
-
-.theme-card {
-    width: 100%;
-    padding-top: 0.1rem;
-    border-radius: 15px;
-}
-
-.theme-card p {
-    color: var(--font);
-    font-size: 1.4rem;
-    margin: 0.6rem 0;
-}
-
-.no-themes {
-    display: flex;
-    width: 440px;
-    background-color: var(--button-bg);
-    border: var(--border-thick);
-    border-radius: 15px;
-    padding: 1rem;
-    margin: 2rem auto;
-}
-
-.no-themes img {
-    width: 170px;
-    border: var(--border-thick);
-    border-radius: 50%;
-}
-
-.no-themes p {
-    color: var(--button-font);
-    font-style: italic;
-    font-size: 1.4em;
-    margin: auto 0.5rem;
-}
-
-.saved-controls {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.saved-controls button {
-    width: 30%;
-    border-radius: 15px;
-    margin: 0 0 0.8rem;
-    padding: 0.2rem 0;
-    cursor: pointer;
-}
-
-.saved-controls svg {
-    height: 2rem;
-}
-
-.saved-controls dialog {
-    border-radius: 12px;
-    padding: 0.2rem;
-}
-
-.saved-controls dialog p {
-    font-size: 1.2rem;
-    margin: 0.4rem 0.8rem 0.2rem;
-}
-
-.saved-controls dialog button {
-    width: calc(50% - 1rem);
-    font-size: 1rem;
-    margin: 0.2rem 0.2rem 0.6rem;
-}
-
 #source {
     position: absolute;
     bottom: 0;
@@ -487,22 +319,9 @@ hr {
         width: 280px;
         padding: 1rem;
     }
-    .saved-controls .confirm {
-        width: 290px;
-        padding: 0.5rem;
-    }
     .confirm p {
         font-size: 1.35rem;
         margin: 8px 4px 16px;
-    }
-    .saved-controls .confirm p {
-        font-size: 1.3rem;
-        margin: 4px 6px 6px;
-    }
-    .saved-controls .confirm button {
-        font-size: 1.2rem;
-        width: 46%;
-        margin: 8px 4px;
     }
     .confirm button {
         font-size: 1.3rem;
@@ -510,12 +329,6 @@ hr {
         margin: 8px 6px;
         border-radius: 10px;
         padding: 2px 0;
-    }
-    .confirm input {
-        font-size: 1.2rem;
-        margin: 6px auto;
-        border-radius: 8px;
-        padding: 0.3rem;
     }
     .theme {
         width: 300px;
@@ -546,65 +359,11 @@ hr {
         padding: 6px 8px;
         margin: 0px 6px 20px;
     }
-    .alert {
-        width: 170px;
-        border-radius: 8px;
-        margin: -4.3rem 0.8rem;
-        padding: 0.1rem 0;
-    }
-    .alert p {
-        font-size: 1rem;
-        margin: 0.2rem 0.6rem;
-    }
-    .alert button {
-        margin: 0.2rem 0.6rem 0.2rem 0;
-    }
-    .alert svg {
-        width: 1.8rem;
-    }
-    .modal-options {
-        font-size: 1.1rem;
-        padding: 0.6rem 0;
-    }
     .donate-button {
         width: 290px;
         height: 150px;
         font-size: 1.2rem;
         border-radius: 15px;
         padding: 10px 20px;
-    }
-    .saved-display {
-        display: inline;
-        margin: 0;
-    }
-    .theme-card {
-        width: 86vw;
-        margin: 1rem auto;
-        padding-top: 0.1rem;
-        border-radius: 15px;
-    }
-    .theme-card p {
-        font-size: 1.4rem;
-        margin: 0.6rem 0;
-    }
-    .no-themes {
-        width: 80vw;
-        border-radius: 15px;
-        padding: 1rem;
-    }
-    .no-themes img {
-        width: 28vw;
-    }
-    .no-themes p {
-        font-size: 1.2rem;
-        margin: auto 0.5rem;
-    }
-    .saved-controls button {
-        width: 30%;
-        margin: 0 0 0.8rem;
-        padding: 0.2rem 0;
-    }
-    .saved-controls svg {
-        height: 2rem;
     }
 }
