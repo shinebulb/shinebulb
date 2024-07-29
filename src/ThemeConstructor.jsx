@@ -14,6 +14,11 @@ function ThemeConstructor({ constructor, alert, themeState }) {
     const [saveIndex, setSaveIndex] = useState(parseInt(localStorage.getItem("saveIndex")) || -1);
     const [currentThemes, setCurrentThemes] = useState(JSON.parse(localStorage.getItem("themes")) || []);
 
+    function generateTheme() {
+        setLocalBg(`#${Math.random().toString(16).substring(2, 8)}`);
+        setLocalFont(`#${Math.random().toString(16).substring(2, 8)}`);
+    }
+
     function customTheme() {
         document.body.classList.add('theme-transition');
             setTimeout(() => {
@@ -76,6 +81,11 @@ function ThemeConstructor({ constructor, alert, themeState }) {
                     {text[lang].themeOptions[1]}
                 </button>
             </a>
+            <hr/>
+            <button className="generate-random" onClick={generateTheme}>
+                <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><path d={paths.generate}/></svg>
+                {text[lang].themeOptions[2]}
+            </button>
             <hr/>
             <div className="sample" style={{ backgroundColor: localBg, color: localFont }}>
                 <p>{text[lang].sample}</p>

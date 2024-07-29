@@ -25,7 +25,9 @@ function Explore() {
             <div style={{height: "2rem"}}/>
             <h2 style={{fontSize: "1.7rem"}}>{text[lang].themeSuggestions}</h2>
             <div style={{height: "0.1rem"}}/>
-            <ThemeSuggestion/>
+            <div className="saved-display">
+                {/* <ThemeSuggestion themeIndex={0} /> */}
+            </div>
             <div style={{height: "1rem"}}/>
             <a href="/settings">{text[lang].back}</a>
             <div style={{height: "2rem"}}/>

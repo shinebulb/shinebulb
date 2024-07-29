@@ -244,6 +244,7 @@ a:hover {
 
 .confirm button:hover,
 .confirm button:hover,
+.generate-random:hover,
 .modal-options:hover {
     background-color: var(--modal-button-bg-hover);
 }
@@ -308,18 +309,36 @@ a:hover {
     width: 1.8rem;
 }
 
-.modal-options {
+.modal-options,
+.generate-random {
     font-family: Avro, "Roboto Slab";
     font-size: 1.3rem;
-    font-weight: bold;
     background-color: var(--modal-button-bg);
     color: var(--button-font);
     border-radius: 0;
     border: none;
-    width: 50%;
     padding: 0.8rem 0;
     transition: background-color 0.5s ease;
     cursor: pointer;
+}
+
+.modal-options {
+    width: 50%;
+    font-weight: bold;
+}
+
+.generate-random {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-style: italic;
+}
+
+.generate-random svg {
+    fill: var(--button-font);
+    height: 1.7rem;
+    margin-right: 0.7rem;
 }
 
 .alert {
@@ -562,9 +581,14 @@ hr {
     .alert svg {
         width: 1.8rem;
     }
-    .modal-options {
+    .modal-options,
+    .generate-random {
         font-size: 1.1rem;
         padding: 0.6rem 0;
+    }
+    .generate-random svg {
+        height: 1.5rem;
+        margin-right: 0.4rem;
     }
     .donate-button {
         width: 290px;
