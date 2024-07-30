@@ -16,6 +16,7 @@ function SavedThemes() {
     const theme = parseInt(localStorage.getItem("theme")) || 0;
 
     const [currentThemes, setCurrentThemes] = useState(JSON.parse(localStorage.getItem("themes")) || []);
+    const [themeNames, setThemeNames] = useState(JSON.parse(localStorage.getItem("themeNames")) || []);
 
     function renderCards() {
         const themeDisplay = [];
@@ -24,7 +25,9 @@ function SavedThemes() {
                 <ThemeCard
                     key={i}
                     savedState={currentThemes}
+                    nameStates={themeNames}
                     savedUpdate={setCurrentThemes}
+                    nameUpdates={setThemeNames}
                     themeIndex={i}
                 />
             );

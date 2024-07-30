@@ -418,7 +418,7 @@ hr {
 .theme-card p {
     color: var(--font);
     font-size: 1.4rem;
-    margin: 0.6rem 0;
+    padding: 0 10%;
 }
 
 .no-themes {

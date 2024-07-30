@@ -1,32 +1,19 @@
-import React, {useState, useRef} from 'react';
+import React, {useRef} from 'react';
 import themes from './assets/themes';
 import paths from './assets/json/svg-paths.json';
 import text from './assets/json/text.json';
 
-function ThemeCard({savedState, savedUpdate, themeIndex}) {
+function ThemeCard({savedState, nameStates, savedUpdate, nameUpdates, themeIndex}) {
 
     const lang = parseInt(localStorage.getItem("langMode")) || 0;
-
-    const [themeName, setThemeName] = useState(
-        localStorage.getItem(`themeName #${themeIndex + 1}`)
-        || `${text[lang].themeCard[0]} #${themeIndex + 1}`
-    );
 
     const renameRef = useRef(null);
     const inputRef = useRef(null);
     const deleteRef = useRef(null);
 
-    function clearNames() {
-        for (let key of Object.keys(localStorage)) {
-            if (key.startsWith("themeName #")) {
-                localStorage.removeItem(key);
-            }
-        }
-    }
-
     function renameTheme() {
-        setThemeName(inputRef.current.value);
-        localStorage.setItem(`themeName #${themeIndex + 1}`, inputRef.current.value);
+        nameUpdates(nameStates.map(element => nameStates.indexOf(element) === themeIndex ? inputRef.current.value : element));
+        localStorage.setItem("themeNames", JSON.stringify(nameStates.map(element => nameStates.indexOf(element) === themeIndex ? inputRef.current.value : element)));
         renameRef.current.close();
     }
     
@@ -42,21 +29,16 @@ function ThemeCard({savedState, savedUpdate, themeIndex}) {
     }
 
     function deleteTheme() {
-        savedUpdate(savedState.filter(element => savedState.indexOf(element) != themeIndex));
-        localStorage.setItem("themes", JSON.stringify(savedState.filter(element => savedState.indexOf(element) != themeIndex)));
-        setThemeName(localStorage.getItem(`themeName #${themeIndex + 2}`) || `${text[lang].themeCard[0]} #${themeIndex + 1}`);
-        themeIndex !== 0
-        ? localStorage.setItem(
-            `themeName #${themeIndex + 1}`,
-            localStorage.getItem(`themeName #${themeIndex + 2}`)
-            || `${text[lang].themeCard[0]} #${themeIndex + 1}`
-        ) : clearNames();
+        savedUpdate(savedState.filter(element => savedState.indexOf(element) !== themeIndex));
+        localStorage.setItem("themes", JSON.stringify(savedState.filter(element => savedState.indexOf(element) !== themeIndex)));
+        nameUpdates(nameStates.filter(element => nameStates.indexOf(element) !== themeIndex));
+        localStorage.setItem("themeNames", JSON.stringify(nameStates.filter(element => nameStates.indexOf(element) !== themeIndex)));
         deleteRef.current.close();
     }
 
     return (
         <div className="theme-card" style={{backgroundColor: savedState[themeIndex][0]}}>
-            <p style={{color: savedState[themeIndex][1]}}>{themeName}</p>
+            <p style={{color: savedState[themeIndex][1]}}>{nameStates[themeIndex]}</p>
             <div className="saved-controls">
                 <button
                     title={text[lang].themeCard[1]}

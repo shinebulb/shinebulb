@@ -13,6 +13,7 @@ function ThemeConstructor({ constructor, alert, themeState }) {
 
     const [saveIndex, setSaveIndex] = useState(parseInt(localStorage.getItem("saveIndex")) || -1);
     const [currentThemes, setCurrentThemes] = useState(JSON.parse(localStorage.getItem("themes")) || []);
+    const [themeNames, setThemeNames] = useState(JSON.parse(localStorage.getItem("themeNames")) || []);
 
     function generateTheme() {
         setLocalBg(`#${Math.random().toString(16).substring(2, 8)}`);
@@ -38,13 +39,17 @@ function ThemeConstructor({ constructor, alert, themeState }) {
             localStorage.setItem("saveIndex", 0);
         }
         else {
-            if (JSON.parse(localStorage.getItem("themes")) !== null) {
+            if ((JSON.parse(localStorage.getItem("themes")) !== null) && (JSON.parse(localStorage.getItem("themeNames")) !== null)) {
                 setCurrentThemes([...JSON.parse(localStorage.getItem("themes")), colors]);
                 localStorage.setItem("themes", JSON.stringify([...JSON.parse(localStorage.getItem("themes")), colors]));
+                setThemeNames([...JSON.parse(localStorage.getItem("themeNames")), `${text[lang].themeCard[0]} #${currentThemes.length + 1}`]);
+                localStorage.setItem("themeNames", JSON.stringify([...JSON.parse(localStorage.getItem("themeNames")), `${text[lang].themeCard[0]} #${currentThemes.length + 1}`]));
             }
             else {
                 setCurrentThemes([colors]);
                 localStorage.setItem("themes", JSON.stringify([colors]));
+                setThemeNames([`${text[lang].themeCard[0]} #1`]);
+                localStorage.setItem("themeNames", JSON.stringify([`${text[lang].themeCard[0]} #1`]));
             }
             setSaveIndex(1);
             localStorage.setItem("saveIndex", 1);
