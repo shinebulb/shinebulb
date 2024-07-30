@@ -22,9 +22,7 @@ function ThemeConstructor({ constructor, alert, themeState }) {
 
     function customTheme() {
         document.body.classList.add('theme-transition');
-            setTimeout(() => {
-                document.body.classList.remove('theme-transition');
-            }, 500);
+        setTimeout(() => document.body.classList.remove('theme-transition'), 500);
         themeState(3);
         constructor.current.close();
         localStorage.setItem("theme", 3);
@@ -55,6 +53,7 @@ function ThemeConstructor({ constructor, alert, themeState }) {
             localStorage.setItem("saveIndex", 1);
         }
         alert.current.show();
+        setTimeout(() => alert.current.close(), 1500);
     }
 
     return (
