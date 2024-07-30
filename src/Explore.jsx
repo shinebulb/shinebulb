@@ -13,6 +13,19 @@ function Explore() {
     
     const lang = parseInt(localStorage.getItem("langMode")) || 0;
     const theme = parseInt(localStorage.getItem("theme")) || 0;
+    
+    function renderExplore() {
+        const suggestionCards = []
+        for (let i = 0; i < text[lang].names.length; i++) {
+            suggestionCards.push(
+                <ThemeSuggestion
+                    key={i}
+                    themeIndex={i}
+                />
+            );
+        }
+        return suggestionCards
+    }
 
     return (
         <motion.div
@@ -26,7 +39,7 @@ function Explore() {
             <h2 style={{fontSize: "1.7rem"}}>{text[lang].themeSuggestions}</h2>
             <div style={{height: "0.1rem"}}/>
             <div className="saved-display">
-                {/* <ThemeSuggestion themeIndex={0} /> */}
+                {renderExplore()}
             </div>
             <div style={{height: "1rem"}}/>
             <a href="/settings">{text[lang].back}</a>

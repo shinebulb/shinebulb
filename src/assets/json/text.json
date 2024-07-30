@@ -30,7 +30,10 @@
             "that they may see your good deeds and glorify your Father in heaven."
         ],
         "contact": "contact us",
-        "donate": "donate crypto with NOWPayments!"
+        "donate": "donate crypto with NOWPayments!",
+        "names": [
+            "breaking bad", "jennifer love hewitt", "tony montana"
+        ]
     },
 
     {
@@ -64,6 +67,9 @@
             "и чтобы люди прославляли вашего Небесного Отца."
         ],
         "contact": "связаться с нами",
-        "donate": "пожертвуйте крипто с NOWPayments!"
+        "donate": "пожертвуйте крипто с NOWPayments!",
+        "names": [
+            "во все тяжкие", "дженнифер лав хьюитт", "тони монтана"
+        ]
     }
 ]
