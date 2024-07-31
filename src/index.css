@@ -457,6 +457,10 @@ hr {
     cursor: pointer;
 }
 
+.explore .saved-controls button {
+    width: 45%;
+}
+
 .saved-controls svg {
     height: 2rem;
 }

@@ -20,6 +20,7 @@
         "savedDialogs": ["enter theme name...", "delete theme permanently?"],
         "noThemes": "your themes will be listed here!",
         "themeSuggestions": "theme suggestions",
+        "hideTheme": "hide theme from suggestions?",
         "about": [
             "shinebulb is a fun little project by nurgali ernist and andrew aldor.",
             "matthew 5:14-16",
@@ -57,6 +58,7 @@
         "savedDialogs": ["название темы...", "безвозвратно удалить тему?"],
         "noThemes": "ваши темы будут размещены здесь!",
         "themeSuggestions": "предложения тем",
+        "hideTheme": "скрыть тему из предложений?",
         "about": [
             "shinebulb — небольшой проект нургали эрниста и андрея альдора.",
             "от матфея 5:14-16",
