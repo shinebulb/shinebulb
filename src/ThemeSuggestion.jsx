@@ -32,13 +32,27 @@ function ThemeSuggestion({themeIndex}) {
         <div className="theme-card" style={{display: hide, backgroundColor: colors[themeIndex][0]}}>
             <p style={{color: colors[themeIndex][1]}}>{text[lang].names[themeIndex]}</p>
             <div className="saved-controls">
-                <button onClick={paintTheme} style={{backgroundColor: colors[themeIndex][0], border: `${colors[themeIndex][1]} 3px solid`}}>
+                <button
+                    title={text[lang].exploreCard[0]}
+                    style={{
+                        backgroundColor: colors[themeIndex][0],
+                        border: `${colors[themeIndex][1]} 3px solid`
+                    }}
+                    onClick={paintTheme}
+                >
                     <svg fill={colors[themeIndex][1]} version="1.1" id="Uploaded to svgrepo.com" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xmlSpace="preserve"><path className="bentblocks_een" d={paths.paint}/></svg>
                 </button>
-                <button onClick={() => hideRef.current.showModal()} style={{backgroundColor: colors[themeIndex][0], border: `${colors[themeIndex][1]} 3px solid`}}>
+                <button
+                    title={text[lang].exploreCard[1]}
+                    style={{
+                        backgroundColor: colors[themeIndex][0],
+                        border: `${colors[themeIndex][1]} 3px solid`
+                    }}
+                    onClick={() => hideRef.current.showModal()}
+                >
                     <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d={paths.hide[0]} fill={colors[themeIndex][1]}/><path d={paths.hide[1]} fill={colors[themeIndex][1]}/></svg>
                 </button>
-                
+
                 <dialog ref={hideRef} className="confirm">
                     <p>{text[lang].hideTheme}</p>
                     <button onClick={hideTheme}>{text[lang].confirm[1]}</button>
