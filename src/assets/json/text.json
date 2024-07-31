@@ -8,10 +8,10 @@
         "controls": ["switch", "reset"],
         "back": "back",
         "settings": ["theme", "language"],
-        "mode": ["system", "light", "dark", "custom"],
+        "mode": ["system", "light", "dark", "custom", "more..."],
         "customTheme": ["fill color:", "stroke color:"],
         "current": "current",
-        "themeOptions": ["suggestions", "saved themes", "generate a random theme"],
+        "generateRandom": "generate a random theme",
         "sample": "this is a sample of your theme",
         "themeControls": ["apply", "cancel", "save"],
         "savedStatus": ["this theme is already saved!", "theme saved successfully!"],
@@ -20,6 +20,11 @@
         "savedDialogs": ["enter theme name...", "delete theme permanently?"],
         "noThemes": "your themes will be listed here!",
         "themeSuggestions": "theme suggestions",
+        "saved": "saved themes",
+        "optionDescriptions": [
+            "a place for any theme that you came up with or generated in the constructor",
+            "a library created and managed by us to let you explore the amazing world of color combinations"
+        ],
         "exploreCard": ["apply theme", "hide theme"],
         "hideTheme": "hide theme from suggestions?",
         "about": [
@@ -47,10 +52,10 @@
         "controls": ["щёлкнуть", "очистить"],
         "back": "назад",
         "settings": ["тема", "язык"],
-        "mode": ["система", "светлая", "тёмная", "своя"],
+        "mode": ["система", "светлая", "тёмная", "своя", "больше..."],
         "customTheme": ["цвет фона:", "цвет линий:"],
         "current": "выбран",
-        "themeOptions": ["предложения", "сохранённые", "сгенерировать случайную"],
+        "generateRandom": "сгенерировать случайную",
         "sample": "так будет выглядеть ваша тема",
         "themeControls": ["применить", "отменить", "сохранить"],
         "savedStatus": ["эта тема уже сохранена!", "тема успешно сохранена!"],
@@ -59,6 +64,11 @@
         "savedDialogs": ["название темы...", "безвозвратно удалить тему?"],
         "noThemes": "ваши темы будут размещены здесь!",
         "themeSuggestions": "предложения тем",
+        "saved": "сохранённые темы",
+        "optionDescriptions": [
+            "место для всех тем, которые вы придумали или сгенерировали в конструкторе",
+            "библиотека, созданная нами, чтобы помочь вам открыть для себя удивительный мир сочетаний цветов"
+        ],
         "exploreCard": ["применить тему", "скрыть тему"],
         "hideTheme": "скрыть тему из предложений?",
         "about": [

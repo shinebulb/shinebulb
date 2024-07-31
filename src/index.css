@@ -244,17 +244,56 @@ a:hover {
 
 .confirm button:hover,
 .confirm button:hover,
-.generate-random:hover,
-.modal-options:hover {
+.modal-options:hover,
+.options button:hover {
     background-color: var(--modal-button-bg-hover);
 }
 
-.theme {
+.theme, .more {
     width: 420px;
     padding: 0;
     background-color: var(--modal-bg);
     border: var(--border-thick);
     border-radius: 15px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+}
+
+.options a {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0.7rem 1.5rem;
+    transition: all 0.2s ease;
+}
+
+.options a:hover {
+    text-decoration: none;
+    background-color: var(--modal-button-bg);
+}
+
+.options span {
+    font-size: 1.1rem;
+    font-weight: normal;
+    font-style: italic;
+    margin: 0.5rem 0;
+}
+
+.options button {
+    font-family: "Roboto Slab";
+    background-color: transparent;
+    width: 100%;
+    height: 2.5rem;
+    color: var(--button-font);
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    transition: all 0.5s ease;
+    cursor: pointer;
 }
 
 .theme::backdrop {
@@ -309,8 +348,12 @@ a:hover {
     width: 1.8rem;
 }
 
-.modal-options,
-.generate-random {
+.modal-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-style: italic;
     font-family: Avro, "Roboto Slab";
     font-size: 1.3rem;
     background-color: var(--modal-button-bg);
@@ -322,20 +365,7 @@ a:hover {
     cursor: pointer;
 }
 
-.modal-options {
-    width: 50%;
-    font-weight: bold;
-}
-
-.generate-random {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    font-style: italic;
-}
-
-.generate-random svg {
+.modal-options svg {
     fill: var(--button-font);
     height: 1.7rem;
     margin-right: 0.7rem;
@@ -540,8 +570,20 @@ hr {
         border-radius: 8px;
         padding: 0.3rem;
     }
-    .theme {
+    .theme, .more {
         width: 300px;
+    }
+    .options a {
+        font-size: 1.4rem;
+        padding: 0.8rem 1.2rem;
+    }
+    .options span {
+        font-size: 1rem;
+        margin: 0.5rem 0;
+    }
+    .options button {
+        height: 2.3rem;
+        font-size: 1.1rem;
     }
     .theme input {
         width: 6rem;
@@ -585,12 +627,11 @@ hr {
     .alert svg {
         width: 1.8rem;
     }
-    .modal-options,
-    .generate-random {
+    .modal-options {
         font-size: 1.1rem;
         padding: 0.6rem 0;
     }
-    .generate-random svg {
+    .modal-options svg {
         height: 1.5rem;
         margin-right: 0.4rem;
     }

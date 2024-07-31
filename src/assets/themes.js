@@ -32,7 +32,7 @@ const customTheme = () => {
 }
 
 const themes = [
-    systemTheme, lightTheme, darkTheme, customTheme
+    systemTheme, lightTheme, darkTheme, customTheme, () => {}
 ]
 
 export default themes

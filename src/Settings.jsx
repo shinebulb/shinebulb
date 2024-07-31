@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ThemeConstructor from './ThemeConstructor';
+import More from './More';
 import themes from './assets/themes';
 import modes from './assets/json/modes.json';
 import languages from './assets/json/languages.json';
@@ -11,7 +12,8 @@ function Settings() {
     const [lang, setLang] = useState(parseInt(localStorage.getItem("langMode")) || 0);
     const [theme, setTheme] = useState(parseInt(localStorage.getItem("theme")) || 0);
     
-    const modal = useRef(null);
+    const custom = useRef(null);
+    const more = useRef(null);
     const saveUpdate = useRef(null);
 
     useEffect(() => {
@@ -21,7 +23,7 @@ function Settings() {
 
     function themeChange(event) {
         const mode = modes.indexOf(event.target.value);
-        if (mode !== 3) {
+        if (mode < 3) {
             document.body.classList.add('theme-transition');
             setTimeout(() => {
                 document.body.classList.remove('theme-transition');
@@ -30,8 +32,11 @@ function Settings() {
             setTheme(mode);
             localStorage.setItem("theme", mode);
         }
-        else {
-            modal.current.showModal();
+        else if (mode === 3) {
+            custom.current.showModal();
+        }
+        else if (mode === 4) {
+            more.current.showModal();
         }
     }
 
@@ -57,10 +62,12 @@ function Settings() {
                     <option value="light">{text[lang].mode[1]}</option>
                     <option value="dark">{text[lang].mode[2]}</option>
                     <option value="custom">{text[lang].mode[3]}</option>
+                    <option value="more...">{text[lang].mode[4]}</option>
                 </select>
             </div>
             <div style={{ height: "3rem" }} />
-            <ThemeConstructor constructor={modal} alert={saveUpdate} themeState={setTheme} />
+            <ThemeConstructor constructor={custom} alert={saveUpdate} themeState={setTheme} />
+            <More options={more} />
             <div className="container">
                 <label>{text[lang].settings[1]}</label>
                 <select onChange={languageChange} value={languages[lang]}>

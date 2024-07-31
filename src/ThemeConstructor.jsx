@@ -75,20 +75,9 @@ function ThemeConstructor({ constructor, alert, themeState }) {
                 </div>
             </div>
             <hr/>
-            <a href="/explore" style={{margin: "0"}}>
-                <button className="modal-options" style={{boxShadow: "3px 0 0 var(--button-font)"}}>
-                    {text[lang].themeOptions[0]}
-                </button>
-            </a>
-            <a href="/saved" style={{margin: "0"}}>
-                <button className="modal-options" style={{boxShadow: "-3px 0 0 var(--button-font)"}}>
-                    {text[lang].themeOptions[1]}
-                </button>
-            </a>
-            <hr/>
-            <button className="generate-random" onClick={generateTheme}>
+            <button className="modal-options" onClick={generateTheme}>
                 <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><path d={paths.generate}/></svg>
-                {text[lang].themeOptions[2]}
+                {text[lang].generateRandom}
             </button>
             <hr/>
             <div className="sample" style={{ backgroundColor: localBg, color: localFont }}>
