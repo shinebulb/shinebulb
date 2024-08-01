@@ -25,7 +25,7 @@
             "a place for any theme that you came up with or generated in the constructor",
             "a library created and managed by us to let you explore the amazing world of color combinations"
         ],
-        "exploreCard": ["apply theme", "hide theme"],
+        "exploreCard": ["theme info", "apply theme", "hide theme"],
         "hideTheme": "hide theme from suggestions?",
         "about": [
             "shinebulb is a fun little project by nurgali ernist and andrew aldor.",
@@ -39,7 +39,12 @@
         "contact": "contact us",
         "donate": "donate crypto with NOWPayments!",
         "names": [
-            "breaking bad", "jennifer love hewitt", "tony montana", "jake the dog"
+            "breaking bad", "tony montana", "jake the dog"
+        ],
+        "exploreDescriptions": [
+            "breaking bad is an american crime drama television series created by vince gilligan. the show follows the story of walter white, a high school chemistry teacher who turns to producing and selling methamphetamine in order to secure his family's financial future after being diagnosed with terminal lung cancer.",
+            "tony montana is the main character in the 1983 movie scarface, played by al pacino. he is a cuban refugee who arrives in miami and rises through the ranks of organized crime, becoming a powerful drug lord. his life is filled with violence, corruption, and excess.",
+            "jake the dog is a character in the animated television series adventure time. he is a shape-shifting anthropomorphic dog who has the ability to stretch and contort his body into various forms. jake is known for his laid-back attitude, goofy humor, and loyalty to his friends."
         ]
     },
 
@@ -69,7 +74,7 @@
             "место для всех тем, которые вы придумали или сгенерировали в конструкторе",
             "библиотека, созданная нами, чтобы помочь вам открыть для себя удивительный мир цветовых сочетаний"
         ],
-        "exploreCard": ["применить тему", "скрыть тему"],
+        "exploreCard": ["описание темы", "применить тему", "скрыть тему"],
         "hideTheme": "скрыть тему из предложений?",
         "about": [
             "shinebulb — небольшой проект нургали эрниста и андрея альдора.",
@@ -83,7 +88,12 @@
         "contact": "связаться с нами",
         "donate": "пожертвуйте крипто с NOWPayments!",
         "names": [
-            "во все тяжкие", "дженнифер лав хьюитт", "тони монтана", "пёс джейк"
+            "во все тяжкие", "тони монтана", "пёс джейк"
+        ],
+        "exploreDescriptions": [
+            "\"во все тяжкие\" — американский криминальный телесериал, созданный винсом гиллиганом. сериал рассказывает историю уолтера уайта, школьного учителя химии, который занимается производством и продажей метамфетамина, чтобы обеспечить финансовое будущее своей семьи, после того как у него обнаружили неизлечимый рак легких.",
+            "тони монтана — главный герой фильма \"лицо со шрамом\" 1983 года, сыгранный аль пачино. он кубинский беженец, который приезжает в Майами и поднимается по карьерной лестнице в организованной преступности, становясь могущественным наркобароном. его жизнь наполнена насилием, коррупцией и излишествами.",
+            "пес джейк — персонаж мультсериала \"время приключений\". он является антропоморфным псом-оборотнем, который способен растягиваться и принимать различные формы. джейк известен своим непринужденным поведением, хорошим юмором и преданностью своим друзьям."
         ]
     }
 ]

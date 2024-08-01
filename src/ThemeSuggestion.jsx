@@ -11,6 +11,7 @@ function ThemeSuggestion({themeIndex}) {
     const [hide, setHide] = useState(localStorage.getItem(`display #${themeIndex + 1}`) || "block");
 
     const hideRef = useRef(null);
+    const infoRef = useRef(null);
 
     function paintTheme() {
         localStorage.setItem("theme", 3);
@@ -38,12 +39,22 @@ function ThemeSuggestion({themeIndex}) {
                         backgroundColor: colors[themeIndex][0],
                         border: `${colors[themeIndex][1]} 3px solid`
                     }}
+                    onClick={() => infoRef.current.showModal()}
+                >
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.info[0]} fill={colors[themeIndex][1]}/><path d={paths.info[1]} stroke={colors[themeIndex][1]} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/><path d={paths.info[2]} stroke={colors[themeIndex][1]} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </button>
+                <button
+                    title={text[lang].exploreCard[1]}
+                    style={{
+                        backgroundColor: colors[themeIndex][0],
+                        border: `${colors[themeIndex][1]} 3px solid`
+                    }}
                     onClick={paintTheme}
                 >
                     <svg fill={colors[themeIndex][1]} version="1.1" id="Uploaded to svgrepo.com" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xmlSpace="preserve"><path className="bentblocks_een" d={paths.paint}/></svg>
                 </button>
                 <button
-                    title={text[lang].exploreCard[1]}
+                    title={text[lang].exploreCard[2]}
                     style={{
                         backgroundColor: colors[themeIndex][0],
                         border: `${colors[themeIndex][1]} 3px solid`
@@ -57,6 +68,32 @@ function ThemeSuggestion({themeIndex}) {
                     <p>{text[lang].hideTheme}</p>
                     <button onClick={hideTheme}>{text[lang].confirm[1]}</button>
                     <button onClick={() => hideRef.current.close()}>{text[lang].confirm[2]}</button>
+                </dialog>
+                <dialog
+                    style={{
+                        backgroundColor: colors[themeIndex][0],
+                        border: `${colors[themeIndex][1]} 3px solid`
+                    }}
+                    ref={infoRef}
+                    className="theme-info"
+                >
+                    <p id="info-title" style={{color: colors[themeIndex][1]}}>
+                        {text[lang].exploreCard[0]}:<br/>
+                        {text[lang].names[themeIndex]}
+                        <hr style={{
+                            backgroundColor: colors[themeIndex][0],
+                            borderTop: `${colors[themeIndex][1]} 5px dotted`,
+                            marginTop: "0.8rem"
+                        }} />
+                        <span>{text[lang].exploreDescriptions[themeIndex]}</span>
+                    </p>
+                    <button
+                        id="info-button"
+                        style={{
+                            color: colors[themeIndex][1],
+                            border: `${colors[themeIndex][1]} 3px solid`
+                        }}
+                        onClick={() => infoRef.current.close()}>{text[lang].back}</button>
                 </dialog>
             </div>
         </div>

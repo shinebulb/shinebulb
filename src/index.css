@@ -351,7 +351,7 @@ a:hover {
 }
 
 .sample button {
-    font-family: Avro, "Roboto Slab";
+    font-family: "Roboto Slab";
     width: 4rem;
     height: 3rem;
     color: var(--button-font);
@@ -373,7 +373,7 @@ a:hover {
     align-items: center;
     width: 100%;
     font-style: italic;
-    font-family: Avro, "Roboto Slab";
+    font-family: "Roboto Slab";
     font-size: 1.3rem;
     background-color: var(--modal-button-bg);
     color: var(--button-font);
@@ -506,10 +506,6 @@ hr {
     cursor: pointer;
 }
 
-.explore .saved-controls button {
-    width: 45%;
-}
-
 .saved-controls svg {
     height: 2rem;
 }
@@ -528,6 +524,33 @@ hr {
     width: calc(50% - 1rem);
     font-size: 1rem;
     margin: 0.2rem 0.2rem 0.6rem;
+}
+
+.theme-info {
+    width: 420px;
+}
+
+#info-title {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 1.6rem;
+    margin: 0.7rem 1rem 0.5rem;
+    padding: 0;
+}
+
+.theme-info span {
+    font-size: 1.1rem;
+    font-weight: normal;
+    margin: 0.7rem auto 0.5rem;
+}
+
+#info-button {
+    font-weight: bold;
+    font-family: "Roboto Slab";
+    background-color: transparent;
+    font-size: 1.5rem;
+    width: 90%;
 }
 
 #source {
@@ -702,5 +725,19 @@ hr {
     }
     .saved-controls svg {
         height: 2rem;
+    }
+    .theme-info {
+        width: 300px;
+    }
+    .theme-info span {
+        font-size: 1rem;
+        margin: 0.6rem auto 0.4rem;
+    }
+    #info-title {
+        font-size: 1.4rem;
+        margin: 0.7rem 0.8rem 0.1rem;
+    }
+    #info-button {
+        font-size: 1.3rem;
     }
 }
