@@ -48,16 +48,22 @@ body {
     transition: all 0.5s ease;
 }
 
+.play label {
+    cursor: pointer;
+}
+
 .controls button {
     font-family: "Roboto Slab";
     background-color: var(--button-bg);
     color: var(--button-font);
-    border: var(--border-thin);
-    font-size: 1rem;
-    margin: 0.5rem 0.2rem;
-    min-width: 30px;
-    border-radius: 3px;
-    padding: 3px 5px;
+    border: var(--border-thick);
+    width: 6rem;
+    height: 2.3rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    margin: 0.5rem 0.3rem;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
 }
 
 .play {
@@ -118,7 +124,8 @@ h2 {
     cursor: pointer;
 }
 
-.container select:hover {
+.container select:hover,
+.controls button:hover {
     background-color: var(--select-hover);
 }
 
