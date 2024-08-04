@@ -57,11 +57,10 @@ body {
     background-color: var(--button-bg);
     color: var(--button-font);
     border: var(--border-thick);
-    width: 6rem;
-    height: 2.3rem;
     font-size: 1.1rem;
     border-radius: 8px;
     margin: 0.5rem 0.3rem;
+    padding: 0.3rem 1.5rem;
     transition: background-color 0.5s ease;
     cursor: pointer;
 }
