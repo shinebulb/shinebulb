@@ -16,17 +16,21 @@ const darkTheme = () => {
 }
 
 const customTheme = () => {
+
     document.body.classList.remove("dark");
     document.body.classList.remove("light");
-    for (let i = 0; i < custom[1].length; i++) {
+
+    const properties = Object.keys(custom);
+
+    for (let i = 0; i < properties.length; i++) {
         if ((i !== 6) && (i !== 7)) {
-            document.documentElement.style.setProperty(custom[1][i], custom[0][custom[1][i]] == "bg" ? localStorage.getItem("bg") : localStorage.getItem("font"));
+            document.documentElement.style.setProperty(properties[i], Object.values(custom)[i] == "bg" ? localStorage.getItem("bg") : localStorage.getItem("font"));
         }
         else if (i === 6) {
-            document.documentElement.style.setProperty(custom[1][i], `${localStorage.getItem("font")} 3px solid`);
+            document.documentElement.style.setProperty(properties[i], `${localStorage.getItem("font")} 3px solid`);
         }
         else if (i === 7) {
-            document.documentElement.style.setProperty(custom[1][i], `${localStorage.getItem("font")} 1px solid`);
+            document.documentElement.style.setProperty(properties[i], `${localStorage.getItem("font")} 1px solid`);
         }
     }
 }

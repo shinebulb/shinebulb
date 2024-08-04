@@ -1,24 +1,14 @@
-[
-    {
-        "--bg": "bg",
-        "--button-font": "font",
-        "--modal-bg": "bg",
-        "--modal-button-bg": "bg",
-        "--modal-button-bg-hover": "bg",
-        "--button-bg": "bg",
-        "--border-thick": "font",
-        "--border-thin": "font",
-        "--select-hover": "bg",
-        "--font": "font",
-        "--font-hover": "font",
-        "--source-code": "font"
-    },
-    
-    [
-        "--bg", "--button-font",
-        "--modal-bg", "--modal-button-bg",
-        "--modal-button-bg-hover", "--button-bg",
-        "--border-thick", "--border-thin", "--select-hover",
-        "--font", "--font-hover", "--source-code"
-    ]
-]
+{
+    "--bg": "bg",
+    "--button-font": "font",
+    "--modal-bg": "bg",
+    "--modal-button-bg": "bg",
+    "--modal-button-bg-hover": "bg",
+    "--button-bg": "bg",
+    "--border-thick": "font",
+    "--border-thin": "font",
+    "--select-hover": "bg",
+    "--font": "font",
+    "--font-hover": "font",
+    "--source-code": "font"
+}
