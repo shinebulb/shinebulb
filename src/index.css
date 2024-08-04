@@ -358,7 +358,7 @@ a:hover {
 
 .sample button {
     font-family: "Roboto Slab";
-    width: 4rem;
+    width: 25%;
     height: 3rem;
     color: var(--button-font);
     background-color: var(--modal-button-bg);

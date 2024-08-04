@@ -20,18 +20,23 @@ const customTheme = () => {
     document.body.classList.remove("dark");
     document.body.classList.remove("light");
 
-    const properties = Object.keys(custom);
+    const customProperties = [
+        localStorage.getItem("bg"),
+        localStorage.getItem("font"),
+        localStorage.getItem("bg"),
+        localStorage.getItem("bg"),
+        localStorage.getItem("bg"),
+        localStorage.getItem("bg"),
+        `${localStorage.getItem("font")} 3px solid`,
+        `${localStorage.getItem("font")} 1px solid`,
+        localStorage.getItem("bg"),
+        localStorage.getItem("font"),
+        localStorage.getItem("font"),
+        localStorage.getItem("font"),
+    ]
 
-    for (let i = 0; i < properties.length; i++) {
-        if ((i !== 6) && (i !== 7)) {
-            document.documentElement.style.setProperty(properties[i], Object.values(custom)[i] == "bg" ? localStorage.getItem("bg") : localStorage.getItem("font"));
-        }
-        else if (i === 6) {
-            document.documentElement.style.setProperty(properties[i], `${localStorage.getItem("font")} 3px solid`);
-        }
-        else if (i === 7) {
-            document.documentElement.style.setProperty(properties[i], `${localStorage.getItem("font")} 1px solid`);
-        }
+    for (let i = 0; i < customProperties.length; i++) {
+        document.documentElement.style.setProperty(Object.keys(custom)[i], customProperties[i]);
     }
 }
 
