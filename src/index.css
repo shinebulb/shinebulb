@@ -108,7 +108,7 @@ h2 {
 
 .container label {
     font-size: 1.5rem;
-    color: var(--button-font);
+    color: var(--font);
     transition: background-color 0.1s ease;
 }
 
@@ -182,7 +182,7 @@ a:hover {
     width: 420px;
     background-color: var(--modal-bg);
     border: var(--border-thick);
-    color: var(--button-font);
+    color: var(--font);
     border-radius: 15px;
     padding: 1.2rem;
 }
@@ -210,7 +210,7 @@ a:hover {
 .confirm input {
     font-family: "Roboto Slab";
     background-color: var(--modal-button-bg);
-    color: var(--font);
+    color: var(--button-font);
     width: 90%;
     font-size: 1.4rem;
     margin: 10px auto;
@@ -340,7 +340,7 @@ a:hover {
 
 .themeHeader label {
     font-size: 1.4rem;
-    color: var(--button-font);
+    color: var(--font);
 }
 
 .themeHeader span {
@@ -493,7 +493,7 @@ hr {
 }
 
 .no-themes p {
-    color: var(--button-font);
+    color: var(--font);
     font-style: italic;
     font-size: 1.4em;
     margin: auto 0.5rem;
