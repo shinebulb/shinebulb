@@ -13,6 +13,7 @@ function Settings() {
     const [theme, setTheme] = useState(parseInt(localStorage.getItem("theme")) || 0);
     
     const custom = useRef(null);
+    const buttonStyling = useRef(null);
     const more = useRef(null);
     const saveUpdate = useRef(null);
 
@@ -66,7 +67,7 @@ function Settings() {
                 </select>
             </div>
             <div style={{ height: "3rem" }} />
-            <ThemeConstructor constructor={custom} alert={saveUpdate} themeState={setTheme} />
+            <ThemeConstructor constructor={custom} buttonOptions={buttonStyling} alert={saveUpdate} themeState={setTheme} />
             <More options={more} />
             <div className="container">
                 <label>{text[lang].settings[1]}</label>

@@ -1,3 +1,4 @@
+import hsl from 'hex-to-hsl';
 import custom from './json/custom.json';
 
 const systemTheme = () => {
@@ -19,24 +20,34 @@ const customTheme = () => {
 
     document.body.classList.remove("dark");
     document.body.classList.remove("light");
+    
+    const bg = localStorage.getItem("bg");
+    const font = localStorage.getItem("font");
+    const buttonBg = localStorage.getItem("buttonBg");
+    const buttonFont = localStorage.getItem("buttonFont");
+    const hoverCoef = localStorage.getItem("hoverCoef");
+    
+    const [h, s, l] = hsl(buttonBg);
 
     const customProperties = [
-        localStorage.getItem("bg"),
-        localStorage.getItem("font"),
-        localStorage.getItem("bg"),
-        localStorage.getItem("bg"),
-        localStorage.getItem("bg"),
-        localStorage.getItem("bg"),
-        `${localStorage.getItem("font")} 3px solid`,
-        `${localStorage.getItem("font")} 1px solid`,
-        localStorage.getItem("bg"),
-        localStorage.getItem("font"),
-        localStorage.getItem("font"),
-        localStorage.getItem("font"),
+        bg,
+        buttonFont,
+        bg,
+        buttonBg,
+        hoverCoef != hsl(bg)[2] ? `hsl(${hsl(bg)[0]}, ${hsl(bg)[1]}%, ${hoverCoef}%)` : `hsl(${h}, ${s}%, ${hoverCoef}%)`,
+        buttonBg,
+        `${font} 3px solid`,
+        `${font} 1px solid`,
+        `${buttonFont} 3px solid`,
+        `${buttonFont} 1px solid`,
+        hoverCoef != hsl(bg)[2] ? `hsl(${hsl(bg)[0]}, ${hsl(bg)[1]}%, ${hoverCoef}%)` : `hsl(${h}, ${s}%, ${hoverCoef}%)`,
+        font,
+        font,
+        font
     ]
 
     for (let i = 0; i < customProperties.length; i++) {
-        document.documentElement.style.setProperty(Object.keys(custom)[i], customProperties[i]);
+        document.documentElement.style.setProperty(custom[i], customProperties[i]);
     }
 }
 
