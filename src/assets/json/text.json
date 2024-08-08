@@ -9,10 +9,9 @@
         "back": "back",
         "settings": ["theme", "language"],
         "mode": ["system", "light", "dark", "custom", "more..."],
-        "customTheme": ["fill color", "stroke color"],
+        "customTheme": ["fill color:", "stroke color:"],
         "current": "current",
         "generateRandom": "generate a random theme",
-        "advancedOptions": ["open advanced options", "close advanced options"],
         "sample": "this is a sample of your theme",
         "themeControls": ["apply", "cancel", "save"],
         "savedStatus": ["this theme is already saved!", "theme saved successfully!"],
@@ -22,9 +21,6 @@
         "noThemes": "your themes will be listed here!",
         "themeSuggestions": "theme suggestions",
         "saved": "saved themes",
-        "buttonStyling": "button styling",
-        "buttonStylingOptions": ["default", "adjusted", "custom"],
-        "adjustingCoefficient": ["normal", "hover"],
         "optionDescriptions": [
             "a place for any theme that you came up with or generated in the constructor",
             "a library created and managed by us to let you explore the amazing world of color combinations"
@@ -62,10 +58,9 @@
         "back": "назад",
         "settings": ["тема", "язык"],
         "mode": ["система", "светлая", "тёмная", "своя", "больше..."],
-        "customTheme": ["цвет фона", "цвет линий"],
+        "customTheme": ["цвет фона:", "цвет линий:"],
         "current": "выбран",
         "generateRandom": "сгенерировать случайную",
-        "advancedOptions": ["открыть расш. настройки", "закрыть расш. настройки"],
         "sample": "так будет выглядеть ваша тема",
         "themeControls": ["применить", "отменить", "сохранить"],
         "savedStatus": ["эта тема уже сохранена!", "тема успешно сохранена!"],
@@ -75,9 +70,6 @@
         "noThemes": "ваши темы будут размещены здесь!",
         "themeSuggestions": "предложения тем",
         "saved": "сохранённые темы",
-        "buttonStyling": "стиль кнопок",
-        "buttonStylingOptions": ["обычный", "оттенок", "свой"],
-        "adjustingCoefficient": ["обычный", "выделен"],
         "optionDescriptions": [
             "место для всех тем, которые вы придумали или сгенерировали в конструкторе",
             "библиотека, созданная нами, чтобы помочь вам открыть для себя удивительный мир цветовых сочетаний"
