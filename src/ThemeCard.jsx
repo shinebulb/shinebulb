@@ -24,14 +24,6 @@ function ThemeCard({savedState, nameStates, savedUpdate, nameUpdates, themeIndex
         localStorage.setItem("theme", 3);
         localStorage.setItem("bg", savedState[themeIndex][0]);
         localStorage.setItem("font", savedState[themeIndex][1]);
-        localStorage.setItem("buttonBg", savedState[themeIndex][2]);
-        localStorage.setItem("buttonFont", savedState[themeIndex][3]);
-        if (savedState[themeIndex][4] == hsl(savedState[themeIndex][0])[2]) {
-            localStorage.setItem("hoverCoef", savedState[themeIndex][4]);
-        }
-        else {
-            localStorage.setItem("hoverCoef", hsl(savedState[themeIndex][2])[2]);
-        }
         document.body.classList.add('theme-transition');
         setTimeout(() => {
             document.body.classList.remove('theme-transition');
