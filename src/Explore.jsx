@@ -41,6 +41,12 @@ function Explore() {
             <div className="saved-display">
                 {renderExplore()}
             </div>
+            <div className="shadow-realm">
+                <div className="description">
+                    <h2>shadow realm</h2>
+                    <p>explore themes you hid before!</p>
+                </div>
+            </div>
             <div style={{height: "1rem"}}/>
             <a href="/settings">{text[lang].back}</a>
             <div style={{height: "2rem"}}/>

@@ -80,13 +80,15 @@ function ThemeSuggestion({themeIndex}) {
                     <p id="info-title" style={{color: colors[themeIndex][1]}}>
                         {text[lang].exploreCard[0]}:<br/>
                         {text[lang].names[themeIndex]}
-                        <hr style={{
-                            backgroundColor: colors[themeIndex][0],
-                            borderTop: `${colors[themeIndex][1]} 5px dotted`,
-                            marginTop: "0.8rem"
-                        }} />
-                        <span>{text[lang].exploreDescriptions[themeIndex]}</span>
                     </p>
+                    <hr style={{
+                        backgroundColor: colors[themeIndex][0],
+                        borderTop: `${colors[themeIndex][1]} 5px dotted`,
+                        marginTop: "0.8rem"
+                    }} />
+                    <div className="span-container" style={{margin: "0.6rem"}}>
+                        <span>{text[lang].exploreDescriptions[themeIndex]}</span>
+                    </div>
                     <button
                         id="info-button"
                         style={{

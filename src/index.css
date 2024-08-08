@@ -548,7 +548,50 @@ hr {
 .theme-info span {
     font-size: 1.1rem;
     font-weight: normal;
-    margin: 0.7rem auto 0.5rem;
+    color: var(--font);
+}
+
+.shadow-realm {
+    background: url(https://idei.club/raznoe/uploads/posts/2022-12/1671520418_idei-club-p-nochnoi-zamok-dizain-oboi-84.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: hsl(0, 0%, 90%);
+    text-shadow: hsl(0, 0%, 10%) 1px 1px 10px;
+    width: calc(70vw - 2rem);
+    border: var(--border-thick);
+    border-radius: 15px;
+    margin: 2rem auto;
+    padding: 1.6rem 1rem;
+    -webkit-filter: grayscale(50%) blur(1px);
+    filter: grayscale(50%) blur(1px);
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.shadow-realm:hover {
+    -webkit-filter: grayscale(0) blur(0);
+    filter: grayscale(0) blur(0);
+}
+
+.description {
+    max-width: 60%;
+}
+
+.shadow-realm h2 {
+    font-size: 1.5rem;
+    text-align: justify;
+    margin: 0 0 0.5rem 0;
+}
+
+.shadow-realm p {
+    font-size: 1.2rem;
+    font-style: italic;
+    text-align: left;
+    margin: 0;
 }
 
 #info-button {
@@ -737,7 +780,10 @@ hr {
     }
     .theme-info span {
         font-size: 1rem;
-        margin: 0.6rem auto 0.4rem;
+    }
+    .shadow-realm {
+        width: calc(86vw - 2rem);
+        margin: 2rem auto;
     }
     #info-title {
         font-size: 1.4rem;
