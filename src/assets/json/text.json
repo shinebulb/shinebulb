@@ -1,7 +1,7 @@
 [
     {
         "headings": ["the lightbulb", "settings", "about"],
-        "links": ["PLAY", "settings", "about", "support us", "suggestions", "saved"],
+        "links": ["PLAY", "settings", "about", "support us", "suggestions", "saved", "hidden themes"],
         "source": "source code",
         "confirm": ["are you sure you want to reset the counter?", "yes", "no"],
         "text": ["sad :(", "happy!"],
@@ -45,12 +45,15 @@
             "breaking bad is an american crime drama tv series that follows the story of walter white, a high school chemistry teacher diagnosed with terminal lung cancer who turns to producing drugs in order to secure his family's financial future. this theme replicates the famous intro of the show featuring elements of the periodic table.",
             "tony montana is the main character in the 1983 movie scarface. a cuban refugee, he quickly rises through the ranks of organized crime in miami, becoming a powerful drug lord. this theme replicates his suit in the scene of him confronting his former boss and gaining control over the boss's empire.",
             "jake the dog is a character in the animated tv series adventure time. he is a shape-shifting anthropomorphic dog who has the ability to stretch and contort his body into various forms. jake is known for his laid-back attitude and goofy humor. this theme replicates his hair and nose color."
-        ]
+        ],
+        "hiddenThemes": "shadow realm",
+        "hiddenDescription": "explore themes you hid before!",
+        "restore": "restore theme"
     },
 
     {
         "headings": ["лампочка", "настройки", "о нас"],
-        "links": ["ИГРАТЬ", "настройки", "о нас", "поддержать", "предложения", "сохранённые"],
+        "links": ["ИГРАТЬ", "настройки", "о нас", "поддержать", "предложения", "сохранённые", "скрытые темы"],
         "source": "исходный код",
         "confirm": ["вы уверены, что хотите очистить счётчик?", "да", "нет"],
         "text": ["грустная :(", "счастливая!"],
@@ -94,6 +97,9 @@
             "\"во все тяжкие\" — американский криминальный телесериал, рассказывающий историю уолтера уайта, школьного учителя химии, у которого диагностирован неизлечимый рак легких и который обратился к производству наркотиков, чтобы обеспечить финансовое будущее своей семьи. эта тема отражает знаменитое вступление к сериалу, включающее элементы таблицы менделеева.",
             "тони монтана — главный герой фильма 1983 года \"лицо со шрамом\". кубинский беженец, он быстро поднимается по карьерной лестнице в организованной преступности майами, становясь могущественным наркобароном. эта тема повторяет его костюм в сцене, где он противостоит своему бывшему боссу и получает контроль над его империей.",
             "пес джейк — герой мультсериала \"время приключений\". он является антропоморфным псом-оборотнем, который способен растягиваться и принимать различные формы. джейк известен своим непринужденным поведением и дурацким юмором. эта тема повторяет цвет его шерсти и носа."
-        ]
+        ],
+        "hiddenThemes": "страна мрака",
+        "hiddenDescription": "взгляните на темы, которые скрыли прежде!",
+        "restore": "восстановить тему"
     }
 ]

@@ -548,7 +548,6 @@ hr {
 .theme-info span {
     font-size: 1.1rem;
     font-weight: normal;
-    color: var(--font);
 }
 
 .shadow-realm {
@@ -575,6 +574,7 @@ hr {
 .shadow-realm:hover {
     -webkit-filter: grayscale(0) blur(0);
     filter: grayscale(0) blur(0);
+    text-decoration: none;
 }
 
 .description {
