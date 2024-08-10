@@ -40,7 +40,7 @@ function HiddenCard({themeIndex}) {
                     }}
                     onClick={hideTheme}
                 >
-                    <svg fill={colors[themeIndex][1]} viewBox="0 0 36 36" version="1.1"  preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><rect class="clr-i-outline clr-i-outline-path-1" x="6" y="22" width="24" height="2"></rect><rect class="clr-i-outline clr-i-outline-path-2" x="26" y="26" width="4" height="2"></rect><path class="clr-i-outline clr-i-outline-path-3" d={paths.restore[0]}></path><path class="clr-i-outline clr-i-outline-path-4" d={paths.restore[1]}></path><rect x="0" y="0" width="36" height="36" fillOpacity="0"/></svg>
+                    <svg fill={colors[themeIndex][1]} viewBox="0 0 36 36" version="1.1"  preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><rect className="clr-i-outline clr-i-outline-path-1" x="6" y="22" width="24" height="2"></rect><rect className="clr-i-outline clr-i-outline-path-2" x="26" y="26" width="4" height="2"></rect><path className="clr-i-outline clr-i-outline-path-3" d={paths.restore[0]}></path><path className="clr-i-outline clr-i-outline-path-4" d={paths.restore[1]}></path><rect x="0" y="0" width="36" height="36" fillOpacity="0"/></svg>
                 </button>
 
                 <dialog
