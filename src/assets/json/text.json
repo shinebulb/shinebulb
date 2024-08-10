@@ -1,7 +1,7 @@
 [
     {
         "headings": ["the lightbulb", "settings", "about"],
-        "links": ["PLAY", "settings", "about", "support us", "suggestions", "saved", "hidden themes"],
+        "links": ["PLAY", "settings", "about", "support us", "suggestions", "saved", "hidden themes", "page not found!"],
         "source": "source code",
         "confirm": ["are you sure you want to reset the counter?", "yes", "no"],
         "text": ["sad :(", "happy!"],
@@ -48,12 +48,14 @@
         ],
         "hiddenThemes": "shadow realm",
         "hiddenDescription": "explore themes you hid before!",
-        "restore": "restore theme"
+        "restore": "restore theme",
+        "pageNotFound": ["page you were looking for was not found!", "check your current url spelling or follow one of the these routes:"],
+        "home": "home"
     },
 
     {
         "headings": ["лампочка", "настройки", "о нас"],
-        "links": ["ИГРАТЬ", "настройки", "о нас", "поддержать", "предложения", "сохранённые", "скрытые темы"],
+        "links": ["ИГРАТЬ", "настройки", "о нас", "поддержать", "предложения", "сохранённые", "скрытые темы", "страница не найдена!"],
         "source": "исходный код",
         "confirm": ["вы уверены, что хотите очистить счётчик?", "да", "нет"],
         "text": ["грустная :(", "счастливая!"],
@@ -100,6 +102,8 @@
         ],
         "hiddenThemes": "страна мрака",
         "hiddenDescription": "взгляните на темы, которые скрыли прежде!",
-        "restore": "восстановить тему"
+        "restore": "восстановить тему",
+        "pageNotFound": ["страницы, которую вы ищете, не существует!", "проверьте правильность написания текущего адреса или перейдите по одному из следующих:"],
+        "home": "главная"
     }
 ]

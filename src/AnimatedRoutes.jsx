@@ -12,6 +12,7 @@ import Support from './Support';
 import Explore from './Explore';
 import HiddenThemes from './HiddenThemes';
 import SavedThemes from './SavedThemes';
+import NoPage from './NoPage';
 
 import { AnimatePresence } from 'framer-motion'
 
@@ -28,6 +29,7 @@ function AnimatedRoutes() {
                 <Route path="/explore" element={<Explore />}/>
                 <Route path="/hidden" element={<HiddenThemes />}/>
                 <Route path="/saved" element={<SavedThemes />}/>
+                <Route path="*" element={<NoPage />}/>
             </Routes>
         </AnimatePresence>
     )

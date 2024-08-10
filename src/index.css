@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap');
 
+:root {
+    --light-red: rgb(255, 126, 126);
+    --dark-red: rgb(90, 0, 0);
+}
+
 .light {
     --bg: rgb(244, 240, 232);
     --button-font: rgb(43, 43, 43);
@@ -594,6 +599,45 @@ hr {
     margin: 0;
 }
 
+.no-page-text {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    background-color: var(--light-red);
+    text-align: left;
+    align-items: center;
+    border: var(--dark-red) 5px solid;
+    border-radius: 2rem;
+    width: 560px;
+    margin: auto;
+    margin-top: 1rem;
+    padding: 2rem;
+}
+
+.no-page-text p {
+    color: var(--dark-red);
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.no-page-text img {
+    width: 100%;
+    cursor: pointer;
+}
+
+.no-page-links {
+    display: flex;
+    flex-direction: column;
+    text-decoration: underline;
+    width: 12ch;
+}
+
+.no-page-text a {
+    color: var(--dark-red);
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin: 0.1rem 0;
+}
+
 #info-button {
     font-weight: bold;
     font-family: "Roboto Slab";
@@ -784,6 +828,22 @@ hr {
     .shadow-realm {
         width: calc(86vw - 2rem);
         margin: 2rem auto;
+    }
+    .no-page-text {
+        display: flex;
+        flex-direction: column;
+        width: 290px;
+    }
+    .no-page-text img {
+        position: absolute;
+        top: 51vh;
+        right: 20vw;
+        width: 7rem;
+    }
+    .no-page-text {
+        display: flex;
+        flex-direction: column;
+        width: 290px;
     }
     #info-title {
         font-size: 1.4rem;
