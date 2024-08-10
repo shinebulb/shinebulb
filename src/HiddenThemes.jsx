@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import HiddenCard from './hiddenCard';
+import HiddenCard from './HiddenCard';
 import themes from './assets/themes';
 import text from './assets/json/text.json';
 import colors from './assets/json/explore-colors.json';
@@ -45,7 +45,7 @@ function HiddenThemes() {
             <h2 style={{fontSize: "1.7rem"}}>{text[lang].hiddenThemes}</h2>
             <div style={{height: "0.1rem"}}/>
             <div className="saved-display">
-                {renderHidden()}
+                <HiddenCard themeIndex={0}/>
             </div>
             <div style={{height: "1rem"}}/>
             <a href="/explore">{text[lang].back}</a>
