@@ -45,7 +45,7 @@ function HiddenThemes() {
             <h2 style={{fontSize: "1.7rem"}}>{text[lang].hiddenThemes}</h2>
             <div style={{height: "0.1rem"}}/>
             <div className="saved-display">
-                <HiddenCard themeIndex={0}/>
+                {renderHidden()}
             </div>
             <div style={{height: "1rem"}}/>
             <a href="/explore">{text[lang].back}</a>
