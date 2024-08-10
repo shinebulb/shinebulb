@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import HiddenCard from './HiddenCard';
+import HiddenCard from './HiddenC';
 import themes from './assets/themes';
 import text from './assets/json/text.json';
 import colors from './assets/json/explore-colors.json';
