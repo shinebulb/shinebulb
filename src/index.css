@@ -843,7 +843,7 @@ hr {
     .no-page-text {
         display: flex;
         flex-direction: column;
-        width: 290px;
+        width: 70%;
     }
     #info-title {
         font-size: 1.4rem;
