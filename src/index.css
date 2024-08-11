@@ -628,6 +628,8 @@ hr {
     display: flex;
     flex-direction: column;
     text-decoration: underline;
+    text-decoration-color: var(--dark-red);
+    -webkit-text-decoration-color: var(--dark-red);
     width: 12ch;
 }
 
