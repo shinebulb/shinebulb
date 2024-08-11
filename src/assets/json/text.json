@@ -49,7 +49,7 @@
         "hiddenThemes": "shadow realm",
         "hiddenDescription": "explore themes you hid before!",
         "restore": "restore theme",
-        "pageNotFound": ["page you were looking for was not found!", "check your current url spelling or follow one of the these routes:"],
+        "pageNotFound": ["page you were looking for was not found!", "check your current url spelling or follow one of these routes:"],
         "home": "home"
     },
 
