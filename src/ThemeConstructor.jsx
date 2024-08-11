@@ -7,7 +7,7 @@ import themes from './assets/themes';
 
 function ThemeConstructor({ constructor, alert, themeState }) {
     
-    const lang = parseInt(localStorage.getItem("langMode") === null ? languages.indexOf(window.navigator.language.slice(0, 2)) : parseInt(localStorage.getItem("langMode")));
+    const lang = parseInt(localStorage.getItem("langMode") === null ? (languages.includes(window.navigator.language.slice(0, 2)) ? languages.indexOf(window.navigator.language.slice(0, 2)) : 0) : parseInt(localStorage.getItem("langMode")));
 
     const [localBg, setLocalBg] = useState(localStorage.getItem("bg") || "#2e5a97");
     const [localFont, setLocalFont] = useState(localStorage.getItem("font") || "#f1f1f1");

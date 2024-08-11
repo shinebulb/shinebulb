@@ -7,7 +7,7 @@ import colors from './assets/json/explore-colors.json';
 
 function ThemeSuggestion({themeIndex}) {
     
-    const lang = parseInt(localStorage.getItem("langMode") === null ? languages.indexOf(window.navigator.language.slice(0, 2)) : parseInt(localStorage.getItem("langMode")));
+    const lang = parseInt(localStorage.getItem("langMode") === null ? (languages.includes(window.navigator.language.slice(0, 2)) ? languages.indexOf(window.navigator.language.slice(0, 2)) : 0) : parseInt(localStorage.getItem("langMode")));
 
     const [hide, setHide] = useState(localStorage.getItem(`display #${themeIndex + 1}`) || "block");
 

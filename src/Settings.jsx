@@ -9,7 +9,7 @@ import { motion } from 'framer-motion'
 
 function Settings() {
 
-    const [lang, setLang] = useState(localStorage.getItem("langMode") === null ? languages.indexOf(window.navigator.language.slice(0, 2)) : parseInt(localStorage.getItem("langMode")));
+    const [lang, setLang] = useState(localStorage.getItem("langMode") === null ? (languages.includes(window.navigator.language.slice(0, 2)) ? languages.indexOf(window.navigator.language.slice(0, 2)) : 0) : parseInt(localStorage.getItem("langMode")));
     const [theme, setTheme] = useState(parseInt(localStorage.getItem("theme")) || 0);
     
     const custom = useRef(null);

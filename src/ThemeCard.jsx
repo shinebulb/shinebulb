@@ -6,7 +6,7 @@ import text from './assets/json/text.json';
 
 function ThemeCard({savedState, nameStates, savedUpdate, nameUpdates, themeIndex}) {
 
-    const lang = parseInt(localStorage.getItem("langMode") === null ? languages.indexOf(window.navigator.language.slice(0, 2)) : parseInt(localStorage.getItem("langMode")));
+    const lang = parseInt(localStorage.getItem("langMode") === null ? (languages.includes(window.navigator.language.slice(0, 2)) ? languages.indexOf(window.navigator.language.slice(0, 2)) : 0) : parseInt(localStorage.getItem("langMode")));
 
     const renameRef = useRef(null);
     const inputRef = useRef(null);

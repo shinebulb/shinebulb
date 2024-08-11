@@ -11,7 +11,7 @@ function NoPage() {
         document.title = text[lang].links[7];
     });
 
-    const lang = parseInt(localStorage.getItem("langMode") === null ? languages.indexOf(window.navigator.language.slice(0, 2)) : parseInt(localStorage.getItem("langMode")));
+    const lang = parseInt(localStorage.getItem("langMode") === null ? (languages.includes(window.navigator.language.slice(0, 2)) ? languages.indexOf(window.navigator.language.slice(0, 2)) : 0) : parseInt(localStorage.getItem("langMode")));
     const theme = parseInt(localStorage.getItem("theme")) || 0;
 
     const images = ["desert", "waterfall", "cave", "hills", "city"];
