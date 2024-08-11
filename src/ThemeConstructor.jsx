@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import languages from './assets/json/languages.json';
 import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
 import includesDeep from './assets/includesDeep';
@@ -6,7 +7,7 @@ import themes from './assets/themes';
 
 function ThemeConstructor({ constructor, alert, themeState }) {
     
-    const lang = parseInt(localStorage.getItem("langMode")) || 0;
+    const lang = parseInt(localStorage.getItem("langMode") === null ? languages.indexOf(window.navigator.language.slice(0, 2)) : parseInt(localStorage.getItem("langMode")));
 
     const [localBg, setLocalBg] = useState(localStorage.getItem("bg") || "#2e5a97");
     const [localFont, setLocalFont] = useState(localStorage.getItem("font") || "#f1f1f1");

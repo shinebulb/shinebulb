@@ -1,11 +1,12 @@
 import React, {useRef} from 'react';
 import themes from './assets/themes';
 import paths from './assets/json/svg-paths.json';
+import languages from './assets/json/languages.json';
 import text from './assets/json/text.json';
 
 function ThemeCard({savedState, nameStates, savedUpdate, nameUpdates, themeIndex}) {
 
-    const lang = parseInt(localStorage.getItem("langMode")) || 0;
+    const lang = parseInt(localStorage.getItem("langMode") === null ? languages.indexOf(window.navigator.language.slice(0, 2)) : parseInt(localStorage.getItem("langMode")));
 
     const renameRef = useRef(null);
     const inputRef = useRef(null);

@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
 import themes from './assets/themes';
 import textJSON from './assets/json/text.json';
+import languages from './assets/json/languages.json';
 import { motion } from 'framer-motion'
 
 function Play() {
@@ -13,7 +14,7 @@ function Play() {
         }
     });
 
-    const lang = parseInt(localStorage.getItem("langMode")) || 0;
+    const lang = parseInt(localStorage.getItem("langMode") === null ? languages.indexOf(window.navigator.language.slice(0, 2)) : parseInt(localStorage.getItem("langMode")));
     const theme = parseInt(localStorage.getItem("theme")) || 0;
 
     const [count, setCount] = useState(parseInt(localStorage.getItem("countDisplay")) || 0);

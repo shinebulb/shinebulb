@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ThemeCard from './ThemeCard';
 import NoThemes from './NoThemes';
 import themes from './assets/themes';
+import languages from './assets/json/languages.json';
 import text from './assets/json/text.json';
 import {motion} from 'framer-motion';
 
@@ -12,7 +13,7 @@ function SavedThemes() {
         document.title = text[lang].links[5];
     });
     
-    const lang = parseInt(localStorage.getItem("langMode")) || 0;
+    const lang = parseInt(localStorage.getItem("langMode") === null ? languages.indexOf(window.navigator.language.slice(0, 2)) : parseInt(localStorage.getItem("langMode")));
     const theme = parseInt(localStorage.getItem("theme")) || 0;
 
     const [currentThemes, setCurrentThemes] = useState(JSON.parse(localStorage.getItem("themes")) || []);

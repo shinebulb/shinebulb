@@ -9,7 +9,7 @@ import { motion } from 'framer-motion'
 
 function Settings() {
 
-    const [lang, setLang] = useState(parseInt(localStorage.getItem("langMode")) || 0);
+    const [lang, setLang] = useState(localStorage.getItem("langMode") === null ? languages.indexOf(window.navigator.language.slice(0, 2)) : parseInt(localStorage.getItem("langMode")));
     const [theme, setTheme] = useState(parseInt(localStorage.getItem("theme")) || 0);
     
     const custom = useRef(null);
@@ -71,8 +71,8 @@ function Settings() {
             <div className="container">
                 <label>{text[lang].settings[1]}</label>
                 <select onChange={languageChange} value={languages[lang]}>
-                    <option value="english">english</option>
-                    <option value="русский">русский</option>
+                    <option value="en">english</option>
+                    <option value="ru">русский</option>
                 </select>
             </div>
             <div style={{ height: "5rem" }} />
