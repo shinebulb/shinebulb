@@ -5,7 +5,7 @@ import themes from './assets/themes';
 import modes from './assets/json/modes.json';
 import languages from './assets/json/languages.json';
 import text from './assets/json/text.json';
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 
 function Settings() {
 
