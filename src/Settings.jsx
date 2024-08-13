@@ -32,12 +32,6 @@ function Settings() {
             setTheme(mode);
             localStorage.setItem("theme", mode);
         }
-        else if (mode === 3) {
-            custom.current.showModal();
-        }
-        else if (mode === 4) {
-            more.current.showModal();
-        }
     }
 
     function languageChange(event) {
@@ -61,8 +55,8 @@ function Settings() {
                     <option value="system">{text[lang].mode[0]}</option>
                     <option value="light">{text[lang].mode[1]}</option>
                     <option value="dark">{text[lang].mode[2]}</option>
-                    <option value="custom">{text[lang].mode[3]}</option>
-                    <option value="more...">{text[lang].mode[4]}</option>
+                    <option value="custom" onClick={() => custom.current.showModal()}>{text[lang].mode[3]}</option>
+                    <option value="more..." onClick={() => more.current.showModal()}>{text[lang].mode[4]}</option>
                 </select>
             </div>
             <div style={{ height: "3rem" }} />
